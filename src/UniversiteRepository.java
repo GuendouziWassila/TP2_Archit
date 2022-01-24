@@ -6,7 +6,7 @@ import java.sql.Statement;
 public class UniversiteRepository implements InterfaceUniversiteRepository{
 	
 	@Override
-	public Universite GetById(int universityId) throws SQLException {
+	public InterfaceUniversite GetById(int universityId) throws SQLException {
 		
 		DBConnection BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn(); 

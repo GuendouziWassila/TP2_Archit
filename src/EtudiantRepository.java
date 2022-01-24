@@ -2,12 +2,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements InterfaceEtudiantRepository {
 	
-	
-	void add(Etudiant E) throws SQLException
-	{
-
+	@Override
+	public void add(InterfaceEtudiant E) throws SQLException{
 		DBConnection BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
@@ -16,16 +14,15 @@ public class EtudiantRepository {
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule());
+				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
 				System.out.println("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
-	 }
+	}
 
-
-	boolean Exists(String email) throws SQLException	
-	{
+	@Override
+	public boolean Exists(String email) throws SQLException{
 		DBConnection BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
@@ -42,9 +39,8 @@ public class EtudiantRepository {
 		connect.close();
 		return false;
 	}
-	
-	boolean Exists(int mat) throws SQLException	
-	{
+	@Override
+	public boolean Exists(int mat) throws SQLException{
 		DBConnection BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
