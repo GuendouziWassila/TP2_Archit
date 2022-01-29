@@ -3,10 +3,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class EtudiantRepository implements InterfaceEtudiantRepository {
-	
+	InterfaceDBConnection BD;
 	@Override
 	public void add(InterfaceEtudiant E) throws SQLException{
-		DBConnection BD= DBConnection.getInstanceDB();
+		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -23,7 +23,7 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 
 	@Override
 	public boolean Exists(String email) throws SQLException{
-		DBConnection BD= DBConnection.getInstanceDB();
+		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -41,7 +41,7 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 	}
 	@Override
 	public boolean Exists(int mat) throws SQLException{
-		DBConnection BD= DBConnection.getInstanceDB();
+		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
