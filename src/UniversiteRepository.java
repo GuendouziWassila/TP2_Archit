@@ -4,11 +4,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UniversiteRepository implements InterfaceUniversiteRepository{
-	
+	InterfaceDBConnection BD;
 	@Override
 	public InterfaceUniversite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= DBConnection.getInstanceDB();
+		BD = DBConnection.getInstanceDB();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
