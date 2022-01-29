@@ -3,7 +3,7 @@ import java.sql.SQLException;
 public class Registration {
 
     public Registration(){}
-    public boolean StudentVerification(Etudiant E, EtudiantRepository ER) throws SQLException{
+    public boolean StudentVerification(Etudiant E, InterfaceEtudiantRepository ER) throws SQLException{
         if(E.getEmail() != null || E.getEmail().length() != 0 ){
             if(!ER.Exists(E.getEmail())){
                 if(!ER.Exists(E.getMatricule())){

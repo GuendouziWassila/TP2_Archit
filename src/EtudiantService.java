@@ -6,25 +6,20 @@ public class EtudiantService implements InterfaceEtudiantService{
 	public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
 		
 		InterfaceUniversite universite = UR.GetById(E.getId_universite());
-		if(universite.getPack().equals(TypePackage.Standard)){
-			Standard P = new Standard();
-			E.bonus(P.getBonus());
-		}else if(universite.getPack().equals(TypePackage.Premium)){
-			Premuim P = new Premuim();
-			E.bonus(P.getBonus());
-		}
+		AbsractFactory AB = new AbsractFactory();
+		Package P = AB.getPackage(universite.getPack());
+		E.bonus(P.getBonus());
 	}
 	@Override
-	public boolean inscription(Etudiant etudiant, Universite universite,EtudiantRepository etudiantRepository) throws SQLException{
-		
-		System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
-		Registration R = new Registration();
-		if(R.StudentVerification(etudiant, etudiantRepository)){
-			R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
-			etudiantRepository.add(etudiant);
-			System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
-			return true;
-		}
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {
+			System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
+			Registration R = new Registration();
+			if(R.StudentVerification(etudiant, etudiantRepository)){
+					R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+					etudiantRepository.add(etudiant);
+					System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
+					return true;
+					}		
 		return false;
 	}
 	/* @Override
@@ -73,5 +68,6 @@ public class EtudiantService implements InterfaceEtudiantService{
 	public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte(){
     //...
 	return new ArrayList<>(4);
-	}	
+	}
+		
 }

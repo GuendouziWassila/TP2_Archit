@@ -1,6 +1,8 @@
+import java.sql.SQLException;
+
 public class MainApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 
 		AffichageComposite AffichageListes = new AffichageComposite();
@@ -13,13 +15,10 @@ public class MainApp {
 		AffichageListes.addAffichage(AffichageDate);
 		AffichageListes.outPut_Msg("This message will display three times in differents way");
 		InterfaceEtudiantService serv=new EtudiantService();
-		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com", "xxxx", 1);
+		InterfaceUniversite universite;
+		EtudiantRepository etudiantRepository; 
+		serv.inscription(etudiant,universite, etudiantRepository);
 	}
 
 }
