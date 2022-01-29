@@ -101,7 +101,10 @@ public class Etudiant implements InterfaceEtudiant{
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
-
+		@Override
+		public void bonus(int bonus){
+			nbLivreMensuel_Autorise+=bonus; 
+		}
 		
 		
 	    }

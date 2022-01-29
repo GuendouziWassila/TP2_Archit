@@ -32,5 +32,7 @@ public interface InterfaceEtudiant {
     public String getPwd();
 
     public void setPwd(String pwd);
+    
+    public void bonus(int bonus);
 
 }

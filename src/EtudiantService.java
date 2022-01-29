@@ -1,7 +1,13 @@
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 public class EtudiantService implements InterfaceEtudiantService{
 	
+	public void AjouerBonusEtudiant(Etudiant E, UniversiteRepository UR) throws SQLException{
+		InterfaceUniversite U = UR.GetById(E.getId_universite());
+		Package package = new Package(); 
+		E.bonus(4);
+	}
 	@Override
 	public boolean inscription(Etudiant etudiant, Universite universite,EtudiantRepository etudiantRepository) throws SQLException{
 		
