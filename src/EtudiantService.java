@@ -3,6 +3,19 @@ import java.util.ArrayList;
 public class EtudiantService implements InterfaceEtudiantService{
 	
 	@Override
+	public boolean inscription(Etudiant etudiant, Universite universite,EtudiantRepository etudiantRepository) throws SQLException{
+		
+		System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
+		Registration R = new Registration();
+		if(R.StudentVerification(etudiant, etudiantRepository)){
+			R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+			etudiantRepository.add(etudiant);
+			System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+etudiant.getMatricule());
+			return true;
+		}
+		return false;
+	}
+	/* @Override
 	public boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		InterfaceEtudiantRepository StudRep= new EtudiantRepository();
@@ -37,7 +50,7 @@ public class EtudiantService implements InterfaceEtudiantService{
 		System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 		return true;	
 	}
-	
+	*/ 
 	@Override
 	public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye(){
     //...
