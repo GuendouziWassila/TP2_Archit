@@ -1,5 +1,5 @@
-public class Premium extends Package{
-
+public class Premuim implements Package{
+    int Bonus;
     @Override
     public void setBonus(int bonus) {
         // TODO Auto-generated method stub

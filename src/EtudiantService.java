@@ -3,10 +3,16 @@ import java.util.ArrayList;
 
 public class EtudiantService implements InterfaceEtudiantService{
 	
-	public void AjouerBonusEtudiant(Etudiant E, UniversiteRepository UR) throws SQLException{
-		InterfaceUniversite U = UR.GetById(E.getId_universite());
-		Package package = new Package(); 
-		E.bonus(4);
+	public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
+		
+		InterfaceUniversite universite = UR.GetById(E.getId_universite());
+		if(universite.getPack().equals(TypePackage.Standard)){
+			Standard P = new Standard();
+			E.bonus(P.getBonus());
+		}else if(universite.getPack().equals(TypePackage.Premium)){
+			Premuim P = new Premuim();
+			E.bonus(P.getBonus());
+		}
 	}
 	@Override
 	public boolean inscription(Etudiant etudiant, Universite universite,EtudiantRepository etudiantRepository) throws SQLException{
