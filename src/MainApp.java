@@ -14,10 +14,11 @@ public class MainApp {
 		AffichageListes.addAffichage(AffichageEcran);
 		AffichageListes.addAffichage(AffichageDate);
 		AffichageListes.outPut_Msg("This message will display three times in differents way");
-		InterfaceEtudiantService serv=new EtudiantService();
+		InterfaceEtudiantRepository etudiantRepository = new EtudiantRepository();
+		InterfaceUniversiteRepository universiteRepository = new UniversiteRepository();
+		InterfaceEtudiantService serv=new EtudiantService(etudiantRepository,universiteRepository);
 		Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com", "xxxx", 1);
 		InterfaceUniversite universite;
-		EtudiantRepository etudiantRepository; 
 		serv.inscription(etudiant,universite, etudiantRepository);
 	}
 

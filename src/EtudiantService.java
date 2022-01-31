@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 public class EtudiantService implements InterfaceEtudiantService{
 	
+	private InterfaceEtudiantRepository EtudRep;
+    private InterfaceUniversiteRepository UnivRep;
+	
 	public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
 		
 		InterfaceUniversite universite = UR.GetById(E.getId_universite());
@@ -10,6 +13,12 @@ public class EtudiantService implements InterfaceEtudiantService{
 		Package P = AB.getPackage(universite.getPack());
 		E.bonus(P.getBonus());
 	}
+	
+   public EtudiantService(InterfaceEtudiantRepository EtudRep ,InterfaceUniversiteRepository UnivRep) {
+		super();
+		this.EtudRep = EtudRep;
+		this.UnivRep = UnivRep;
+   }
 	@Override
 	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {
 			System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etudiant.getMatricule());
