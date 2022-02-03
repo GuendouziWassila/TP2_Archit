@@ -9,9 +9,11 @@ public class UniversiteRepository {
 	
 	
 	Universite GetById(int universityId) throws SQLException {
-		
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn(); 
+
+		// singleton
+		DBConnection BD= DBConnection.setDBC();
+		Connection connect=BD.getConn();
+
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
 		
