@@ -4,10 +4,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements IEtudiantRepository{
+
+
 	
-	
-	void add(Etudiant E) throws SQLException
+	public void add(Etudiant E) throws SQLException
 	{
 
 		// singleton
@@ -27,7 +28,7 @@ public class EtudiantRepository {
 	 }
 
 
-	boolean Exists(String email) throws SQLException	
+	public boolean Exists(String email) throws SQLException
 	{
 		// singleton
 		DBConnection BD= DBConnection.setDBC();
@@ -47,7 +48,7 @@ public class EtudiantRepository {
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+	public boolean Exists(int mat) throws SQLException
 	{
 		// singleton
 		DBConnection BD= DBConnection.setDBC();

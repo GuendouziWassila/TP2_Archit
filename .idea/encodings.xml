@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/EtudiantRepository.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/EtudiantService.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/Universite.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/UniversiteRepository.java" charset="windows-1252" />
   </component>
 </project>
