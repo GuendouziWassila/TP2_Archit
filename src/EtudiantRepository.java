@@ -10,7 +10,8 @@ public class EtudiantRepository {
 	void add(Etudiant E) throws SQLException
 	{
 
-		DBConnection BD= new DBConnection();
+		// singleton
+		DBConnection BD= DBConnection.setDBC();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -28,7 +29,8 @@ public class EtudiantRepository {
 
 	boolean Exists(String email) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		// singleton
+		DBConnection BD= DBConnection.setDBC();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -47,7 +49,8 @@ public class EtudiantRepository {
 	
 	boolean Exists(int mat) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		// singleton
+		DBConnection BD= DBConnection.setDBC();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
