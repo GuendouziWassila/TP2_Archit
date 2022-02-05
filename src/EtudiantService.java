@@ -8,11 +8,13 @@ public class EtudiantService implements IEtudiantService {
 	private IEtudiantRepository StudRep;
 	private IUniversiteRepository UnivRep;
 	private IEtudiant stud;
+	private IJournal composite;
 
-	public EtudiantService(IEtudiantRepository StudRep, IUniversiteRepository UnivRep, IEtudiant stud) {
+	public EtudiantService(IEtudiantRepository StudRep, IUniversiteRepository UnivRep, IEtudiant stud, IJournal composite) {
 		this.StudRep = StudRep;
 		this.UnivRep = UnivRep;
 		this.stud = stud;
+		this.composite = composite;
 	}
 
 
@@ -22,7 +24,9 @@ public class EtudiantService implements IEtudiantService {
 		//Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
 		Universite univ = UnivRep.GetById(stud.getId_universite());
 
-		System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
+		AfficherDate.setClassName(this.getClass().getSimpleName());
+		composite.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
+		//System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
 
 		if (stud.getEmail() == null || stud.getEmail().length() == 0) {
 			return false;
@@ -44,7 +48,9 @@ public class EtudiantService implements IEtudiantService {
 		}
 
 		StudRep.add((Etudiant) stud);
-		System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
+		AfficherDate.setClassName(this.getClass().getSimpleName());
+		composite.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
+		//System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
 		return true;
 
 
