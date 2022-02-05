@@ -3,9 +3,7 @@ import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
 
 public class AfficherDate implements IJournal{
 
-    private String className;
-
-    private AfficherDate() {}
+    private static String className;
 
     @Override
     public void outPut_Msg(String message) {
@@ -17,5 +15,5 @@ public class AfficherDate implements IJournal{
         System.out.println(message + " : generated on " + formattedDate + " from " + className);
     }
 
-    public void setClassName(String ClassName) { className = ClassName;}
+    public static void setClassName(String ClassName) { className = ClassName;}
 }
