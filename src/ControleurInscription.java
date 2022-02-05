@@ -4,20 +4,27 @@ public class ControleurInscription {
     public void ShowErreur(String msg) {
         JOptionPane.showMessageDialog(new JFrame(), msg, "Erreur", 0);
     }
-
-    public boolean ControleurInscription(ViewInscription V){
-        if (V.getMatriculeText().isEmpty() || V.getLastNameText().isEmpty() || V.getFirstNameText().isEmpty() || V.getEmailTex().isEmpty() || V.getPasswordText().isEmpty() || V.getUniversiteText().isEmpty()) {
+    private InterfaceViewInscription View;
+    private Boolean status;
+    public  ControleurInscription(ViewInscription View){
+        this.View = View;
+        if (View.getMatriculeText().isEmpty() || View.getLastNameText().isEmpty() || View.getFirstNameText().isEmpty() || View.getEmailTex().isEmpty() || View.getPasswordText().isEmpty() || View.getUniversiteText().isEmpty()) {
             this.ShowErreur("veuillez remplir tous les champs");
-            return false;
+            setStatus(false);
         }
-        if (!V.getMatriculeText().matches("-?\\d+") || !V.getMatriculeText().matches("-?\\d+")) {
+        if (!View.getMatriculeText().matches("-?\\d+") || !View.getMatriculeText().matches("-?\\d+")) {
             this.ShowErreur("les champs matricule et id universite doivent etre de format numeriques ");
-            return false;
+            setStatus(false);
         }
-        if (!V.getEmailTex().matches("^(.+)@(.+)$")) {
+        if (!View.getEmailTex().matches("^(.+)@(.+)$")) {
             this.ShowErreur("il faut respecter le format d'un email xxx@xxx.xxx");
-            return false;
+            setStatus(false);
         }
-        return true;
+        setStatus(true);
+    }
+    public boolean getStatus(){return this.status;}
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class ViewInscription {
+public class ViewInscription implements InterfaceViewInscription {
     private JFrame frame;
     private JPanel Container;
     private JTextField MatriculeText;
@@ -35,6 +35,7 @@ public class ViewInscription {
         return this.UniversiteText.getText();
     }
 
+    @Override
     public void Inscription(){
        (this.frame = new JFrame()).setBounds(300,300,450,300);
        this.frame.getContentPane().setLayout(null);
@@ -95,7 +96,7 @@ public class ViewInscription {
         (this.ButtonCancel = new JButton("Cancel")).setBounds(184, 227, 89, 23);
         this.Container.add(this.ButtonCancel);
     }
-
+    @Override
     public void InitialiserInscription(){
         this.MatriculeText.setText("");
         this.LastNameText.setText("");
@@ -104,6 +105,7 @@ public class ViewInscription {
         this.PasswordText.setText("");
         this.UniversiteText.setText("");
     }
+
     public ViewInscription(InterfaceEtudiantRepository ER){
         // this.InitialiserInscription();
         this.Inscription();
@@ -112,8 +114,8 @@ public class ViewInscription {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                ControleurInscription C = new ControleurInscription();
-               Boolean Control = C.ControleurInscription(ViewInscription.this);
+                ControleurInscription C = new ControleurInscription(ViewInscription.this);
+                Boolean Control = C.getStatus();
                 if(Control){
                     System.out.println("Succes ! ");
                     InterfaceEtudiant E = new Etudiant(Integer.parseInt(MatriculeText.getText()), LastNameText.getText(), FirstNameText.getText(),EmailText.getText(), PasswordText.getText(), Integer.parseInt(UniversiteText.getText()));
