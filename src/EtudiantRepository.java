@@ -4,13 +4,19 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
-	
-	
-	void add(Etudiant E) throws SQLException
-	{
+public class EtudiantRepository implements IEtudiantRepository{
 
-		DBConnection BD= new DBConnection();
+	private IDBConnection BD;
+
+	public EtudiantRepository(IDBConnection BD) {
+		this.BD = BD;
+	}
+	
+	
+	public void add(Etudiant E) throws SQLException
+	{
+		//Singleton
+		//DBConnection BD= new DBConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -26,9 +32,10 @@ public class EtudiantRepository {
 	 }
 
 
-	boolean Exists(String email) throws SQLException	
+	public boolean Exists(String email) throws SQLException
 	{
-		DBConnection BD= new DBConnection();
+		//Singleton
+		//DBConnection BD= new DBConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -45,9 +52,10 @@ public class EtudiantRepository {
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+	public boolean Exists(int mat) throws SQLException
 	{
-		DBConnection BD= new DBConnection();
+		//Singleton
+		//DBConnection BD= new DBConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
