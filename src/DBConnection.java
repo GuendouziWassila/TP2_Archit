@@ -17,7 +17,7 @@ public class DBConnection implements IDBConnection{
 		}
 
 		// singleton
-		public static DBConnection setDBC() throws SQLException {
+		public static synchronized DBConnection setDBC() throws SQLException {
 			if(db == null){
 				db = new DBConnection();
 			}
