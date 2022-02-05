@@ -4,14 +4,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UniversiteRepository implements InterfaceUniversiteRepository{
-	InterfaceDBConnection BD;
+	private InterfaceDBConnection DB;
+	private IJournal AffichageListes;
+	public UniversiteRepository(InterfaceDBConnection DB, IJournal AffichageListes){
+		this.DB = DB; this.AffichageListes = AffichageListes;
+	}
 	@Override
 	public InterfaceUniversite GetById(int universityId) throws SQLException {
-		
-		BD = DBConnection.getInstanceDB();
-		Connection connect=BD.getConn(); 
+		Connection connect= DB.getConn();
 		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
+		AffichageListes.outPut_Msg("LogBD : début recherche de id université dans la base de donnée");
 		
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
@@ -19,12 +21,11 @@ public class UniversiteRepository implements InterfaceUniversiteRepository{
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		System.out.println("LogBD : université récupérée");
+		AffichageListes.outPut_Msg("LogBD : université récupérée");
 		
 		connect.close();
 		return u;	
 	
 		
 	}	
-	
 }

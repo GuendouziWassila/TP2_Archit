@@ -3,29 +3,30 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class EtudiantRepository implements InterfaceEtudiantRepository {
-	InterfaceDBConnection BD;
+	private InterfaceDBConnection BD;
+	private IJournal AffichageListes;
+	public EtudiantRepository(InterfaceDBConnection DB, IJournal AffichageListes){
+		this.BD = DB; this.AffichageListes = AffichageListes;
+	}
 	@Override
 	public void add(InterfaceEtudiant E) throws SQLException{
-		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
-		
 		Statement stmt = connect.createStatement();
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
-		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			AffichageDate.setClassName("EtudiantRepository");
+			AffichageListes.outPut_Msg("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
+
+			AffichageListes.outPut_Msg("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	}
 
 	@Override
 	public boolean Exists(String email) throws SQLException{
-		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
-		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where email='"+ email+"'";
 		boolean rs = stmt.execute(sql);
@@ -41,9 +42,7 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 	}
 	@Override
 	public boolean Exists(int mat) throws SQLException{
-		BD= DBConnection.getInstanceDB();
 		Connection connect=BD.getConn();
-		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where matricule="+ mat;
 		boolean rs = stmt.execute(sql);
