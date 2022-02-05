@@ -3,15 +3,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection implements InterfaceDBConnection{
-	   
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
 		private static DBConnection db;
-
-	   
 	    private DBConnection() throws SQLException  {
 			 conn = DriverManager.getConnection(url,user, passwd);
 		}
@@ -20,13 +17,7 @@ public class DBConnection implements InterfaceDBConnection{
 				db= new DBConnection();
 			return db;
 		}
-
-	    
 	    public Connection getConn()  {
 			return conn;
-		}
-
-
-		
-	
+		}	
 }
