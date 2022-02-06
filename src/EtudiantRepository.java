@@ -24,7 +24,7 @@ public class EtudiantRepository implements I_EtudiantRepository  {
 			}else if (rs == 0){
 				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
 			}
-		connect.close();
+		//connect.close(); C'est mieux de garder la connection ouverte (Singleton)
 	 }
 
 	public boolean Exists(int mat) throws SQLException	
@@ -41,14 +41,14 @@ public class EtudiantRepository implements I_EtudiantRepository  {
 	      {       
 	        System.out.print("logBD--- :l'étudiant avec ce matricule existe déja dans la BD :\n ");
 	        System.out.format("(%d, %s, %s, %s, %s, %s)\n", rs.getInt("matricule"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getString("pwd"), rs.getInt("nbLivreMensuel_Autorise"),rs.getInt("nbLivreEmprunte"),rs.getInt("id_universite"));
-	        connect.close();
+	      //connect.close();
 			return true;
 	      }
 		
 		else  //If ResultSet rs is empty
 		{
 			System.out.println("logBD----: l'étudiant avec ce matricule n'existe pas :" + mat);
-			connect.close();
+		 //connect.close();
 			return false;
 		}
 	}
@@ -66,14 +66,14 @@ public class EtudiantRepository implements I_EtudiantRepository  {
 		if (rs.next())  //If ResultSet rs is not empty
 		{
 			System.out.println("logBD--- : email existe dans la BD : " + email);
-			connect.close();
+			//connect.close(); 
 			return true;
 		}
 		
 		else  //If ResultSet rs is empty
 		{
 			System.out.println("logBD--- : email n'existe pas : " + email);	
-			connect.close();
+			//connect.close();
 			return false;
 		}
 

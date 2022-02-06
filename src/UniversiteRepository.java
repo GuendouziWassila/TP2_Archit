@@ -22,7 +22,7 @@ public class UniversiteRepository {
 			
 		System.out.println("LogBD : université récupérée");
 		
-		connect.close();
+		//connect.close(); C'est mieux de garder la connection ouverte (Singleton)
 		return u;	
 	
 		
