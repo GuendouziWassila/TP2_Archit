@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements InterfaceDBConnection {
 	   
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
@@ -26,13 +26,18 @@ public class DBConnection {
 	    	
 	    }
 
-	    
-	    public Connection getConn() throws SQLException {
-	    	if(conn.isClosed())
+		@Override
+		public Connection getConn() throws SQLException {
+			// TODO Auto-generated method stub
+			if(conn.isClosed())
 				conn=DriverManager.getConnection(url, user,passwd);
 			
 			return conn;
+		
 		}
+
+	    
+
 
 
 		
