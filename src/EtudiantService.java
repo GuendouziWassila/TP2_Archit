@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public class EtudiantService implements InterfaceEtudiantService{
 	
 	
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
@@ -51,13 +51,13 @@ public class EtudiantService {
 	
 	
 
-public ArrayList<Etudiant> GetEtudiantParUniversitye()
+public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye()
 {
     //...
 	return new ArrayList<>(4);
 }
 
-public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
+public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte()
 {
     //...
 	return new ArrayList<>(4);

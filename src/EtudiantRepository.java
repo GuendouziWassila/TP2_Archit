@@ -1,67 +1,79 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements InterfaceEtudiantReposit {
 	
+	private InterfaceDBConnection BDD ;
+	private static Statement stmt;
 	
-	void add(Etudiant E) throws SQLException
-	{
 
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
+	
 		
-		Statement stmt = connect.createStatement();
+@Override
+public void add(Etudiant E){
+	try {
+	 
+		stmt = BDD.getConn().createStatement();
+
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			System.out.println("log : ajout dans la BD rï¿½ussi de l'etudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				System.out.println("log : Echec de l'ajout dans la BD de l'etudiant  du Matricule" + E.getMatricule());
 			}
-		connect.close();
-	 }
-
-
-	boolean Exists(String email) throws SQLException	
-	{
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
+		BDD.getConn().close();
 		
-		Statement stmt = connect.createStatement();
+	 }catch(SQLException e){
+			e.printStackTrace();
+			}
+}
+@Override
+ public	boolean Exists(String email){
+	try{
+		
+		stmt = BDD.getConn().createStatement();
+
 		String sql = "select * from etudiant where email='"+ email+"'";
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
 			System.out.println("logBD--- :email existe dans la BD  " + email);
-			connect.close();
+			BDD.getConn().close();
 			return true;
 			}
 		System.out.println("logBD--- : email n'existe pas " + email);	
-		connect.close();
+		BDD.getConn().close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+@Override	
+public	boolean Exists(int mat)
 	{
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
 		
-		Statement stmt = connect.createStatement();
-		String sql = "select * from etudiant where matricule="+ mat;
-		boolean rs = stmt.execute(sql);
-		
-		if (rs){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
-			connect.close();
-			return true;
-			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
-		connect.close();
-		return false;
-	}
+	try {	
+	stmt = BDD.getConn().createStatement();
 
+	String sql = "select * from etudiant where matricule="+ mat;
+	boolean rs = stmt.execute(sql);
+	
+	if (rs){
+		System.out.println("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat);
+		BDD.getConn().close();
+		return true;
+		}
+	System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+	BDD.getConn().close();
+	
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	return false;
+	}
 }
