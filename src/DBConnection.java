@@ -4,19 +4,32 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	   
-		String BDD = "nomBD";
-		String url = "jdbc:mysql://localhost:3306/" + BDD;
-		String user = "root";
-		String passwd = "";
+		private String BDD = "nomBD";
+		private String url = "jdbc:mysql://localhost:3306/" + BDD;
+		private String user = "root";
+		private String passwd = "";
 	    private Connection conn;
+	    private static DBConnection instance;
 
 	   
-	    public DBConnection() throws SQLException {
+	    private DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
+		}
+	    
+	    public static DBConnection getInstance() throws SQLException{
+			if(instance == null){
+				instance = new DBConnection();
+			}else if (instance.getConn().isClosed()) {
+	            instance = new DBConnection();
+	        }
+			return instance;
 		}
 
 	    
-	    public Connection getConn() {
+	    public Connection getConn() throws SQLException {
+	    	if(conn.isClosed()) {
+	    		conn=DriverManager.getConnection(url, user,passwd);
+	    	}
 			return conn;
 		}
 
