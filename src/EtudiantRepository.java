@@ -86,4 +86,20 @@ public class EtudiantRepository implements IEtudiantRepository{
 		return false;
 	}
 
+	public boolean checkEmailAndMatricule(IEtudiant stud) throws SQLException {
+
+		if (stud.getEmail() == null || stud.getEmail().length() == 0) {
+			return false;
+		}
+
+		if (this.Exists(stud.getMatricule())) {
+			return false;
+		}
+
+		if (this.Exists(stud.getEmail())) {
+			return false;
+		}
+
+		return true;
+	}
 }

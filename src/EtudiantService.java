@@ -28,24 +28,13 @@ public class EtudiantService implements IEtudiantService {
 		composite.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
 		//System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule " + stud.getMatricule());
 
-		if (stud.getEmail() == null || stud.getEmail().length() == 0) {
+		// la verification du email et matricule ce pass dans etudiant repository
+		if(!StudRep.checkEmailAndMatricule(stud)){
 			return false;
 		}
 
-		if (StudRep.Exists(stud.getMatricule())) {
-			return false;
-		}
-
-		if (StudRep.Exists(stud.getEmail())) {
-			return false;
-		}
-
-
-		if (univ.getPack() == TypePackage.Standard) {
-			stud.setNbLivreMensuel_Autorise(10);
-		} else if (univ.getPack() == TypePackage.Premium) {
-			stud.setNbLivreMensuel_Autorise(10 * 2);
-		}
+		// l'affectation du pack ce pass dans universite repository
+		stud = UnivRep.setPack(stud, univ);
 
 		StudRep.add((Etudiant) stud);
 		AfficherDate.setClassName(this.getClass().getSimpleName());

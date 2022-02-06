@@ -37,9 +37,18 @@ public class UniversiteRepository implements IUniversiteRepository{
 		//System.out.println("LogBD : université récupérée");
 		
 		connect.close();
-		return u;	
-	
-		
-	}	
+		return u;
+	}
+
+	public IEtudiant setPack(IEtudiant stud, Universite univ) {
+
+		if (univ.getPack() == TypePackage.Standard) {
+			stud.setNbLivreMensuel_Autorise(10);
+		} else if (univ.getPack() == TypePackage.Premium) {
+			stud.setNbLivreMensuel_Autorise(10 * 2);
+		}
+
+		return stud;
+	}
 	
 }
