@@ -1,0 +1,12 @@
+LogBD : début recherche de id université dans la base de donnée Le : 06.02.2022 Heure :  15:16:58 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 06.02.2022 Heure :  15:16:58 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 06.02.2022 Heure :  15:16:58 depuis la  classe :MessComposite
+logBD--- :etudiant avec ce matricule existe déja dans la BD  2 Le : 06.02.2022 Heure :  15:16:58 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 06.02.2022 Heure :  15:19:01 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 06.02.2022 Heure :  15:19:01 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 06.02.2022 Heure :  15:19:01 depuis la  classe :MessComposite
+logBD--- :etudiant avec ce matricule existe déja dans la BD  2 Le : 06.02.2022 Heure :  15:19:02 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
+logBD--- :etudiant avec ce matricule existe déja dans la BD  2 Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
