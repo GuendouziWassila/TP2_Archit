@@ -4,28 +4,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
+	private InterfaceEtudeRep StudRep;
+    private InterfaceUnivRep UnivRep;
+	public EtudiantService(InterfaceEtudeRep StudRep, InterfaceUnivRep UnivRep) {
+		this.StudRep = StudRep;
+		this.UnivRep = UnivRep;
+	}
 	
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	boolean inscription (InterfaceEtudiant stud) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+	    Universite univ=UnivRep.GetById(stud.getId_universite());
 	    
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+stud.getMatricule());
 	    
-	    if(email == null || email.length() == 0)
+	    if(stud.getEmail() == null || stud.getEmail().length() == 0)
 	    {
 	    	return false;
 	    }
 	    
-	    if (StudRep.Exists(matricule))
+	    if (StudRep.Exists(stud.getMatricule()))
 	    {
 	        return false;
 	    }
 	    
-		if (StudRep.Exists(email))
+		if (StudRep.Exists(stud.getEmail()))
 	    {
 	        return false;
 	    }
@@ -42,7 +45,7 @@ public class EtudiantService {
 	     }                           
 	     
 		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+stud.getMatricule());
 		 return true;
 	    
 		
