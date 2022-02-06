@@ -106,7 +106,7 @@ public class Etudiant implements InterfEtudiant{
 		@Override
 		public int getMatricule() {
 			// TODO Auto-generated method stub
-			return 0;
+			return matricule;
 		}
 		
 
