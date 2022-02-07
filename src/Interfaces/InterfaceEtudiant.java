@@ -1,3 +1,4 @@
+package Interfaces;
 public interface InterfaceEtudiant {
     public int getMatricule();
 

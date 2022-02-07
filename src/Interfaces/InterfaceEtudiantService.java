@@ -1,4 +1,10 @@
+package Interfaces;
 import javax.swing.*;
+
+import Classes.Etudiant;
+import Classes.EtudiantRepository;
+import Classes.EtudiantRepository.ViewInscription;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 

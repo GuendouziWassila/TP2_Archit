@@ -1,4 +1,5 @@
-package Packages;
+package Interfaces;
+
 
 public enum TypePackage {
 	Standard,

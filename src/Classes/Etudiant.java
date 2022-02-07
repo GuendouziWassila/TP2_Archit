@@ -1,3 +1,6 @@
+package Classes;
+import Interfaces.InterfaceEtudiant;
+
 public class Etudiant implements InterfaceEtudiant {
 
 		private int matricule;

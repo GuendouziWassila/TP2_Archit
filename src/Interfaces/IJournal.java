@@ -1,4 +1,4 @@
-package Affichages;
+package Interfaces;
 
 public interface IJournal {
     public void outPut_Msg (String message);

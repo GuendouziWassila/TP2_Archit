@@ -1,6 +1,8 @@
-import Affichages.IJournal;
-import DataBase.DBConnection;
-import Packages.TypePackage;
+package Classes;
+import Interfaces.IJournal;
+import Interfaces.InterfaceUniversite;
+import Interfaces.InterfaceUniversiteRepository;
+import Interfaces.TypePackage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

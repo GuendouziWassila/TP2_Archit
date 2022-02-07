@@ -1,7 +1,9 @@
-package Affichages;
+package Classes;
 
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
+
+import Interfaces.IJournal;
 
 public class AffichageFile implements IJournal {
     String message;

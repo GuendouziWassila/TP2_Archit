@@ -1,6 +1,8 @@
-package Packages;
+package Classes;
 
-public class Premuim implements Package {
+import Interfaces.Package;
+
+public class Standard implements  Package{
     int Bonus;
     @Override
     public void setBonus(int bonus) {
@@ -13,5 +15,4 @@ public class Premuim implements Package {
         // TODO Auto-generated method stub
         return this.Bonus;
     }
-
 }

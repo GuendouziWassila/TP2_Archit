@@ -1,6 +1,8 @@
-import Affichages.AffichageDate;
-import Affichages.IJournal;
-import DataBase.DBConnection;
+package Classes;
+import Interfaces.IJournal;
+import Interfaces.InterfaceEtudiant;
+import Interfaces.InterfaceEtudiantRepository;
+import Interfaces.InterfaceEtudiantService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

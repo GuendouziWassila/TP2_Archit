@@ -1,10 +1,12 @@
+package Classes;
 import javax.swing.*;
 
+import Abstracts.AbstractViewInscription;
 public class ControleurInscription {
     public void ShowErreur(String msg) {
         JOptionPane.showMessageDialog(new JFrame(), msg, "Erreur", 0);
     }
-    private InterfaceViewInscription View;
+    private AbstractViewInscription View;
     private Boolean status;
     public  ControleurInscription(ViewInscription View){
         this.View = View;

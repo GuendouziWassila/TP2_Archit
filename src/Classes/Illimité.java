@@ -1,4 +1,6 @@
-package Packages;
+package Classes;
+
+import Interfaces.Package;
 
 public class Illimité implements Package {
     @Override

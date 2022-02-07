@@ -1,4 +1,6 @@
-package Affichages;
+package Classes;
+
+import Interfaces.IJournal;
 
 public class AffichageEcran implements IJournal {
     String message;

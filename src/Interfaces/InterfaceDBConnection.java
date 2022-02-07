@@ -1,4 +1,4 @@
-package DataBase;
+package Interfaces;
 
 public interface InterfaceDBConnection{
 

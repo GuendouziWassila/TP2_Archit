@@ -1,3 +1,4 @@
+package Interfaces;
 import java.sql.SQLException;
 
 public interface InterfaceEtudiantRepository{

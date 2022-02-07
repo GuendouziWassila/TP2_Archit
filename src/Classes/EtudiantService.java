@@ -1,9 +1,16 @@
-import Affichages.AffichageDate;
-import Affichages.IJournal;
-import Packages.Package;
+package Classes;
+import Interfaces.IJournal;
+import Interfaces.InterfaceEtudiant;
+import Interfaces.InterfaceEtudiantRepository;
+import Interfaces.InterfaceEtudiantService;
+import Interfaces.InterfaceUniversite;
+import Interfaces.InterfaceUniversiteRepository;
+import Interfaces.Package;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import Abstracts.AbsractFactory;
 
 public class EtudiantService implements InterfaceEtudiantService {
 	

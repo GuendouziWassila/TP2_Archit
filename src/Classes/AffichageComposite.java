@@ -1,7 +1,9 @@
-package Affichages;
+package Classes;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Interfaces.IJournal;
 
 public class AffichageComposite implements IJournal {
     

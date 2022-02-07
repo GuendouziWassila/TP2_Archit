@@ -1,10 +1,16 @@
+package Classes;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+
+import Abstracts.AbstractViewInscription;
+import Interfaces.InterfaceEtudiant;
+import Interfaces.InterfaceEtudiantRepository;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-public class ViewInscription implements InterfaceViewInscription {
+public class ViewInscription extends AbstractViewInscription {
     private JFrame frame;
     private JPanel Container;
     private JTextField MatriculeText;

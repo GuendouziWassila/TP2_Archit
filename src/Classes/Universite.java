@@ -1,4 +1,6 @@
-import Packages.TypePackage;
+package Classes;
+import Interfaces.InterfaceUniversite;
+import Interfaces.TypePackage;
 
 public class Universite implements InterfaceUniversite {
 

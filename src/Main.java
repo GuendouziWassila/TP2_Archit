@@ -1,5 +1,18 @@
-import Affichages.*;
-import Packages.TypePackage;
+import Classes.AffichageComposite;
+import Classes.AffichageDate;
+import Classes.AffichageEcran;
+import Classes.AffichageFile;
+import Classes.Etudiant;
+import Classes.EtudiantRepository;
+import Classes.EtudiantService;
+import Classes.Universite;
+import Classes.UniversiteRepository;
+import Interfaces.IJournal;
+import Interfaces.InterfaceEtudiantRepository;
+import Interfaces.InterfaceEtudiantService;
+import Interfaces.InterfaceUniversite;
+import Interfaces.InterfaceUniversiteRepository;
+import Interfaces.TypePackage;
 
 import java.sql.SQLException;
 

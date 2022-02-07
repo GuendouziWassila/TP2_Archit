@@ -1,6 +1,9 @@
-import Packages.*;
-import Packages.Package;
-
+package Abstracts;
+import Classes.Illimité;
+import Classes.Premuim;
+import Classes.Standard;
+import Interfaces.Package;
+import Interfaces.TypePackage;
 public class AbsractFactory {
     public AbsractFactory(){}
     public Package getPackage(TypePackage TP){

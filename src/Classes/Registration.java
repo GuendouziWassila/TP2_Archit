@@ -1,6 +1,9 @@
-import Packages.TypePackage;
-
+package Classes;
 import java.sql.SQLException;
+
+import Interfaces.InterfaceEtudiantRepository;
+import Interfaces.TypePackage;
+
 
 public class Registration {
 
