@@ -35,6 +35,22 @@ public class UniversiteRepository implements InterfUniversiteRep {
 	
 		
 	}
+
+
+	@Override
+	public int NbrLivreAutoriser(int universityId) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		Universite univ=this.GetById(universityId);
+		if (univ.getPack() == TypePackage.Standard)
+	     {
+	          return 10;
+	     }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 return 20;
+	     }     
+		return 0;
+	}
 	
 	
 

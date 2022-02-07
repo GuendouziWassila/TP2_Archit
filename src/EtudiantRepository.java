@@ -82,6 +82,11 @@ public class EtudiantRepository implements InterfEtudiantRep {
 		connect.close();
 		return false;
 	}
+	@Override
+	public boolean CheckEmailMatricule(InterfEtudiant etud) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		return Exists(etud.getMatricule())|| Exists(etud.getEmail()) || etud.getEmail()== null || etud.getEmail().length() == 0;
+	}
 
 
 
