@@ -43,34 +43,19 @@ public class UniversiteRepository implements InterfaceUnivRep {
 	public int NbrLivreAutorise(int univId) throws SQLException, IOException {
 		// TODO Auto-generated method stub
 		Universite univ= GetById(univId);
-		if (univ.getPack() == TypePackage.Standard)
-	     {
-			Package pack = new Standard(null);
-	        return pack.getNbrLivreAutorise();
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 Package pack = new Premium(null);
-		     return pack.getNbrLivreAutorise();
-	     } 
-		return 0;
+		AbstractFactory abs = new MakeAbstract();
+		Package pack = abs.getPackage(univ.getPack()); 
+		return pack.getNbrLivreAutorise();
 	}
 
 	@Override
 	public int NbrLivreBonus(int univId) throws SQLException, IOException {
 		// TODO Auto-generated method stub
 		Universite univ= GetById(univId);
-		if (univ.getPack() == TypePackage.Standard)
-	     {
-			Package pack = new Standard(null);
-	        return pack.getNbrLivreBonus();
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 Package pack = new Premium(null);
-		     return pack.getNbrLivreBonus();
-	     }
-		return 0;
+		AbstractFactory abs = new MakeAbstract();
+		Package pack = abs.getPackage(univ.getPack()); 
+		return pack.getNbrLivreBonus();
+		
 	}	
 	
 }

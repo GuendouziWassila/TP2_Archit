@@ -15,7 +15,7 @@ public class MainApp {
 		InterfaceDBConnection db = DBConnection.getInstance();
 		InterfaceEtudeRep StudRep= new EtudiantRepository(db,a);
 	    InterfaceUnivRep UnivRep= new UniversiteRepository(db,a);
-	    InterfaceEtudiant stud = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+	    InterfaceEtudiant stud = new Etudiant(4, "Guendouziiiii", "wassila", "guen4@gmail.com","xxxx", 2);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,a);
 			serv.inscription(stud);
 
