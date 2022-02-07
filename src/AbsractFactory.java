@@ -1,3 +1,6 @@
+import Packages.*;
+import Packages.Package;
+
 public class AbsractFactory {
     public AbsractFactory(){}
     public Package getPackage(TypePackage TP){

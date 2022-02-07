@@ -1,4 +1,6 @@
-import java.time.format.DateTimeFormatter;  
+package Affichages;
+
+import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime; 
 public class AffichageDate implements IJournal {
     String message;

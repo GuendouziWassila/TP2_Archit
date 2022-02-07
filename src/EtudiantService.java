@@ -1,11 +1,15 @@
+import Affichages.AffichageDate;
+import Affichages.IJournal;
+import Packages.Package;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class EtudiantService implements InterfaceEtudiantService{
+public class EtudiantService implements InterfaceEtudiantService {
 	
 	private InterfaceEtudiantRepository EtudRep;
     private InterfaceUniversiteRepository UnivRep;
-	private IJournal  AffichageListes;
+	private IJournal AffichageListes;
 	public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
 		
 		InterfaceUniversite universite = UR.GetById(E.getId_universite());
@@ -43,5 +47,6 @@ public class EtudiantService implements InterfaceEtudiantService{
 	public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte(){
     //...
 	return new ArrayList<>(4);
-	}	
+	}
+		
 }

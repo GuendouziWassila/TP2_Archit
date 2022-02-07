@@ -1,3 +1,5 @@
+import Packages.TypePackage;
+
 public interface InterfaceUniversite{
     public int getI_univ();
 	

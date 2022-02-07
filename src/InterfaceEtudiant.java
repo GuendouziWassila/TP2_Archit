@@ -1,5 +1,3 @@
-
-
 public interface InterfaceEtudiant {
     public int getMatricule();
 

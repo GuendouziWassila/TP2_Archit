@@ -1,10 +1,11 @@
+import Affichages.*;
+import Packages.TypePackage;
+
 import java.sql.SQLException;
 
-public class MainApp {
+public class Main {
 
-	public static void main(String[] args) throws SQLException {
-		InterfaceDBConnection DB = DBConnection.getInstanceDB();
-
+    public static void main(String[] args) throws SQLException {
         AffichageComposite AffichageListes = new AffichageComposite();
         IJournal AffichageEcran = new AffichageEcran("Message");
         IJournal AffichageDate = new AffichageDate();
@@ -13,21 +14,21 @@ public class MainApp {
         AffichageListes.addAffichage(AffichageFile);
         AffichageListes.addAffichage(AffichageEcran);
         AffichageListes.addAffichage(AffichageDate);
-        AffichageListes.outPut_Msg("This message will display three times in differents way");
 
-        InterfaceEtudiantRepository etudiantRepository = new EtudiantRepository(DB, AffichageListes);
-        InterfaceUniversiteRepository universiteRepository = new UniversiteRepository(DB, AffichageListes);
+        InterfaceEtudiantRepository etudiantRepository = new EtudiantRepository(AffichageListes);
+        InterfaceUniversiteRepository universiteRepository = new UniversiteRepository(AffichageListes);
         InterfaceEtudiantService serv=new EtudiantService(etudiantRepository,universiteRepository, AffichageListes);
 
         Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com", "xxxx", 1);
-        InterfaceUniversite universite = new Universite(2,"Benyoucef Ben Khedda",TypePackage.Standard);
+        InterfaceUniversite universite = new Universite(2,"Benyoucef Ben Khedda", TypePackage.Standard);
 
-        ViewInscription V = new ViewInscription(etudiantRepository);
+        EtudiantRepository.ViewInscription V = new EtudiantRepository.ViewInscription(etudiantRepository);
         try {
             serv.inscription(etudiant,universite, etudiantRepository);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-	}
 
+    }
 }
+

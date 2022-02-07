@@ -1,3 +1,5 @@
+import Packages.TypePackage;
+
 import java.sql.SQLException;
 
 public class Registration {

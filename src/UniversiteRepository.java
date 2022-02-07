@@ -1,3 +1,7 @@
+import Affichages.IJournal;
+import DataBase.DBConnection;
+import Packages.TypePackage;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

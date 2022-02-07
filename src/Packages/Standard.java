@@ -1,14 +1,16 @@
-public class Illimité implements Package{
+package Packages;
+
+public class Standard implements  Package{
+    int Bonus;
     @Override
     public void setBonus(int bonus) {
         // TODO Auto-generated method stub
-        
+        this.Bonus = bonus;
     }
 
     @Override
     public int getBonus() {
         // TODO Auto-generated method stub
-        return 0;
+        return this.Bonus;
     }
-
 }

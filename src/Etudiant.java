@@ -1,6 +1,4 @@
-
-
-public class Etudiant implements InterfaceEtudiant{
+public class Etudiant implements InterfaceEtudiant {
 
 		private int matricule;
 	    private String nom;

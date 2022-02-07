@@ -1,5 +1,6 @@
+package Affichages;
 
-public class AffichageEcran implements IJournal{
+public class AffichageEcran implements IJournal {
     String message;
     public AffichageEcran(String message){this.message = message;}
     @Override

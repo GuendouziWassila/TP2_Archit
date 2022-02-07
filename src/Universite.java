@@ -1,3 +1,4 @@
+import Packages.TypePackage;
 
 public class Universite implements InterfaceUniversite {
 

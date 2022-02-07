@@ -1,3 +1,5 @@
+package Affichages;
+
 import java.util.ArrayList;
 import java.util.List;
 
