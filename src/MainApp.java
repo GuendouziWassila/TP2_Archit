@@ -18,7 +18,7 @@ public class MainApp {
 		InterfUniversiteRep UnivRep=new UniversiteRepository(db,jcomp);
 		InterfEtudiantRep StudRep=new EtudiantRepository(db,jcomp);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,jcomp);
-		InterfEtudiant etud = new Etudiant(10, "Guendouziiiii", "wassila", "azds@gmail.com","xxxx", 1);
+		InterfEtudiant etud = new Etudiant(3, "guens", "wassila", "a@gmail.com","xxxx", 3);
 		serv.inscription(etud);
 			
 		} catch (Exception e) {
