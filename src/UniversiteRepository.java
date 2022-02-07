@@ -43,27 +43,31 @@ public class UniversiteRepository implements InterfUniversiteRep {
 		Universite univ=this.GetById(universityId);
 		if (univ.getPack() == TypePackage.Standard)
 	     {
-	          return 10;
+			Package pack = new Standard(null);
+			return pack.getNbrLivreAutorise();
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 return 20;
+	    	 Package pack = new Premium(null);
+	    	 return pack.getNbrLivreAutorise();
 	     }     
 		return 0;
 	}
 
-
+	
 	@Override
 	public int GetNbrBonus(int universityId) throws SQLException, IOException {
 		// TODO Auto-generated method stub
 		Universite univ=this.GetById(universityId);
 		if (univ.getPack() == TypePackage.Standard)
 	     {
-	          return 5;
+			Package pack = new Standard(null);
+		    return pack.getNbrLivreBonus();
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
-	    	 return 10;
+	    	 Package pack = new Premium(null);
+	    	 return pack.getNbrLivreBonus();
 	     }     
 		return 0;
 	}
