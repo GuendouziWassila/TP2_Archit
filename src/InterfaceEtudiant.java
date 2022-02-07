@@ -16,4 +16,5 @@ public interface InterfaceEtudiant {
 	public void setId_universite(int id_universite);
 	public String getPwd();
 	public void setPwd(String pwd) ;
+	public void Bonus(int nbrLivreBonus);
 }

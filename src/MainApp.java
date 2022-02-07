@@ -18,6 +18,7 @@ public class MainApp {
 	    InterfaceEtudiant stud = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,a);
 			serv.inscription(stud);
+
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -101,6 +101,13 @@ public class Etudiant implements InterfaceEtudiant {
 			this.pwd = pwd;
 		}
 
+		@Override
+		public void Bonus(int nbrLivreBonus) {
+			// TODO Auto-generated method stub
+			this.nbLivreMensuel_Autorise+=nbrLivreBonus;
+		}
+		
+
 		
 		
 	    }
