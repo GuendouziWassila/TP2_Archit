@@ -19,22 +19,22 @@ public class UniversiteRepository implements InterfaceUniversiteRepository{
 		 this.AffichageListes = AffichageListes;
 		try {
 			this.connect = DBConnection.getConn();
+			this.stmt = connect.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		this.AffichageListes = AffichageListes;
 	}
 	@Override
 	public InterfaceUniversite GetById(int universityId) throws SQLException {
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
-		Statement stmt = connect.createStatement();
+		AffichageListes.outPut_Msg("LogBD : début recherche de id université dans la base de donnée");
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();	
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		System.out.println("LogBD : université récupérée");
+		AffichageListes.outPut_Msg("LogBD : université récupérée");
 		
 		connect.close();
 		return u;	
