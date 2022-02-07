@@ -10,3 +10,20 @@ LogBD : début recherche de id université dans la base de donnée Le : 06.02.2022 
 LogBD : université récupérée Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
 Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
 logBD--- :etudiant avec ce matricule existe déja dans la BD  2 Le : 06.02.2022 Heure :  15:25:24 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 07.02.2022 Heure :  10:11:41 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 07.02.2022 Heure :  10:11:41 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 07.02.2022 Heure :  10:11:41 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 07.02.2022 Heure :  10:13:02 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 07.02.2022 Heure :  10:13:02 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 2 Le : 07.02.2022 Heure :  10:13:02 depuis la  classe :MessComposite
+logBD--- :etudiant avec ce matricule existe déja dans la BD  2 Le : 07.02.2022 Heure :  10:13:02 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 3 Le : 07.02.2022 Heure :  10:29:43 depuis la  classe :MessComposite
+logBD----: etudiant avec ce matricule n'existe pas 3 Le : 07.02.2022 Heure :  10:29:43 depuis la  classe :MessComposite
+logBD--- :email existe dans la BD  guen@gmail.com Le : 07.02.2022 Heure :  10:29:43 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 3 Le : 07.02.2022 Heure :  10:29:58 depuis la  classe :MessComposite
+logBD----: etudiant avec ce matricule n'existe pas 3 Le : 07.02.2022 Heure :  10:29:58 depuis la  classe :MessComposite
+logBD--- : email n'existe pas guen3@gmail.com Le : 07.02.2022 Heure :  10:29:58 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 07.02.2022 Heure :  10:29:58 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 07.02.2022 Heure :  10:29:58 depuis la  classe :MessComposite
+log : ajout dans la BD réussi de l'étudiant  du Matricule3 Le : 07.02.2022 Heure :  10:29:59 depuis la  classe :MessComposite
+Log: Fin de l'opération d'ajout de l'étudiant avec matricule 3 Le : 07.02.2022 Heure :  10:29:59 depuis la  classe :MessComposite

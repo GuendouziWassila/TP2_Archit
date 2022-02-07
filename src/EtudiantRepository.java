@@ -78,4 +78,10 @@ public class EtudiantRepository implements InterfaceEtudeRep{
 		return false;
 	}
 
+	@Override
+	public boolean VerifEmailMat(InterfaceEtudiant stud) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		return this.Exists(stud.getMatricule()) || this.Exists(stud.getEmail()) || stud.getEmail().length() == 0 || stud.getEmail() == null; 
+	}
+
 }

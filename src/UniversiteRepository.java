@@ -37,6 +37,21 @@ public class UniversiteRepository implements InterfaceUnivRep {
 		return u;	
 	
 		
+	}
+
+	@Override
+	public int NbrLivreAutorise(int univId) throws SQLException, IOException {
+		// TODO Auto-generated method stub
+		Universite univ= GetById(univId);
+		if (univ.getPack() == TypePackage.Standard)
+	     {
+	          return 10;
+	     }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 return 20;
+	     } 
+		return 0;
 	}	
 	
 }
