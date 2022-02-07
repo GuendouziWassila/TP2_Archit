@@ -88,6 +88,9 @@ public class EtudiantRepository implements InterfEtudiantRep {
 		return Exists(etud.getMatricule())|| Exists(etud.getEmail()) || etud.getEmail()== null || etud.getEmail().length() == 0;
 	}
 
+	
+	}
+
 
 
 

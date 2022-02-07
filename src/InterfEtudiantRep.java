@@ -7,6 +7,7 @@ public interface InterfEtudiantRep {
 	public boolean Exists(String email) throws SQLException, IOException;
 	public boolean Exists(int mat) throws SQLException, IOException;
 	public boolean CheckEmailMatricule(InterfEtudiant etud) throws SQLException, IOException;
+	
 
 	
 	

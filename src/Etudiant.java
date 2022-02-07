@@ -108,6 +108,16 @@ public class Etudiant implements InterfEtudiant{
 			// TODO Auto-generated method stub
 			return matricule;
 		}
+
+
+
+
+		@Override
+		public void AddBonnus(int NbrLivreBonus) {
+			// TODO Auto-generated method stub
+			nbLivreMensuel_Autorise+=NbrLivreBonus;
+			
+		}
 		
 
 

@@ -31,12 +31,21 @@ public class EtudiantService {
 	    //le nombre de livres autoriser est calculer danns la classe UniversiteRepository sans ajouter les conditions dans cette classe 
 		int nbrLivre=UnivRep.NbrLivreAutoriser(etud.getId_universite());
 		etud.setNbLivreMensuel_Autorise(nbrLivre);
+		AjoutBonus(etud);
 		StudRep.add(etud);
 		//System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+etud.getMatricule());
 		ij.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+etud.getMatricule());
 		 
 		return true;
 	    
+		
+	}
+	
+	public void AjoutBonus(InterfEtudiant etud) throws SQLException, IOException {
+		// AjouterNbrBonus retourne le nombre livres bonus  
+		etud.AddBonnus(UnivRep.GetNbrBonus(etud.getId_universite()));
+		
+		
 		
 	}
 	
