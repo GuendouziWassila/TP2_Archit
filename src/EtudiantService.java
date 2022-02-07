@@ -45,6 +45,16 @@ public class EtudiantService implements IEtudiantService {
 
 	}
 
+	public void giveBonus(IEtudiant Stud) throws SQLException {
+		Universite univ = UnivRep.GetById(Stud.getId_universite());
+
+		if (univ.getPack() == TypePackage.Standard) {
+			Stud.setBonus(5);
+		} else if (univ.getPack() == TypePackage.Premium) {
+			Stud.setBonus(10);
+		}
+	}
+
 
 	public ArrayList<Etudiant> GetEtudiantParUniversitye() {
 		//...

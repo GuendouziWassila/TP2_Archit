@@ -31,4 +31,6 @@ public interface IEtudiant {
      String getPwd();
 
      void setPwd(String pwd);
+
+     void setBonus(int bonus);
 }
