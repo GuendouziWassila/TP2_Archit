@@ -17,8 +17,8 @@ public class MainApp {
 	    InterfaceUnivRep UnivRep= new UniversiteRepository(db,a);
 	    InterfaceEtudiant stud = new Etudiant(4, "Guendouziiiii", "wassila", "guen4@gmail.com","xxxx", 2);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,a);
-			serv.inscription(stud);
-
+		serv.inscription(stud);
+		
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
