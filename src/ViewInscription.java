@@ -103,6 +103,9 @@ public class ViewInscription extends JFrame {
 	void addAnlListener(ActionListener listenerForAnnuler) {
 		boutoun1.addActionListener(listenerForAnnuler);
 	}
+	void displayMessage(String Message) {
+		JOptionPane.showMessageDialog(this, Message);
+	}
 	
 	void displayErrorMessage(String Error) {
 		JOptionPane.showMessageDialog(this, Error,"Error",0);

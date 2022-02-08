@@ -29,7 +29,13 @@ public class ControleurInscription {
 					Etudiant = new Etudiant(matricule,nom,prenom,email,password,ID_Univ);
 					
 					try {
-						EService.inscription(Etudiant);
+						if(EService.inscription(Etudiant)) {
+							theView.displayMessage("Etudiant ajouté avec succés !");
+							theView.Rénistialisation();
+						}else {
+							theView.displayErrorMessage("Il y a un problème Matricule ou Email existe déja !");
+						}
+						
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
