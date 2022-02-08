@@ -8,5 +8,7 @@ public interface I_EtudiantRepository  {
     abstract boolean Exists(int matricule) throws SQLException;
 	 
     abstract boolean Exists(String email) throws SQLException;
+    
+    abstract boolean Verification (int matricule, String email) throws SQLException;
 	
 }
