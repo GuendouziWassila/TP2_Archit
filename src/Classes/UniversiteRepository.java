@@ -1,13 +1,13 @@
 package Classes;
-import Interfaces.IJournal;
-import Interfaces.InterfaceUniversite;
-import Interfaces.InterfaceUniversiteRepository;
-import Interfaces.TypePackage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Interfaces.IJournal;
+import Interfaces.InterfaceUniversite;
+import Interfaces.InterfaceUniversiteRepository;
+import Interfaces.TypePackage;
 
 public class UniversiteRepository implements InterfaceUniversiteRepository{
 
