@@ -7,6 +7,7 @@ import Classes.EtudiantRepository;
 import Classes.EtudiantService;
 import Classes.Universite;
 import Classes.UniversiteRepository;
+import Classes.ViewInscription;
 import Interfaces.IJournal;
 import Interfaces.InterfaceEtudiantRepository;
 import Interfaces.InterfaceEtudiantService;
@@ -35,7 +36,7 @@ public class Main {
         Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com", "xxxx", 1);
         InterfaceUniversite universite = new Universite(2,"Benyoucef Ben Khedda", TypePackage.Standard);
 
-        EtudiantRepository.ViewInscription V = new EtudiantRepository.ViewInscription(etudiantRepository);
+        ViewInscription V = new ViewInscription(etudiantRepository);
         try {
             serv.inscription(etudiant,universite, etudiantRepository);
         } catch (SQLException e) {
