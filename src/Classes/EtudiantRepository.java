@@ -39,7 +39,7 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 		String sql = "select * from etudiant where email='"+ email+"'";
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()){
-			System.out.println("logBD--- :email existe dans la BD  " + email);
+			AffichageListes.outPut_Msg("logBD--- :email existe dans la BD  " + email);
 			this.Connect.close();
 			return true;
 			}
@@ -53,11 +53,11 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 		String sql = "select * from etudiant where matricule="+ mat;
 		ResultSet rs = stmt.executeQuery(sql);
 		if (rs.next()){
-			System.out.println("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);
+			AffichageListes.outPut_Msg("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);
 			this.Connect.close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		AffichageListes.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		this.Connect.close();
 		return false;
 	}
