@@ -8,7 +8,7 @@ import Interfaces.InterfaceDBConnection;
 
 public class DBConnection implements InterfaceDBConnection {
 	   
-		static String BDD = "database_tp2";
+		static String BDD = "library_books";
 		static String url = "jdbc:mysql://localhost:3306/" + BDD;
 		static String user = "root";
 		static String passwd = "";
