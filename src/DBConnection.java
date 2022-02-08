@@ -20,7 +20,7 @@ public class DBConnection {
 			return conn;
 		}
 
-
+/* ici un commentaire */
 		
 	
 }
