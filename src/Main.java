@@ -21,7 +21,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
         AffichageComposite AffichageListes = new AffichageComposite();
-        IJournal AffichageEcran = new AffichageEcran("Message");
+        IJournal AffichageEcran = new AffichageEcran();
         IJournal AffichageDate = new AffichageDate();
         IJournal AffichageFile = new AffichageFile();
 

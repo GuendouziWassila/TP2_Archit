@@ -3,6 +3,7 @@ package Classes;
 import Interfaces.Package;
 
 public class Illimité implements Package {
+  
     @Override
     public void setBonus(int bonus) {
         // TODO Auto-generated method stub
