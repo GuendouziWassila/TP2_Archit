@@ -5,11 +5,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
 	
+	private IEtudRepo StudRep;
+	private IUnivRepo UnivRep;
+	
+	public EtudiantService(IEtudRepo StudRep, IUnivRepo UnivRep) {
+		this.StudRep = StudRep;
+		this.UnivRep = UnivRep;
+	}
 	
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
+		
 	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
 	    
