@@ -12,7 +12,7 @@ public class EtudiantRepository implements InterfaceEtudiantReposit {
 	
 		
 @Override
-public void add(Etudiant E){
+public void add(InterfaceEtudiant E){
 	try {
 	 
 		stmt = BDD.getConn().createStatement();
