@@ -56,7 +56,7 @@ public class Main {
             for(Etudiant etudiant:listEtudiants){
                 for(Universite universite:listUniversite){
                     if(etudiant.getId_universite() == universite.getI_univ()){
-                        serv.inscription(etudiant,universite, etudiantRepository);
+                        serv.inscription(etudiant,universite, etudiantRepository, universiteRepository);
                      }
                 }
             }  

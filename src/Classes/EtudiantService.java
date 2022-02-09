@@ -27,7 +27,7 @@ public class EtudiantService implements InterfaceEtudiantService {
 		this.AffichageListes = AffichageListes;
    }
 	@Override
-	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {
+	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository, InterfaceUniversiteRepository universiteRepository) throws SQLException {
 		AffichageDate.setClassName("classname : EtudiantService");
 		AffichageListes.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + etudiant.getMatricule());
 		if (etudiantRepository.StudentVerification(etudiant)) {
