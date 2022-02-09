@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements InterfaceEtudiant{
 
 		private int matricule;
 	    private String nom;
@@ -9,7 +9,7 @@ public class Etudiant {
 	    private int nbLivreMensuel_Autorise;
 	    private int nbLivreEmprunte;
 	    private int id_universite;
-	    
+	    //ceci est un commentaire N
 	   
 		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
 			
@@ -101,6 +101,19 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		// methode du bonus de forfait
+		public void beneficierBonus(Universite univ){
+			//verifier le type du forfait de l'universite
+			TypePackage typeForfaitUniv = univ.getPack()
+
+			//augmenter le nombre de livre autoriste selon le forfait de l'universite
+			if(typeForfaitUniv == TypePackage.Standard){
+				setNbLivreMensuel_Autorise(this.nbLivreMensuel_Autorise + 5)
+			}
+
+			if(typeForfaitUniv == TypePackage.Premium){
+				setNbLivreMensuel_Autorise(this.nbLivreMensuel_Autorise + 10)
+			}
+		}
 		
 	    }

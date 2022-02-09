@@ -1,0 +1,3 @@
+Afin de réaliser ça on ajoute une classe abstraite "AbstractViewInscription"
+qui va ètre héritée par la classe "ViewInscription" et injecter la dépendence 
+dans la classe "ControleurInscription"
