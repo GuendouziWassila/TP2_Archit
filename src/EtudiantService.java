@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService  {
 	
+	verif_Pack pack;
 	String cla="la classe est EtudiantService";
 	
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
@@ -32,18 +33,9 @@ public class EtudiantService  {
 	        return false;
 	    }
 		
-		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
+	     pack.verif(univ, stud);
 		 StudRep.add(stud);
+		 
 		 //System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 App_composite.setMessage("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule+", " +cla);
 		 return true;
