@@ -6,7 +6,11 @@ public class MainApp {
 		// TODO Auto-generated method stub
 
 
-		EtudiantService serv=new EtudiantService();
+        InterfaceEtudiantRepository StudRep = new EtudiantRepository();
+        InterfaceUniversiteRepository UnivRep= new UniversiteRepository();
+
+       
+		EtudiantService serv=new EtudiantService(StudRep, UnivRep);
 		try {
 			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 			
@@ -17,3 +21,4 @@ public class MainApp {
 	}
 
 }
+
