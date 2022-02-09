@@ -1,10 +1,16 @@
-
-public abstract class ForfaitLimite extends Etudiant{
+public class ForfaitLimite  {
 
 	public ForfaitLimite(int matricule, String nom, String prenom, String email, String pwd, int id_universite) {
-		super(matricule, nom, prenom, email, pwd, id_universite);
+		super();
 	}
 	
-	public abstract void Add_Nbr_Books ();
+	public void Add_Nbr_Books () {
+	}
+
+	public void nbr_book_authorized() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }
