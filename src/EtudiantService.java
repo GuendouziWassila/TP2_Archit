@@ -9,16 +9,17 @@ public class EtudiantService implements IEtudiantService {
 	private IUniversiteRepository UnivRep;
 	private IEtudiant stud;
 	private IJournal composite;
+	private IAbstractFactory packageFactory;
 
-	public EtudiantService(IEtudiantRepository StudRep, IUniversiteRepository UnivRep, IEtudiant stud, IJournal composite) {
+	public EtudiantService(IEtudiantRepository StudRep, IUniversiteRepository UnivRep, IJournal composite, IAbstractFactory packageFactory) {
 		this.StudRep = StudRep;
 		this.UnivRep = UnivRep;
-		this.stud = stud;
 		this.composite = composite;
+		this.packageFactory = packageFactory;
 	}
 
 
-	public boolean inscription() throws SQLException {
+	public boolean inscription(IEtudiant stud) throws SQLException {
 		//EtudiantRepository StudRep= new EtudiantRepository();
 		//UniversiteRepository UnivRep= new UniversiteRepository();
 		//Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
@@ -46,13 +47,10 @@ public class EtudiantService implements IEtudiantService {
 	}
 
 	public void giveBonus(IEtudiant Stud) throws SQLException {
-		Universite univ = UnivRep.GetById(Stud.getId_universite());
+		IUniversite univ = UnivRep.GetById(Stud.getId_universite());
 
-		if (univ.getPack() == TypePackage.Standard) {
-			Stud.setBonus(5);
-		} else if (univ.getPack() == TypePackage.Premium) {
-			Stud.setBonus(10);
-		}
+		IPackage packageType = packageFactory.getPackage(univ);
+		Stud.setBonus(packageType.getNbrLivreBonus());
 	}
 
 

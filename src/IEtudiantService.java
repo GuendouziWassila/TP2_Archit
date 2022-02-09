@@ -3,9 +3,11 @@ import java.util.ArrayList;
 
 public interface IEtudiantService {
 
-    boolean inscription () throws SQLException;
+    boolean inscription (IEtudiant stud) throws SQLException;
 
     ArrayList<Etudiant> GetEtudiantParUniversitye();
 
     ArrayList<Etudiant> GetEtudiatparLivreEmprunte();
+
+    void giveBonus(IEtudiant Stud) throws SQLException;
 }

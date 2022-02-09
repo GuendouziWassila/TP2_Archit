@@ -19,12 +19,15 @@ public class MainApp {
 
 		IEtudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1);
 
+		IAbstractFactory packageFactory = new PackageFactory();
+
 		IUniversiteRepository univ = new UniversiteRepository(conn, composite);
 		IEtudiantRepository etud = new EtudiantRepository(conn, composite);
 
-		EtudiantService serv=new EtudiantService(etud, univ, etudiant, composite);
+
+		EtudiantService serv=new EtudiantService(etud, univ, composite, packageFactory);
 		try {
-			serv.inscription();
+			serv.inscription(etudiant);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

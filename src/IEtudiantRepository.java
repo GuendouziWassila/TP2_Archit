@@ -10,5 +10,5 @@ public interface IEtudiantRepository {
 
     boolean Exists(int mat) throws SQLException;
 
-    public boolean checkEmailAndMatricule(IEtudiant stud) throws SQLException;
+    boolean checkEmailAndMatricule(IEtudiant stud) throws SQLException;
 }
