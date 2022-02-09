@@ -31,8 +31,8 @@ public class EtudiantService implements InterEtudServ{
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
 	}
-		
-		public void augment_nbr_livres_tousEtud(TypePackage pac) throws SQLException
+
+	public void augment_nbr_livres_tousEtud(TypePackage pac) throws SQLException
 	{
 		 ArrayList<Etudiant> etudiants = GetEtudiatparLivreEmprunte();
 		 for (Etudiant E : etudiants) 
