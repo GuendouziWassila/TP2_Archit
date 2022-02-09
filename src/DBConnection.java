@@ -9,6 +9,7 @@ public class DBConnection {
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
+	    private static DBConnection instance;
 
 	   
 	    public DBConnection() throws SQLException {
@@ -18,6 +19,14 @@ public class DBConnection {
 	    
 	    public Connection getConn() {
 			return conn;
+		}
+            public static DBConnection getInst() throws SQLException {
+	    	if (instance == null)
+	    	{ 
+	    		instance = new DBConnection ();
+	    		conn = instance.getConn();
+	    	}
+			return instance;
 		}
 
 
