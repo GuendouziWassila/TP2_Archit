@@ -4,19 +4,27 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	   
-		String BDD = "nomBD";
+		String BDD = "library_ebooks";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
-	    private Connection conn;
+	    private static Connection conn;
 
 	   
-	    public DBConnection() throws SQLException {
-			conn=DriverManager.getConnection(url, user,passwd);
+	    private DBConnection() throws SQLException  {
 		}
 
 	    
-	    public Connection getConn() {
+	    public static synchronized Connection getConn() throws SQLException {
+			if(conn == null)
+				try{
+					Class.forName("com.mysql.jdbc.Driver");
+					conn = DriverManager.getConnection(url,user, passwd);
+				}catch(Exception ex){
+					System.out.println(ex.getMessage());
+					System.out.println("couldn't connect!");
+					throw new RuntimeException(ex);
+				}
 			return conn;
 		}
 
