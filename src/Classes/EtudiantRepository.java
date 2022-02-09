@@ -63,4 +63,21 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 		this.Connect.close();
 		return false;
 	}
+
+	@Override
+	public boolean StudentVerification(InterfaceEtudiant E) throws SQLException {
+		// TODO Auto-generated method stub
+		if(E.getEmail() != null || E.getEmail().length() != 0 ){
+            if(!this.Exists(E.getEmail())){
+                if(!this.Exists(E.getMatricule())){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }      
+		return false;
+	}
 }

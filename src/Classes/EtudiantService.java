@@ -30,9 +30,8 @@ public class EtudiantService implements InterfaceEtudiantService {
 	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {
 		AffichageDate.setClassName("classname : EtudiantService");
 		AffichageListes.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + etudiant.getMatricule());
-		Registration R = new Registration();
-		if (R.StudentVerification(etudiant, etudiantRepository)) {
-			R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+		if (etudiantRepository.StudentVerification(etudiant)) {
+			universiteRepository.setNbLivreMensuelAutorise(etudiant, universite.getPack());
 			etudiantRepository.add(etudiant);
 			AffichageDate.setClassName("classname : EtudiantService");
 			AffichageListes.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule " + etudiant.getMatricule());
