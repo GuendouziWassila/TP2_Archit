@@ -10,11 +10,6 @@ import javax.swing.JTextField;
 
 public class ViewInscription extends JFrame implements ActionListener {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public ViewInscription ()
 	{
 		 JFrame f =new JFrame ();
