@@ -24,7 +24,8 @@ public class EtudiantService  {
 	    }
 	    
 	    if (StudRep.Exists(matricule))
-	    {
+	    
+	    {   
 	        return false;
 	    }
 	    
@@ -34,6 +35,8 @@ public class EtudiantService  {
 	    }
 		
 	     pack.verif(univ, stud);
+	   
+	     stud.ajout_bonus(stud);
 		 StudRep.add(stud);
 		 
 		 //System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);

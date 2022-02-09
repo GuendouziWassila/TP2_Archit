@@ -100,7 +100,16 @@ public class Etudiant {
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
-
-		
+///////////////////// ajout de bonus////////////////////
+		public void ajout_bonus(Etudiant E) {
+			if ( E.getNbLivreEmprunte()==10)
+		    {
+		         E.setNbLivreMensuel_Autorise(15);
+		    }
+		    else if (E.getNbLivreEmprunte() == 20)
+		    {
+		   	 E.setNbLivreMensuel_Autorise(30);
+		    }
+		}
 		
 	    }
