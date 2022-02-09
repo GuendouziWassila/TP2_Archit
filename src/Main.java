@@ -13,11 +13,8 @@ import Classes.ViewInscription;
 import Interfaces.IJournal;
 import Interfaces.InterfaceEtudiantRepository;
 import Interfaces.InterfaceEtudiantService;
-import Interfaces.InterfaceUniversite;
 import Interfaces.InterfaceUniversiteRepository;
 import Interfaces.TypePackage;
-
-import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +51,7 @@ public class Main {
         listUniversite.add(new Universite(1,"USTHB", TypePackage.Premium));
         listUniversite.add(new Universite(2,"Benyoucef Ben Khedda", TypePackage.Standard));
         ViewInscription V = new ViewInscription(etudiantRepository);
+
         try {
             for(Etudiant etudiant:listEtudiants){
                 for(Universite universite:listUniversite){

@@ -113,7 +113,7 @@ public class ViewInscription extends AbstractViewInscription {
     }
 
     public ViewInscription(InterfaceEtudiantRepository ER){
-        // this.InitialiserInscription();
+        this.InitialiserInscription();
         this.Inscription();
         this.frame.setVisible(true);
         this.ButtonSubmite.addActionListener(new ActionListener() {
