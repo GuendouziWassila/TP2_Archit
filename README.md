@@ -1,7 +1,9 @@
 # TP2_Archit
 
-Objectif. Apprendre à appliquer les principes SOLID et les patrons de conception afin d’améliorer la cohésion et le couplage.
-Enoncé. Le système étudié dans ce tp est le système d’une bibliothèque numérique qui fournit des livres électroniques (e-book). Plusieurs universités mets ce système à la disposition de leurs étudiants. L’utilisateur (l’étudiant) peut se connecter au système en utilisant les paramètres donnés par l’université et télécharger des livres.
+##Objectif:
+Apprendre à appliquer les principes SOLID et les patrons de conception afin d’améliorer la cohésion et le couplage.
+##Enoncé:
+Le système étudié dans ce tp est le système d’une bibliothèque numérique qui fournit des livres électroniques (e-book). Plusieurs universités mets ce système à la disposition de leurs étudiants. L’utilisateur (l’étudiant) peut se connecter au système en utilisant les paramètres donnés par l’université et télécharger des livres.
 De plus, le nombre des livres que l’étudiant peut télécharger est limité à un nombre fixe chaque mois (c’est le nombre de livre mensuel autorisés). Cela dépend du forfait (packageType) acheté par l'université à laquelle appartient l'étudiant qui peut être : limité standard, limité premium ou illimité. Il est à noter que d’autre types de forfait peuvent s’ajouter au système selon le besoin.
 Au début (à l’inscription de l’étudiant), le nombre de livre mensuel autorisé est égale à 10 quand le forfait est standard, à 20 quand le forfait est premium et à zéro quand le forfait est illimité. De plus, l’étudiant avec un forfait limité peut bénéficier d’un bonus qui augmentera le nombre de livres mensuel autorisé. L’augmentation dépend du forfait de l’université, on augmente par 5 quand le forfait est Standard et par 10 quand il est premium.
 Utilisez le Git
