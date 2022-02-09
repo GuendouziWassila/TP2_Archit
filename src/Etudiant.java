@@ -101,6 +101,19 @@ public class Etudiant implements InterfaceEtudiant{
 			this.pwd = pwd;
 		}
 
-		
+		// methode du bonus de forfait
+		public void beneficierBonus(Universite univ){
+			//verifier le type du forfait de l'universite
+			TypePackage typeForfaitUniv = univ.getPack()
+
+			//augmenter le nombre de livre autoriste selon le forfait de l'universite
+			if(typeForfaitUniv == TypePackage.Standard){
+				setNbLivreMensuel_Autorise(this.nbLivreMensuel_Autorise + 5)
+			}
+
+			if(typeForfaitUniv == TypePackage.Premium){
+				setNbLivreMensuel_Autorise(this.nbLivreMensuel_Autorise + 10)
+			}
+		}
 		
 	    }

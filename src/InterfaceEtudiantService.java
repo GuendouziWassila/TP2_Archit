@@ -10,5 +10,5 @@ public interface InterfaceEtudiantService {
 
 	public  void ajouterbonus(InterfaceEtudiant Et);
 
-
+	public void ajouterBonus(InterfaceEtudiant etudiant);
 }

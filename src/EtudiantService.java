@@ -54,7 +54,12 @@ public class EtudiantService implements InterfaceEtudiantService{
 		
 	}
 	
-	
+	//implementation de la methode qui ajoute le bonus aux etudiant selon l universite (forfait de luniversite)
+	public void ajouterBonus(InterfaceEtudiant etudiant){
+		Universite univ = UnivRep.GetById(Et.getId_universite());
+
+		etudiant.beneficierBonus(univ);
+	}
 	
 
 public ArrayList<Etudiant> GetEtudiantParUniversitye()

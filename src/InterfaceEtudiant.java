@@ -35,4 +35,6 @@ public int getMatricule();
 	public void setPwd(String pwd);
 	
 	public void bonus(int nb );
+
+	public void beneficierBonus(Universite univ);
 }
