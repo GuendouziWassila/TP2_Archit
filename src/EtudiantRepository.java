@@ -13,7 +13,7 @@ public class EtudiantRepository implements IEtudRepo {
 		}
 	
 	@Override
-	public void add(Etudiant E) throws SQLException
+	public void add(IEtudiant E) throws SQLException
 	{
 
 		Connection connect=DBConnection.getConn();
