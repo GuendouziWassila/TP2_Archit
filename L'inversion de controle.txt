@@ -1,0 +1,3 @@
+L’inversion de contrôle : permettre au développeur de s’occuper uniquement du code métier
+(exigence fonctionnelles) et c’est des Framework qui s’occupe du code technique (exigence 
+technique).
