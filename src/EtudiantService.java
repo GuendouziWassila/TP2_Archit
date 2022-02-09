@@ -16,7 +16,7 @@ public class EtudiantService {
 	}
 	
 	//Puisque la class Etudiant contient des methodes permettant divers manipulation, ce serait du gachis de ne pas les utiliser.
-	boolean inscription (IEtudiant Stud) throws SQLException	
+	boolean inscription (IEtudiant Stud) throws SQLException
 	{
 		
 	    AfficheDateClass.setSender("EtudiantService");
