@@ -1,12 +1,9 @@
 package Classes;
 import java.sql.SQLException;
-
 import Interfaces.InterfaceEtudiantRepository;
 import Interfaces.TypePackage;
 
-
 public class Registration {
-
     public Registration(){}
     public boolean StudentVerification(Etudiant E, InterfaceEtudiantRepository ER) throws SQLException{
         if(E.getEmail() != null || E.getEmail().length() != 0 ){

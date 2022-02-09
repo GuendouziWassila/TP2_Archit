@@ -2,7 +2,6 @@ package Classes;
 import Interfaces.InterfaceEtudiant;
 
 public class Etudiant implements InterfaceEtudiant {
-
 		private int matricule;
 	    private String nom;
 	    private String prenom;
@@ -11,10 +10,7 @@ public class Etudiant implements InterfaceEtudiant {
 	    private int nbLivreMensuel_Autorise;
 	    private int nbLivreEmprunte;
 	    private int id_universite;
-	    
-	   
-		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
-			
+	    public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
 			this.matricule = matricule;
 			this.nom = nom;
 			this.prenom = prenom;
@@ -22,82 +18,66 @@ public class Etudiant implements InterfaceEtudiant {
 			this.pwd = pwd;
 			this.id_universite = id_universite;
 		}
-
-		@Override
+        @Override
 		public int getMatricule() {
 			return matricule;
 		}
-
-		@Override
+        @Override
 		public void setMatricule(int matricule) {
 			this.matricule = matricule;
 		}
-
-		@Override
+        @Override
 		public String getNom() {
 			return nom;
 		}
-
-		@Override
+        @Override
 		public void setNom(String nom) {
 			this.nom = nom;
 		}
-
-		@Override
+        @Override
 		public String getPrenom() {
 			return prenom;
 		}
-
-		@Override
+        @Override
 		public void setPrenom(String prenom) {
 			this.prenom = prenom;
 		}
-
-		@Override
+        @Override
 		public String getEmail() {
 			return email;
 		}
-
-		@Override
+        @Override
 		public void setEmail(String email) {
 			this.email = email;
 		}
-
-		@Override
+        @Override
 		public int getNbLivreMensuel_Autorise() {
 			return nbLivreMensuel_Autorise;
 		}
-
 		@Override
 		public void setNbLivreMensuel_Autorise(int nbLivreMensuel_Autorise) {
 			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise;
 		}
-
 		@Override
 		public int getNbLivreEmprunte() {
 			return nbLivreEmprunte;
 		}
-
 		@Override
 		public void setNbLivreEmprunte(int nbLivreEmprunte) {
 			this.nbLivreEmprunte = nbLivreEmprunte;
 		}
-
 		@Override
 		public int getId_universite() {
 			return id_universite;
 		}
-
 		@Override
 		public void setId_universite(int id_universite) {
 			this.id_universite = id_universite;
 		}
-
 		@Override
 		public String getPwd() {
 			return pwd;
 		}
-
 		@Override
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
@@ -105,7 +85,5 @@ public class Etudiant implements InterfaceEtudiant {
 		@Override
 		public void bonus(int bonus){
 			nbLivreMensuel_Autorise+=bonus; 
-		}
-		
-		
-	    }
+		}		
+}

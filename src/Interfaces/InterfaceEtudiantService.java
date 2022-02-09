@@ -1,5 +1,4 @@
 package Interfaces;
-
 import Classes.Etudiant;
 import java.sql.SQLException;
 import java.util.ArrayList;

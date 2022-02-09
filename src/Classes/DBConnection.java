@@ -13,7 +13,6 @@ public class DBConnection implements InterfaceDBConnection {
 		static String user = "root";
 		static String passwd = "";
 	    private static Connection conn;
-		// private static DBConnection db;
 	    private DBConnection() throws SQLException  {
 		}
 		public static synchronized Connection getConn() throws SQLException {
@@ -29,10 +28,4 @@ public class DBConnection implements InterfaceDBConnection {
 			return conn;
 		}
 
-
-	    
-
-
-
-	
 }

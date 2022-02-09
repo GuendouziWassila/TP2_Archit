@@ -123,7 +123,7 @@ public class ViewInscription extends AbstractViewInscription {
                 ControleurInscription C = new ControleurInscription(ViewInscription.this);
                 Boolean Control = C.getStatus();
                 if(Control){
-                    System.out.println("Succes ! ");
+                    System.out.println("ControleurInscription : Succes ! ");
                     InterfaceEtudiant E = new Etudiant(Integer.parseInt(MatriculeText.getText()), LastNameText.getText(), FirstNameText.getText(),EmailText.getText(), PasswordText.getText(), Integer.parseInt(UniversiteText.getText()));
                     try {
                         ER.add(E);

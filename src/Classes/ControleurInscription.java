@@ -1,15 +1,11 @@
 package Classes;
 import javax.swing.*;
-
-import Abstracts.AbstractViewInscription;
 public class ControleurInscription {
     public void ShowErreur(String msg) {
         JOptionPane.showMessageDialog(new JFrame(), msg, "Erreur", 0);
     }
-    private AbstractViewInscription View;
     private Boolean status;
     public  ControleurInscription(ViewInscription View){
-        this.View = View;
         if (View.getMatriculeText().isEmpty() || View.getLastNameText().isEmpty() || View.getFirstNameText().isEmpty() || View.getEmailTex().isEmpty() || View.getPasswordText().isEmpty() || View.getUniversiteText().isEmpty()) {
             this.ShowErreur("veuillez remplir tous les champs");
             setStatus(false);
@@ -25,7 +21,6 @@ public class ControleurInscription {
         setStatus(true);
     }
     public boolean getStatus(){return this.status;}
-
     public void setStatus(Boolean status) {
         this.status = status;
     }

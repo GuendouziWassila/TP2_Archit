@@ -6,39 +6,35 @@ import Interfaces.InterfaceEtudiantService;
 import Interfaces.InterfaceUniversite;
 import Interfaces.InterfaceUniversiteRepository;
 import Interfaces.Package;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Abstracts.AbsractFactory;
 
 public class EtudiantService implements InterfaceEtudiantService {
-	
-	private InterfaceEtudiantRepository EtudRep;
-    private InterfaceUniversiteRepository UnivRep;
+	private InterfaceEtudiantRepository etudiantRepository;
+    private InterfaceUniversiteRepository universiteRepository;
 	private IJournal AffichageListes;
-	public void AjouerBonusEtudiant(Etudiant E, InterfaceUniversiteRepository UR) throws SQLException{
-		
-		InterfaceUniversite universite = UR.GetById(E.getId_universite());
+	public void AjouerBonusEtudiant(Etudiant etudiant, InterfaceUniversiteRepository universiteRepository) throws SQLException{	
+		InterfaceUniversite universite = universiteRepository.GetById(etudiant.getId_universite());
 		AbsractFactory AB = new AbsractFactory();
 		Package P = AB.getPackage(universite.getPack());
-		E.bonus(P.getBonus());
-	}
-	
-   public EtudiantService(InterfaceEtudiantRepository EtudRep , InterfaceUniversiteRepository UnivRep, IJournal AffichageListes) {
+		etudiant.bonus(P.getBonus());
+	}	
+   public EtudiantService(InterfaceEtudiantRepository etudiantRepository , InterfaceUniversiteRepository universiteRepository, IJournal AffichageListes) {
 		super();
-		this.EtudRep = EtudRep;
-		this.UnivRep = UnivRep;
+		this.etudiantRepository = etudiantRepository;
+		this.universiteRepository = universiteRepository;
 		this.AffichageListes = AffichageListes;
    }
 	@Override
 	public boolean inscription(Etudiant etudiant, InterfaceUniversite universite, InterfaceEtudiantRepository etudiantRepository) throws SQLException {
-		AffichageDate.setClassName("EtudiantService");
+		AffichageDate.setClassName("classname : EtudiantService");
 		AffichageListes.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + etudiant.getMatricule());
 		Registration R = new Registration();
 		if (R.StudentVerification(etudiant, etudiantRepository)) {
 			R.setNbLivreMensuelAutorise(etudiant, universite.getPack());
 			etudiantRepository.add(etudiant);
+			AffichageDate.setClassName("classname : EtudiantService");
 			AffichageListes.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule " + etudiant.getMatricule());
 			return true;
 		}
@@ -46,13 +42,11 @@ public class EtudiantService implements InterfaceEtudiantService {
 	}
 	@Override
 	public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye(){
-    //...
 	return new ArrayList<>(4);
 	}
 
 	@Override
 	public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte(){
-    //...
 	return new ArrayList<>(4);
 	}
 		

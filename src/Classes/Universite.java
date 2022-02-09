@@ -3,17 +3,15 @@ import Interfaces.InterfaceUniversite;
 import Interfaces.TypePackage;
 
 public class Universite implements InterfaceUniversite {
-
- private int i_univ; //identifiant unique de l'universit�
- private String nom;
- private TypePackage pack;
- 
+ 	private int i_univ;
+ 	private String nom;
+ 	private TypePackage pack;
 	public Universite(int i_univ, String nom, TypePackage pack) {
-	super();
-	this.i_univ = i_univ;
-	this.nom = nom;
-	this.pack = pack;
-}
+		super();
+		this.i_univ = i_univ;
+		this.nom = nom;
+		this.pack = pack;
+	}
 	@Override
 	public int getI_univ() {
 		return i_univ;

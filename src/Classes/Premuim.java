@@ -3,17 +3,13 @@ package Classes;
 import Interfaces.Package;
 
 public class Premuim implements Package {
-    int Bonus;
+    static int bonus;
     @Override
-    public void setBonus(int bonus) {
-        // TODO Auto-generated method stub
-        this.Bonus = bonus;
+    public void setBonus(int B) {
+        bonus = B;
     }
-
     @Override
     public int getBonus() {
-        // TODO Auto-generated method stub
-        return this.Bonus;
+        return bonus;
     }
-
 }
