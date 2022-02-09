@@ -25,6 +25,12 @@ public class EtudiantService {
 	    {
 	    	return false;
 	    }
+
+		// verifier la validitee de l'email (format juste)
+		if(email.matches(".+@.+\\.[a-z]+") != true)
+		{
+			return false;
+		}
 	    
 	    if (StudRep.Exists(matricule))
 	    {
@@ -35,7 +41,6 @@ public class EtudiantService {
 	    {
 	        return false;
 	    }
-		
 		
 		
 		 if (univ.getPack() == TypePackage.Standard)
