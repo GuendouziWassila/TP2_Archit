@@ -4,13 +4,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
+	   private InterfaceEtudiantRepository StudRep;
+	   private InterfaceUniversiteRepository UnivRep;
+	   public EtudiantService(  InterfaceEtudiantRepository StudRep, InterfaceUniversiteRepository UnivRep){
+				this.StudRep  = StudRep;
+				this.UnivRep = UnivRep;
+	    }
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
+		 StudRep= new EtudiantRepository();
+	     UnivRep= new UniversiteRepository();
+	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
 	    
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
@@ -51,13 +56,13 @@ public class EtudiantService {
 	
 	
 
-public ArrayList<Etudiant> GetEtudiantParUniversitye()
+public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye()
 {
     //...
 	return new ArrayList<>(4);
 }
 
-public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
+public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte()
 {
     //...
 	return new ArrayList<>(4);
