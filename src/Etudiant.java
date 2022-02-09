@@ -21,7 +21,7 @@ public class Etudiant {
 			this.id_universite = id_universite;
 		}
 
-   /* commentaire question 5 partie 1*/
+   
 
 		public int getMatricule() {
 			return matricule;
@@ -102,6 +102,6 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		/* commentaire question 5 partie 1*/
 		
 	    }
