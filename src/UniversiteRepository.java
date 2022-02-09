@@ -44,7 +44,7 @@ private IJournal journal;
 
 		if(univ.getPack() == TypePackage.Premium)    nb = 20;	
 		
-		if(univ.getPack() == TypePackage.Unlimited)  nb = 9999999;
+		if(univ.getPack() == TypePackage.Unlimited)  nb = 0;
 		 
 		 return nb;
 	}
