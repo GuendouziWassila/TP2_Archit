@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class UniversiteRepository implements InterfaceUniversiteRepository{
 
 		private Connection Connect;
-		private Ijournal Journal
+		private Ijournal Journal;
 		private Statement stmt;
 		public UniversiteRepository(){
 			try{
@@ -37,5 +37,23 @@ public class UniversiteRepository implements InterfaceUniversiteRepository{
 	
 		
 	}	
+
+	public int NbrLivreAutorise(int id_univ) {
+	// TODO Auto-generated method stub
+	Universite Univ =  GetById(id_univ);
+	
+	if (Univ.getPack() == TypePackage.Standard)
+     {
+		Package pack = new Standard(null);
+        return pack.nbrLivreAutorise;
+     }
+     else if (Univ.getPack() == TypePackage.Premium)
+     {
+    	 Package pack = new Premuim(null);
+    	 return pack.nbrLivreAutorise;
+    	 }     
+	
+	return 0;
+}
 	
 }
