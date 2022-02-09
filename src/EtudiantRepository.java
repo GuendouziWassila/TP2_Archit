@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class EtudiantRepository implements etudiant_interface {
-	
+	String cla="la classe est EtudiantRepository";
 	@Override
 	public void add(Etudiant E) throws SQLException
 	{
@@ -18,9 +18,11 @@ public class EtudiantRepository implements etudiant_interface {
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+				//System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			App_composite.setMessage("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule()+", "+cla);
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				//System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				App_composite.setMessage("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule()+", "+cla);
 			}
 		connect.close();
 	 }
@@ -36,11 +38,13 @@ public class EtudiantRepository implements etudiant_interface {
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			System.out.println("logBD--- :email existe dans la BD  " + email);
+			//System.out.println("logBD--- :email existe dans la BD  " + email);
+			App_composite.setMessage("logBD--- :email existe dans la BD " + email+", "+cla);
 			//connect.close();
 			return true;
 			}
-		System.out.println("logBD--- : email n'existe pas " + email);	
+		//System.out.println("logBD--- : email n'existe pas " + email);	
+		App_composite.setMessage("logBD--- : email n'existe pas " + email+", "+cla);
 		//connect.close();
 		return false;
 	}
@@ -55,11 +59,13 @@ public class EtudiantRepository implements etudiant_interface {
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			//System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			App_composite.setMessage("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat+", "+cla);
 			//connect.close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		//System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		App_composite.setMessage("logBD----: etudiant avec ce matricule n'existe pas " + mat+", "+cla);
 		//connect.close();
 		return false;
 	}
