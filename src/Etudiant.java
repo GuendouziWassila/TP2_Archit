@@ -102,5 +102,5 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		public abstract void augment_nbr_livres();
 	    }

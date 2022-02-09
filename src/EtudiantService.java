@@ -31,6 +31,22 @@ public class EtudiantService implements InterEtudServ{
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
 	}
+		
+		public void augment_nbr_livres_tousEtud(TypePackage pac) throws SQLException
+	{
+		 ArrayList<Etudiant> etudiants = GetEtudiatparLivreEmprunte();
+		 for (Etudiant E : etudiants) 
+		 {
+			 if (pac == TypePackage.Standard)
+		     {
+				 E.setNbLivreMensuel_Autorise(15);
+		     }
+		     else if (pac == TypePackage.Premium)
+		     {
+		    	 E.setNbLivreMensuel_Autorise(15*2);
+		     } 
+		}
+	}
 	
 	
 	
