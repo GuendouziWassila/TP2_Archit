@@ -1,4 +1,5 @@
 import java.sql.SQLException;
+import java.sql.*;
 
 public class MainApp {
 
@@ -8,7 +9,7 @@ public class MainApp {
 
 		EtudiantService serv=new EtudiantService();
 		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+			serv.inscription(2, "yassou", "fifi", "fifiiilyyes0@gmail.com","xxxx", 1);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
