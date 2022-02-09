@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/* La solution proposée est garder les responsabilités dans la methode inscription car ils sont reliés entre eux temporellement"
 
 public class EtudiantService implements IEtdSrv{
 	
