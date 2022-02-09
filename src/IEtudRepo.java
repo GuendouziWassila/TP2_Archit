@@ -9,4 +9,6 @@ public interface IEtudRepo {
 	 
     abstract boolean Exists(String email) throws SQLException;
     
+    abstract public boolean VerifEmailMat(int Mat, String Email) throws SQLException;
+    
 }
