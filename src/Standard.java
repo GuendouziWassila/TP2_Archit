@@ -1,5 +1,5 @@
 
-public class Standard extends ForfaitLimite{
+public class Standard {
 
 	public Standard(int matricule, String nom, String prenom, String email, String pwd, int id_universite) {
 		super(matricule, nom, prenom, email, pwd, id_universite);
