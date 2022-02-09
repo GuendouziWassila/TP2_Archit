@@ -19,6 +19,12 @@ public class EtudiantService implements InterfaceEtudiantService{
 	    {
 	    	return false;
 	    }
+
+		// verifier la validitee de l'email (format juste)
+		if(email.matches(".+@.+\\.[a-z]+") != true)
+		{
+			return false;
+		}
 	    
 	    if (StudRep.Exists(matricule))
 	    {
