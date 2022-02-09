@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements InterfaceEtudiant{
 
 		private int matricule;
 	    private String nom;

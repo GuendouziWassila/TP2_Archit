@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements InterfaceDBConnexion {
 	   
 		String BDD = "library_ebooks";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
@@ -14,6 +14,16 @@ public class DBConnection {
 	    private DBConnection() throws SQLException  {
 		}
 
+		public static DBConnection getInstance(){
+			if(db == null){
+				db = new DBConnection();
+				System.out.println("nouveau");
+			}else{
+				System.out.println("existe deja");
+
+			}
+			return db;
+		}
 	    
 	    public static synchronized Connection getConn() throws SQLException {
 			if(conn == null)
