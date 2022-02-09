@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-public interface InterfaceEtudiantService {
-public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye();
+public interface InterfaceEtudiantService{
+public ArrayList<Etudiant> GetEtudiantParUniversitye();
 	
-	public ArrayList<InterfaceEtudiant> GetEtudiatparLivreEmprunte();
+	public ArrayList<Etudiant> GetEtudiatparLivreEmprunte();
 }
