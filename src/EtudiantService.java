@@ -4,16 +4,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
-       private IEtudiantRepository StudRep;
-	   private IUniversiteRepository UnivRep;
-	   private Ijournal Journal;
-	   public EtudiantService(  IEtudiantRepository StudRep, IUniversiteRepository UnivRep, Ijournal Journal){
+    private IEtudiantRepository StudRep;
+	private IUniversiteRepository UnivRep;
+	private Ijournal Journal;
+	public EtudiantService( IEtudiantRepository StudRep, IUniversiteRepository UnivRep, Ijournal Journal){
 				this.StudRep  = StudRep;
 				this.UnivRep = UnivRep;
 				this.Journal = Journal;
 	}
-	boolean inscription (int matricule, String nom, String pr�nom, String email,String pwd, int id_universite) throws SQLException	
-	{
+	boolean inscription (int matricule, String nom, String pr�nom, String email,String pwd, int id_universite) throws SQLException {
 		EtudiantRepository StudRep= new EtudiantRepository();
 	    UniversiteRepository UnivRep= new UniversiteRepository();
 	    Etudiant stud = new Etudiant(matricule, nom, pr�nom, email,pwd,id_universite);
@@ -59,8 +58,12 @@ public class EtudiantService {
 		
 	}
 	
-	
-	
+	//implementation de la methode qui ajoute le bonus aux etudiant selon l universite (forfait de luniversite)
+	public void ajouterBonus(InterfaceEtudiant etudiant){
+		Universite univ = UnivRep.GetById(Et.getId_universite());
+
+		etudiant.beneficierBonus(univ);
+	}
 
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
 {

@@ -31,4 +31,5 @@ public interface IEtudiant {
 
     public void setPwd(String pwd);
 
+    public void beneficierBonus(Universite univ);
 }
