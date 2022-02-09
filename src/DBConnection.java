@@ -19,6 +19,9 @@ public class DBConnection {
 	    	if (instance == null) {
 	    		instance= new DBConnection();
 	    	}
+	    	else if (instance.getConn().isClosed()) {
+	            instance = new DBConnection();
+	        }
 	    	
 			return instance;
 	    }
