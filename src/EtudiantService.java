@@ -45,5 +45,5 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 }
 
 
-	
+/* la solution proposée est de garder les responsabilités dans la méthode inscription car ils sont reliés entre eux temporellement */ 	
 }
