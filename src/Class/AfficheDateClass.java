@@ -1,5 +1,7 @@
+package Class;
 import java.time.format.DateTimeFormatter; 
-import java.time.LocalDateTime;  
+import java.time.LocalDateTime;
+import Interface.IJournal;
 
 public class AfficheDateClass implements IJournal{
 	

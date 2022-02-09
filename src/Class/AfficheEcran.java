@@ -1,3 +1,6 @@
+package Class;
+import Interface.IJournal;
+
 public class AfficheEcran implements IJournal {
 	
 	@Override

@@ -1,4 +1,16 @@
 import java.sql.SQLException;
+import Interface.IJournal;
+import Interface.IEtudiant;
+import Interface.IEtudRepo;
+import Interface.IUnivRepo;
+import Class.AfficheComposite;
+import Class.AfficheEcran;
+import Class.AfficheFichier;
+import Class.AfficheDateClass;
+import Class.EtudiantRepository;
+import Class.UniversiteRepository;
+import Class.EtudiantService;
+import Class.Etudiant;
 
 public class MainApp {
 

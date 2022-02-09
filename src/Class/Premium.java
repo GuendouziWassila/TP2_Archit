@@ -1,3 +1,5 @@
+package Class;
+
 public class Premium extends Package {
 
 	public Premium(TypePackage Tpack) {

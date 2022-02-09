@@ -1,3 +1,5 @@
+package Interface;
+import Class.Universite;
 import java.sql.SQLException;
 
 public interface IUnivRepo {

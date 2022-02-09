@@ -1,3 +1,6 @@
+package Class;
+
+import Abstract.AbstractViewInscription;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 import javax.swing.JLabel;

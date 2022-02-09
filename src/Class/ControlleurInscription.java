@@ -1,6 +1,7 @@
+package Class;
+
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
-
 public class ControlleurInscription {
 		
 	Etudiant E;

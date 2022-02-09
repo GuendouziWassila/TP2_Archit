@@ -1,8 +1,13 @@
+package Class;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import Interface.IJournal;
+import Interface.IEtudiant;
+import Interface.IEtudRepo;
 
 public class EtudiantRepository implements IEtudRepo {
 	
