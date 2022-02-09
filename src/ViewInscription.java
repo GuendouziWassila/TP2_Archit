@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 // Decompiled by Procyon v0.5.36
 // 
 
-public class ViewInscription
+public class ViewInscription extends AbstractViewInscription
 {
     private JFrame frame;
     private JPanel contentPane;
