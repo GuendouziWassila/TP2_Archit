@@ -21,7 +21,7 @@ public class DBConnection {
 		}
 
 
-/*hello world*/
+/* simple commentaire question partie1 TP2 */
 		
 	
 }
