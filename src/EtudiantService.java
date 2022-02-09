@@ -28,6 +28,21 @@ public class EtudiantService implements IEtdSrv {
 		 return true;
 	}
 	
+	public void AddNbrBooksAllStudent (TypePackage pac) throws SQLException
+	{
+		 ArrayList<Etudiant> etudiants = GetEtudiatparLivreEmprunte();
+		 for (Etudiant E : etudiants) 
+		 {
+			 if (pac == TypePackage.Standard)
+		     {
+				 E.setNbLivreMensuel_Autorise(15);
+		     }
+		     else if (pac == TypePackage.Premium)
+		     {
+		    	 E.setNbLivreMensuel_Autorise(15*2);
+		     } 
+		}
+	}
 	
 	
 
