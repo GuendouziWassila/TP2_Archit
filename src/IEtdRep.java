@@ -6,6 +6,7 @@ public interface IEtdRep{
 
 	boolean Exists(String email) throws SQLException;
 
+	void add(EtudiantFactory stud) throws SQLException;
 	
 	
 

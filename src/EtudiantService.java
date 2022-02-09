@@ -5,6 +5,7 @@ public class EtudiantService implements IEtdSrv {
 	public boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		IEtdRep StudRep= new EtudiantRepository();
+		EtudiantFactory stud = new EtudiantFactory();
 	   
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
