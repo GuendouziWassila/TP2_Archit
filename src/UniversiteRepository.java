@@ -30,27 +30,25 @@ public class UniversiteRepository implements IUnivRepo {
 		
 		connect.close();
 		return u;
-	}	
-	
-	@Override
-	public int GetNbrLivre(Universite univ) throws SQLException {
-		
-		int nbrLivre = 0;
-		
-		if (univ.getPack() == TypePackage.Standard)
-	    {
-			nbrLivre=10;
-	    }
-	    if (univ.getPack() == TypePackage.Premium)
-	    {
-	    	nbrLivre=10*2;
-	    }
-	    if (univ.getPack() == TypePackage.Illimité)
-	    {
-	    	nbrLivre=0;
-	    }
-		
-		return nbrLivre;
 	}
 	
+	@Override
+	public int GetNbrLivre(int IdUniv) throws SQLException {
+		
+		Universite univ= GetById(IdUniv);
+		AbstractFactory turbo = new Type();
+		Package pack = turbo.getPackage(univ.getPack());
+		
+		return pack.getNbrLivreAutorise();
+	}
+	
+	@Override
+	public int NbrBonus(int IdUniv) throws SQLException{
+		
+		Universite univ= GetById(IdUniv);
+		AbstractFactory turbo = new Type();
+		Package pack = turbo.getPackage(univ.getPack());
+		
+		return pack.getNbrLivreBonus();
+	}
 }

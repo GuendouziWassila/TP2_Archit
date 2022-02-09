@@ -3,7 +3,6 @@ import java.sql.SQLException;
 public class MainApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		AfficheComposite comp = new AfficheComposite();
 		
@@ -25,9 +24,9 @@ public class MainApp {
 			serv.inscription(etudiant);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
+			
 		}
 	}
-
 }
