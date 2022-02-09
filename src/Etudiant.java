@@ -101,6 +101,9 @@ public class Etudiant implements InterfaceEtudiant {
 			this.pwd = pwd;
 		}
 
-		
+		public void bonus(int nbr){
+
+			this.nbLivreMensuel_Autorise +=nbr ;
+		}
 		
 	    }
