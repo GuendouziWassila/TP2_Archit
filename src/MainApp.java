@@ -6,6 +6,19 @@ public class MainApp {
 		// TODO Auto-generated method stub
 
 
+		
+		AfficherComposit AffichageListes = new AfficherComposit();
+		IJournal AfficherEcran = new AfficherEcran();
+		IJournal AfficherDate = new AfficherDate();
+		IJournal AfficherFile = new AfficherFile();
+
+		AffichageListes.add(AfficherFile);
+		AffichageListes.add(AfficherEcran);
+		AffichageListes.add(AfficherDate);
+		AffichageListes.outPut_Msg("Ce message va etre affiché par 3 façon différentes");
+		
+		
+		
         InterfaceEtudiantRepository StudRep = new EtudiantRepository();
         InterfaceUniversiteRepository UnivRep= new UniversiteRepository();
 
