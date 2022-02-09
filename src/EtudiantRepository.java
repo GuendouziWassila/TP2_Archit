@@ -6,21 +6,29 @@ import java.sql.Statement;
 
 public class EtudiantRepository {
 	
-	
+	private Connection Connect;
+	private Ijournal Journal
+	private Statement stmt;
+	public EtudiantRepository(Ijournal Journal){
+		try{
+			this.Connect = DBConnection.getConn();
+			this.stmt = this.Connect.createStatement();
+		} catch (SQLException){
+			e.printStackTrace();
+		}
+		this.Journal = Journal;
+	}
 	void add(Etudiant E) throws SQLException
 	{
-
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
-		
-		Statement stmt = connect.createStatement();
 		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			AfficherDate.setnomClass("Etudiant Service");
+				Journal.outPut_Msg("log : ajout dans la BD rï¿½ussi de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				AfficherDate.setnomClass("Etudiant Service");
+				Journal.outPut_Msg("log : Echec de l'ajout dans la BD de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
@@ -28,38 +36,30 @@ public class EtudiantRepository {
 
 	boolean Exists(String email) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
-		
-		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where email='"+ email+"'";
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			System.out.println("logBD--- :email existe dans la BD  " + email);
+			Journal.outPut_Msg("logBD--- :email existe dans la BD  " + email);
 			connect.close();
 			return true;
 			}
-		System.out.println("logBD--- : email n'existe pas " + email);	
+		Journal.outPut_Msg("logBD--- : email n'existe pas " + email);	
 		connect.close();
 		return false;
 	}
 	
 	boolean Exists(int mat) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn();
-		
-		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where matricule="+ mat;
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			Journal.outPut_Msg("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat);
 			connect.close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		Journal.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
 	}
