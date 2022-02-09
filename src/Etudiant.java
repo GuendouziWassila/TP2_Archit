@@ -102,6 +102,8 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
+   public abstract void nbr_book_authorized ();
+
 		/* commentaire question 5 partie 1*/
 		
 	    }
