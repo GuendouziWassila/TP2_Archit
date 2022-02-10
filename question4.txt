@@ -1,0 +1,1 @@
+L'objectif de cette amélioration est d'éliminer les dépendances des modules d'haut niveau sur des modules de bas niveau (les modules contenant plusieurs détails), et donc les changements sur ses détails n'affecte pas les modules d'haut niveau.
