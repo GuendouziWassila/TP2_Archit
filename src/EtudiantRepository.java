@@ -70,4 +70,22 @@ public class EtudiantRepository implements InterfaceEtudiantRepository {
 		return false;
 	}
 
+	
+	
+	
+	/* Posiblité de creer une fonction verifier mail + matricule à propos des responsabilités de la méthode inscription dans  EtudiantService transmises à EtudiantRepository pour Q12
+	public boolean VerifierEmailMat(int Mat, String Email) throws SQLException	
+	{
+		return ( Exists(Email) || Exists(Mat) || Email == null || Email.length() == 0 );
+
+	}
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
 }

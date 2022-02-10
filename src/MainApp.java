@@ -18,6 +18,9 @@ public class MainApp {
 		AffichageListes.outPut_Msg("Ce message va etre affiché par 3 façon différentes");
 		
 		
+		ViewInscription v = new ViewInscription();
+		
+		
 		
         InterfaceEtudiantRepository StudRep = new EtudiantRepository();
         InterfaceUniversiteRepository UnivRep= new UniversiteRepository();
