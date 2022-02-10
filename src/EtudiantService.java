@@ -68,7 +68,17 @@ public class EtudiantService {
 		
 	}
 	
-	
+	public void AjouterBonus(InterfaceEtudiant Stud) throws SQLException {
+		Universite univ=UnivRep.GetById(Stud.getId_universite());
+		int nbr = 0;
+		if (UnivRep.GetNbrLivre(univ)==10){
+			nbr = 5;
+		}
+		if (UnivRep.GetNbrLivre(univ)==20){
+			nbr = 10;
+		}
+		Stud.bonus(nbr);
+	}
 	
 
 public ArrayList<InterfaceEtudiant> GetEtudiantParUniversitye()

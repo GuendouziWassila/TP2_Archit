@@ -29,4 +29,28 @@ public class UniversiteRepository implements InterfaceUniversiteRepository {
 		
 	}	
 	
+	
+	public int GetNbrLivre(Universite univ) throws SQLException {
+
+		int nbrLivre = 0;
+
+		if (univ.getPack() == TypePackage.Standard)
+	    {
+			nbrLivre=10;
+	    }
+	    if (univ.getPack() == TypePackage.Premium)
+	    {
+	    	nbrLivre=20;
+	    }
+	    if (univ.getPack() == TypePackage.Illimité)
+	    {
+	    	nbrLivre=0;
+	    }
+
+		return nbrLivre;
+	}
+	
+	
+	
+	
 }

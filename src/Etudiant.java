@@ -21,7 +21,15 @@ public class Etudiant implements InterfaceEtudiant {
 			this.id_universite = id_universite;
 		}
 
+         
+		public void bonus(int nbr){
 
+			this.nbLivreMensuel_Autorise +=nbr ;
+		}
+		
+		
+		
+		
 		public int getMatricule() {
 			return matricule;
 		}
