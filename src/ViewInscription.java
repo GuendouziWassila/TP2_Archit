@@ -64,9 +64,6 @@ public class ViewInscription extends JFrame implements ActionListener {
 		     frame.setVisible(true);
 		
 		}
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			ControleurInscription c = new ControleurInscription();
-			c.Inscription_Formulaire();
-		}
+		
+		
 }
