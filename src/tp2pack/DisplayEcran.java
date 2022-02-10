@@ -1,4 +1,4 @@
-
+package tp2pack;
 public class DisplayEcran implements IJournal {
 
 	@Override

@@ -1,3 +1,4 @@
+package tp2pack;
     import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 
@@ -7,6 +8,7 @@
 	import javax.swing.JPanel;
 	import javax.swing.JPasswordField;
 	import javax.swing.JTextField;
+
 
 	public class ViewInscription extends JFrame implements ActionListener {
 

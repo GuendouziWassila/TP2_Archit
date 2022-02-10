@@ -1,3 +1,4 @@
+package tp2pack;
 
 public interface IJournal {
 

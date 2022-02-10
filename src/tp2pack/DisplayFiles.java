@@ -1,3 +1,4 @@
+package tp2pack;
 import java.io.FileWriter;
 import java.io.IOException;
 

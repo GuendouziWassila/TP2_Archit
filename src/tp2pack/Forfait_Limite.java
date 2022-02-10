@@ -1,3 +1,4 @@
+package tp2pack;
 
 public abstract class Forfait_Limite  extends Etudiant {
 

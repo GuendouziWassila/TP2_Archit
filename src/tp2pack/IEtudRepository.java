@@ -1,3 +1,4 @@
+package tp2pack;
 import java.sql.SQLException;
 
 public interface IEtudRepository {
