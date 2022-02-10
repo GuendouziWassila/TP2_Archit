@@ -1,11 +1,13 @@
-	import javax.swing.JButton;
-	import javax.swing.JFrame;
-	import javax.swing.JLabel;
-	import javax.swing.JPanel;
-	import javax.swing.JPasswordField;
-	import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;	
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-public class ViewInscription extends JFrame {
+public class ViewInscription extends JFrame implements ActionListener {
 
 		public ViewInscription ()
 		{
@@ -62,5 +64,9 @@ public class ViewInscription extends JFrame {
 		     frame.setVisible(true);
 		
 		}
-
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ControleurInscription c = new ControleurInscription();
+			c.Inscription_Formulaire();
+		}
 }

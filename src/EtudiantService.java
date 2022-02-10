@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class EtudiantService implements InterfaceEtudiantService{
 	
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	public boolean inscription(int matricule, String nom, String prénom, String email,String pwd, int id_universite)
 	{
 		EtudiantRepository StudRep= new EtudiantRepository();
 	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
