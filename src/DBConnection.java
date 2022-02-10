@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements DBConnectionInterf {
 	   
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
@@ -10,8 +10,8 @@ public class DBConnection {
 		String passwd = "";
 	    private static Connection conn;
 
-          
-	    public DBConnection() throws SQLException {
+        @Override    
+	    public void DBConnection() throws SQLException{
 	    	
 			conn=DriverManager.getConnection(url, user,passwd);
 	    	
@@ -25,6 +25,9 @@ public class DBConnection {
 			return conn;
 		}
 
+
+	
+		
 
 		
 	
