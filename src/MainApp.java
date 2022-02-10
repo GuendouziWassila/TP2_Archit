@@ -17,10 +17,12 @@ public class MainApp {
 		AffichageListes.add(AfficherDate);
 		AffichageListes.outPut_Msg("Ce message va etre affiché par 3 façon différentes");
 		
-		//afficher fenetre inscription Q22
-		ViewInscription v = new ViewInscription();
+		/* 
+		 afficher fenetre inscription Q22 
+		 c'est bon elle a son propre main qui est MainAppMvc
+	     ViewInscription v = new ViewInscription();
 		
-		
+		*/
 		
         InterfaceEtudiantRepository StudRep = new EtudiantRepository();
         InterfaceUniversiteRepository UnivRep= new UniversiteRepository();

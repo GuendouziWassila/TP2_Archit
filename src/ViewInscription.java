@@ -18,7 +18,7 @@ import javax.swing.*;
 			    private JTextField id_univ = new JTextField(30);
 			    private JButton insert = new JButton("inscription");
 
-			    ViewInscription(){
+			    public ViewInscription(){
 					JFrame f =new JFrame ();
 			    	JPanel Panel = new JPanel();
 			    	Panel.setLayout(null);
@@ -83,13 +83,13 @@ import javax.swing.*;
 				}
 
 				 
-		         void displayErrorMessage(String errorMessage){
+		       public  void displayErrorMessage(String errorMessage){
 
 
 					         JOptionPane.showMessageDialog(this, errorMessage);      
 					    }
 		         
-		         void addInsertListener(ActionListener listenForInsertButton){
+		        public  void addInsertListener(ActionListener listenForInsertButton){
 
 			         insert.addActionListener(listenForInsertButton);
 
