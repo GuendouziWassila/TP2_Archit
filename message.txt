@@ -2,15 +2,4 @@ LogBD : début recherche de id université dans la base de donnée, la classe est U
 LogBD : université récupérée, la classe est UniversiteRepository.......2022/02/10 17:40:21
 Log: début de l'opération d'ajout de l'étudiant avec matricule 3, la classe est EtudiantService.......2022/02/10 17:40:21
 logBD--- :etudiant avec ce matricule existe déja dans la BD  3, la classe est EtudiantRepository.......2022/02/10 17:40:21
-LogBD : début recherche de id université dans la base de donnée, la classe est UniversiteRepository.......2022/02/10 17:40:45
-LogBD : université récupérée, la classe est UniversiteRepository.......2022/02/10 17:40:45
-Log: début de l'opération d'ajout de l'étudiant avec matricule 3, la classe est EtudiantService.......2022/02/10 17:40:45
-logBD--- :etudiant avec ce matricule existe déja dans la BD  3, la classe est EtudiantRepository.......2022/02/10 17:40:45
-LogBD : début recherche de id université dans la base de donnée, la classe est UniversiteRepository.......2022/02/10 17:41:03
-LogBD : université récupérée, la classe est UniversiteRepository.......2022/02/10 17:41:03
-Log: début de l'opération d'ajout de l'étudiant avec matricule 3, la classe est EtudiantService.......2022/02/10 17:41:03
-logBD--- :etudiant avec ce matricule existe déja dans la BD  3, la classe est EtudiantRepository.......2022/02/10 17:41:03
-LogBD : début recherche de id université dans la base de donnée, la classe est UniversiteRepository.......2022/02/10 17:43:21
-LogBD : université récupérée, la classe est UniversiteRepository.......2022/02/10 17:43:21
-Log: début de l'opération d'ajout de l'étudiant avec matricule 3, la classe est EtudiantService.......2022/02/10 17:43:21
-logBD--- :etudiant avec ce matricule existe déja dans la BD  3, la classe est EtudiantRepository.......2022/02/10 17:43:21
+
