@@ -10,3 +10,5 @@
 /vert.png
 /ControleurInscription$AnnulerListener.class
 /ViewInscription$MyActionListener.class
+/ControleurInscription$Annuler.class
+/AbstractViewInscription.class

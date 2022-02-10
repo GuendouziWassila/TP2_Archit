@@ -18,12 +18,11 @@ import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
-// 
-// Decompiled by Procyon v0.5.36
-// 
 
-public class ViewInscription extends JFrame {
-    private JFrame Jframe;
+
+public class ViewInscription extends AbstractViewInscription  {
+    
+	private JFrame Jframe;
     private JPanel Panel;
     private JTextField EditTextMat;
     private JTextField EditTxtNom;
@@ -32,7 +31,17 @@ public class ViewInscription extends JFrame {
     private JPasswordField EditTxtPwd;
     private JTextField EditTxtUnivId;
     private JButton valider;
-    private JButton annuler;
+   
+
+	public JButton getValider() {
+		return valider;
+	}
+
+	public JButton getAnnuler() {
+		return annuler;
+	}
+
+	private JButton annuler;
     
     
     
@@ -130,7 +139,21 @@ public class ViewInscription extends JFrame {
         this.Panel.add(annuler);
     }
     
-    boolean champs_validation() {
+	@Override
+	public void addListnerButton() {
+		// TODO Auto-generated method stub
+		notifyObservers(valider);
+		notifyObservers(annuler);
+		
+		
+	}
+    
+    
+    
+
+    
+    public boolean champs_validation() {
+    	
         if (Get_Mat().isEmpty() || Get_Name().isEmpty() || Get_Prenom().isEmpty() || Get_email().isEmpty() || Get_pwd().isEmpty() || Get_id_univ().isEmpty()) {
             this.ShowErreur("veuillez remplir tous les champs");
             return false;
@@ -164,13 +187,13 @@ public class ViewInscription extends JFrame {
         
     }
     
-    void addInscrirListener(ActionListener listenForCalcButton) {
+   /* void addInscrirListener(ActionListener listenForCalcButton) {
     	valider.addActionListener(listenForCalcButton);
     }
     
     void addAnnulerListener(ActionListener listenForCalcButton) {
     	annuler.addActionListener(listenForCalcButton);
-    }
+    }*/
     
     public void Init_Champsn() {
         this.EditTextMat.setText("");
@@ -183,11 +206,11 @@ public class ViewInscription extends JFrame {
 
     
     public void ShowDialog(final String msg) {
-        JOptionPane.showMessageDialog(this, msg);
+        JOptionPane.showMessageDialog(new JFrame(), msg);
     }
     
     public void ShowErreur(final String msg) {
-        JOptionPane.showMessageDialog(this, msg, "Erreur", 0);
+        JOptionPane.showMessageDialog(new JFrame(), msg, "Erreur", 0);
     }
      
     public String Get_Mat() {
@@ -213,4 +236,8 @@ public class ViewInscription extends JFrame {
     public String Get_id_univ() {
         return this.EditTxtUnivId.getText();
     }
+
+
+
+
 }
