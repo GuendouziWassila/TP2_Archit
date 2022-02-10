@@ -3,10 +3,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+
+public class EtudiantService implements EtudiantServiceInterf{
+	private EtudiantRepository StudRep;
+	private UniversiteRepository UnivRep;
+	private Etudiant stud;
+	private Universite univ;
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	public boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		EtudiantRepository StudRep= new EtudiantRepository();
 	    UniversiteRepository UnivRep= new UniversiteRepository();
@@ -28,7 +32,7 @@ public class EtudiantService {
 		if (StudRep.Exists(email))
 	    {
 	        return false;
-	    }
+	    } 
 		
 		
 		

@@ -2,24 +2,32 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements DBConnectionInterf {
 	   
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
-	    private Connection conn;
+	    private static Connection conn;
 
-	   
-	    public DBConnection() throws SQLException {
+        @Override    
+	    public void DBConnection() throws SQLException{
+	    	
 			conn=DriverManager.getConnection(url, user,passwd);
+	    	
 		}
 
 	    
-	    public Connection getConn() {
+	    public static Connection getConn() throws SQLException{
+	    	if (conn == null) {
+	    		new DBConnection ();
+	    	}
 			return conn;
 		}
 
+
+	
+		
 
 		
 	

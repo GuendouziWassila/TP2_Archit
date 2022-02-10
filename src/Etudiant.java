@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements EtudiantInterf {
 
 		private int matricule;
 	    private String nom;
@@ -15,13 +15,13 @@ public class Etudiant {
 			
 			this.matricule = matricule;
 			this.nom = nom;
-			this.prenom = prenom;
+			this.prenom = prenom; 
 			this.email = email;
 			this.pwd = pwd;
 			this.id_universite = id_universite;
 		}
 
-
+		@Override
 		public int getMatricule() {
 			return matricule;
 		}
@@ -31,27 +31,27 @@ public class Etudiant {
 			this.matricule = matricule;
 		}
 
-
+		@Override
 		public String getNom() {
 			return nom;
 		}
 
-
+		
 		public void setNom(String nom) {
 			this.nom = nom;
 		}
 
-
+		@Override
 		public String getPrenom() {
 			return prenom;
 		}
 
-
+		
 		public void setPrenom(String prenom) {
 			this.prenom = prenom;
 		}
 
-
+		@Override
 		public String getEmail() {
 			return email;
 		}
@@ -61,7 +61,7 @@ public class Etudiant {
 			this.email = email;
 		}
 
-
+		@Override
 		public int getNbLivreMensuel_Autorise() {
 			return nbLivreMensuel_Autorise;
 		}
@@ -71,7 +71,7 @@ public class Etudiant {
 			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise;
 		}
 
-
+		@Override
 		public int getNbLivreEmprunte() {
 			return nbLivreEmprunte;
 		}
@@ -81,7 +81,7 @@ public class Etudiant {
 			this.nbLivreEmprunte = nbLivreEmprunte;
 		}
 
-
+		@Override
 		public int getId_universite() {
 			return id_universite;
 		}
@@ -91,7 +91,7 @@ public class Etudiant {
 			this.id_universite = id_universite;
 		}
 
-
+		@Override
 		public String getPwd() {
 			return pwd;
 		}
