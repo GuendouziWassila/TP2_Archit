@@ -14,6 +14,6 @@ public abstract class Package implements InterfaceNbLivreAutorise{
 	
 	
 	public abstract int getNbrLivreAutorise();
-	
+	public abstract int getNbrLivreBonus();
 
 }

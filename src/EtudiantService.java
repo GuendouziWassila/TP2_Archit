@@ -36,6 +36,20 @@ public class EtudiantService implements InterfaceEtudiantService {
 		 return true;
 	}
 
+	
+	public  void ajouterbonus(Etudiant E) {
+		InterfaceUniversité univ=UnivRep.GetById(E.getId_universite());
+		 if (univ.getPack() == TypePackage.Standard)
+	     {
+			 Package pack = new Standard(null);
+			 E.bonus(pack.getNbrLivreBonus());
+		        }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 Package pack = new Premium(null);
+	    	  E.bonus(pack.getNbrLivreBonus())	 ;   
+	    	 }                           
+	 }
 @Override
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
 {

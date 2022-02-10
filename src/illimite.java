@@ -21,7 +21,12 @@ public class illimite extends Package{
 	public int getNbrLivreAutorise() {
 		return 0;
 	}
-
+	@Override
+	public int getNbrLivreBonus() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 	
 
 }

@@ -23,6 +23,9 @@ public class Etudiant implements InterfaceEtudiant {
 			this.id_universite = id_universite;
 		}
 
+		public void bonus(int nbBonus){
+			this.nbLivreMensuel_Autorise =nbLivreMensuel_Autorise+nbBonus ;
+		}
 
 		@Override
 		public int getMatricule() {
@@ -112,8 +115,6 @@ public class Etudiant implements InterfaceEtudiant {
 		public String getPwd() {
 			return pwd;
 		}
-
-
 		@Override
 		public void setPwd(String pwd) {
 			this.pwd = pwd;

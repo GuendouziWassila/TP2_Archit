@@ -17,5 +17,11 @@ public class Standard extends Package{
 		// TODO Auto-generated method stub
 		return 10;
 	}
+	@Override
+	public int getNbrLivreBonus() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+	
 	
 }

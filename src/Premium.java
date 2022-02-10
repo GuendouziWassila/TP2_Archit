@@ -21,6 +21,12 @@ public class Premium extends Package{
 	public int getNbrLivreAutorise() {
 		return 20;
 	}
+	@Override
+	public int getNbrLivreBonus() {
+		// TODO Auto-generated method stub
+		return 10;
+	}
+	
 
 	
 
