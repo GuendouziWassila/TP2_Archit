@@ -11,8 +11,9 @@ import Class.EtudiantRepository;
 import Class.UniversiteRepository;
 import Class.EtudiantService;
 import Class.Etudiant;
+import Class.ViewInscription;
 
-public class MainApp {
+public class MainAppMvc {
 
 	public static void main(String[] args) {
 
@@ -31,7 +32,8 @@ public class MainApp {
 		EtudiantService serv=new EtudiantService(StudRep, UnivRep, comp);
 		
 		IEtudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
-		
+		ViewInscription v = new ViewInscription();
+		v.Show_Inscription();
 		try {
 			serv.inscription(etudiant);
 			
