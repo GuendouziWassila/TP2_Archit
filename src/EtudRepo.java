@@ -1,5 +1,6 @@
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -61,4 +62,28 @@ public class EtudRepo implements EtudiantRepository{
 		return false;
 	}
 
+	
+	public void addAllStudNbrLivre(int nbrAjout){
+		
+		try {
+			DBConnection BD = DBConnection.getDB();
+			Connection connect = BD.getConn();
+			
+			Statement stmt = connect.createStatement();
+			String sql = "select matricule, nbLivreMensuel_Autorise from etudiant";
+			ResultSet rs = stmt.executeQuery(sql);
+
+			if(rs.isBeforeFirst()){
+				rs.next();
+				while(!rs.isAfterLast()){
+					sql = "UPDATE Customers SET nbLivreMensuel_Autorise = " + Integer.toString(rs.getInt(2) + nbrAjout) + " WHERE maticule = " + rs.getString(1);
+					rs.next();
+				}
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
 }

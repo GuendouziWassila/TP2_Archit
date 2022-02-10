@@ -23,7 +23,11 @@ public class Etud implements Etudiant{
 		}else if (Pack == TypePackage.Premium){
 	    nbLivreMensuel_Autorise = 10*2;
 	  }
-    
+
+  }
+
+  public void addNbrLivre(int nbrAjout){
+    nbLivreMensuel_Autorise = nbLivreMensuel_Autorise + nbrAjout;
   }
 
 
