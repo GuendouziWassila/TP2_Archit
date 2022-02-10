@@ -4,21 +4,32 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 public class EtudiantService {
-	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
-	{
+    private IEtudiantRepository StudRep;
+	private IUniversiteRepository UnivRep;
+	private Ijournal Journal;
+	public EtudiantService( IEtudiantRepository StudRep, IUniversiteRepository UnivRep, Ijournal Journal){
+				this.StudRep  = StudRep;
+				this.UnivRep = UnivRep;
+				this.Journal = Journal;
+	}
+	boolean inscription (int matricule, String nom, String prï¿½nom, String email,String pwd, int id_universite) throws SQLException {
 		EtudiantRepository StudRep= new EtudiantRepository();
 	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
+	    Etudiant stud = new Etudiant(matricule, nom, prï¿½nom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
-	    
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+	    AfficherDate.setnomClass("Etudiant Service");
+		Journal.outPut_Msg("Log: debut de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
 	    
 	    if(email == null || email.length() == 0)
 	    {
 	    	return false;
 	    }
+
+		// verifier la validitee de l'email (format juste)
+		if(email.matches(".+@.+\\.[a-z]+") != true)
+		{
+			return false;
+		}
 	    
 	    if (StudRep.Exists(matricule))
 	    {
@@ -31,7 +42,6 @@ public class EtudiantService {
 	    }
 		
 		
-		
 		 if (univ.getPack() == TypePackage.Standard)
 	     {
 	          stud.setNbLivreMensuel_Autorise(10);
@@ -42,14 +52,18 @@ public class EtudiantService {
 	     }                           
 	     
 		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+		 Journal.outPut_Msg("Log: Fin de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
 		 return true;
 	    
 		
 	}
 	
-	
-	
+	//implementation de la methode qui ajoute le bonus aux etudiant selon l universite (forfait de luniversite)
+	public void ajouterBonus(InterfaceEtudiant etudiant){
+		Universite univ = UnivRep.GetById(Et.getId_universite());
+
+		etudiant.beneficierBonus(univ);
+	}
 
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
 {

@@ -1,0 +1,1 @@
+L’inversion de contrôle est un patron d'architecture commun à tous les frameworks. Il fonctionne selon le principe que le flot d'exécution d'un logiciel n'est plus sous le contrôle direct de l'application elle-même mais du framework ou de la couche logicielle sous-jacente
