@@ -19,6 +19,7 @@ public class MainApp {
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,a);
 		serv.inscription(stud);
 		
+		
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

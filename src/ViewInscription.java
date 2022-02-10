@@ -1,21 +1,29 @@
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 
-public class ViewInscription extends JFrame {
-	JTextField matricule = new JTextField(10);
-	JTextField nom = new JTextField();
-	JTextField Prénom = new JTextField();
-	JTextField Email = new JTextField();
-	JTextField password = new JTextField();
-	JTextField universite = new JTextField();
-	JButton boutoun1,boutoun2;
+public class ViewInscription extends AbstractViewInscription {
+	private JTextField matricule = new JTextField(10);
+	private JTextField nom = new JTextField();
+	private JTextField Prénom = new JTextField();
+	private JTextField Email = new JTextField();
+	private JTextField password = new JTextField();
+	private JTextField universite = new JTextField();
+	private JButton boutoun1,boutoun2;
+	
+	
+	
 	
 	public ViewInscription() {
 		// TODO Auto-generated constructor stub
+		
+		
+		
 		JLabel Titre = new JLabel("Inscription");
 		Titre.setForeground(Color.getHSBColor(200, 150, 93));
 		JPanel pan = new JPanel ();
@@ -64,51 +72,66 @@ public class ViewInscription extends JFrame {
 		
 		boutoun1 = new JButton("Annuler");
 		boutoun1.setBounds(120, 230, 100, 25);
+		//boutoun1.addActionListener((ActionListener) this);
 		pan.add(boutoun1);
 		
 		boutoun2 = new JButton("Confirmer");
 		boutoun2.setBounds(220, 230, 100, 25);
 		pan.add(boutoun2);
 		
-		
-		this.getContentPane().add(pan);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Inscription");
-		this.setSize(400, 400);
-		this.setResizable(false);
-		this.setLocationRelativeTo(null);
-		this.setVisible(true);
+		JFrame j = new JFrame();
+		j.getContentPane().add(pan);
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		j.setTitle("Inscription");
+		j.setSize(400, 400);
+		j.setResizable(false);
+		j.setLocationRelativeTo(null);
+		j.setVisible(true);
 	}
+	@Override
 	public int getMat() {
 		return Integer.parseInt(matricule.getText());
 	}
+	@Override
 	public String getNom() {
 		return nom.getText();
 	}
+	@Override
 	public String getPrenom() {
 		return Prénom.getText();
 	}
+	@Override
 	public String getMail() {
 		return Email.getText();
 	}
+	@Override
 	public String getPassword() {
 		return password.getText();
 	}
+	@Override
 	public int getUniv() {
 		return Integer.parseInt(universite.getText());
 	}
-	void addConfirmationListener(ActionListener listenerForConfirmation) {
-		boutoun2.addActionListener(listenerForConfirmation);
+	public JButton getbtn1() {
+		return boutoun1;
 	}
-	void addAnlListener(ActionListener listenerForAnnuler) {
-		boutoun1.addActionListener(listenerForAnnuler);
+	public JButton getbtn2() {
+		return boutoun2;
 	}
-	void displayMessage(String Message) {
-		JOptionPane.showMessageDialog(this, Message);
+	@Override
+	public void addListener() {
+		notifyObserver(getbtn1());
+		notifyObserver(getbtn2());
 	}
 	
-	void displayErrorMessage(String Error) {
-		JOptionPane.showMessageDialog(this, Error,"Error",0);
+	
+	
+	public void displayMessage(String Message) {
+		JOptionPane.showMessageDialog(new JFrame(), Message);
+	}
+	
+	public void displayErrorMessage(String Error) {
+		JOptionPane.showMessageDialog(new JFrame(), Error,"Error",0);
 	}
 	
 	 public void Rénistialisation() {
@@ -126,7 +149,7 @@ public class ViewInscription extends JFrame {
 	            return false;
 	        }
 	        if (!matricule.getText().matches("-?\\d+") || !universite.getText().matches("-?\\d+")) {
-	            this.displayErrorMessage("les champs matricule et id universit\u00e9 doivent etre de format num\u00e9riques ");
+	            this.displayErrorMessage("les champs matricule et universite\u00e9 doivent etre de format num\u00e9riques ");
 	            return false;
 	        }
 	        if (!this.Email.getText().matches("^(.+)@(.+)$")) {
