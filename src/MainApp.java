@@ -6,7 +6,29 @@ public class MainApp {
 		// TODO Auto-generated method stub
 
 
-		EtudiantService serv=new EtudiantService();
+		
+		AfficherComposit AffichageListes = new AfficherComposit();
+		IJournal AfficherEcran = new AfficherEcran();
+		IJournal AfficherDate = new AfficherDate();
+		IJournal AfficherFile = new AfficherFile();
+
+		AffichageListes.add(AfficherFile);
+		AffichageListes.add(AfficherEcran);
+		AffichageListes.add(AfficherDate);
+		AffichageListes.outPut_Msg("Ce message va etre affiché par 3 façon différentes");
+		
+		/* 
+		 afficher fenetre inscription Q22 
+		 c'est bon elle a son propre main qui est MainAppMvc
+	     ViewInscription v = new ViewInscription();
+		
+		*/
+		
+        InterfaceEtudiantRepository StudRep = new EtudiantRepository();
+        InterfaceUniversiteRepository UnivRep= new UniversiteRepository();
+
+       
+		EtudiantService serv=new EtudiantService(StudRep, UnivRep);
 		try {
 			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 			
@@ -17,3 +39,4 @@ public class MainApp {
 	}
 
 }
+

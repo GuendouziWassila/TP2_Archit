@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements InterfaceEtudiant {
 
 		private int matricule;
 	    private String nom;
@@ -21,7 +21,28 @@ public class Etudiant {
 			this.id_universite = id_universite;
 		}
 
+         
+		public void bonus(int nbr){
 
+			this.nbLivreMensuel_Autorise +=nbr ;
+		}
+		
+
+		
+		/* à voir  si je l'ajoute pour bonus qui utlise méthodes Etudiant  ,  sans passer par université pour getId et savoir son type de package (offre université) , si E.getNbLivreEmprunte()==10 donc le typepackage est: standard et si E.getNbLivreEmprunte()==20 donc c'est premium
+		  
+		  public void ajout_bonus(Etudiant E) {
+			if ( E.getNbLivreEmprunte()==10)
+		    {
+		         E.setNbLivreMensuel_Autorise(15);
+		    }
+		    else if (E.getNbLivreEmprunte() == 20)
+		    {
+		   	 E.setNbLivreMensuel_Autorise(30);
+		    }
+		}*/
+		
+		
 		public int getMatricule() {
 			return matricule;
 		}
@@ -101,6 +122,9 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
+		
+		
+		
 		
 		
 	    }

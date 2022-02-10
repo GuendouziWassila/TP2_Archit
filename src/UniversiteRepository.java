@@ -5,13 +5,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements InterfaceUniversiteRepository {
 	
 	
-	Universite GetById(int universityId) throws SQLException {
+	public Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= new DBConnection();
-		Connection connect=BD.getConn(); 
+		
+		Connection connect=DBConnection.getConn(); 
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
 		
@@ -28,5 +28,29 @@ public class UniversiteRepository {
 	
 		
 	}	
+	
+	
+	public int GetNbrLivre(Universite univ) throws SQLException {
+
+		int nbrLivre = 0;
+
+		if (univ.getPack() == TypePackage.Standard)
+	    {
+			nbrLivre=10;
+	    }
+	    if (univ.getPack() == TypePackage.Premium)
+	    {
+	    	nbrLivre=20;
+	    }
+	    if (univ.getPack() == TypePackage.Illimité)
+	    {
+	    	nbrLivre=0;
+	    }
+
+		return nbrLivre;
+	}
+	
+	
+	
 	
 }
