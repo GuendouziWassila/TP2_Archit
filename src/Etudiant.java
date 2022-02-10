@@ -23,6 +23,9 @@ public Etudiant(int matricule, String nom, String prenom, String email,String pw
 
 		}
 
+
+     
+
 		public int getMatricule() {
 			return matricule;
 		}
@@ -100,6 +103,12 @@ public Etudiant(int matricule, String nom, String prenom, String email,String pw
 
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
+		}
+		
+		
+public void bonus(int nb){
+			
+			this.nbLivreMensuel_Autorise +=nb ;
 		}
 
 		
