@@ -2,7 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements IDBConnexion {
 	   
 	//Imlémenter le patron singleton 
 		String BDD = "nomBD";
@@ -28,8 +28,7 @@ public class DBConnection {
 	    	}
 	    	return instance;
 	    }
-	    
-	    //4- Maintenant on va remplacer new DBConnection() par DBConnection.getInstance() pour EtudiantRepository et UniversiteRepository  
+	      
 
 	    
 	    public Connection getConn() {

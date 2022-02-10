@@ -7,24 +7,36 @@ import java.sql.Statement;
 
 public class UniversiteRepository implements IUniversiteRepository{
 	
+	private IJournal j ;
+	private IDBConnexion BDD ;
+	private Statement stmt ;
+	
+	public UniversiteRepository(IDBConnexion BDD , IJournal j){
+		
+		this.j = j ;
+		this.BDD = BDD;
+	
+	}
 	
 	public Universite GetById(int universityId) {
 		try{
-		DBConnection BD= DBConnection.getInstance();
-		Connection connect=BD.getConn(); 
-		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
+			stmt = BDD.getConn().createStatement();
+
+			j.outPut_Msg("LogBD : début recherche de id université dans la base de donnée");
 		
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
-		rs.next();	
-		TypePackage p=TypePackage.valueOf(rs.getString(3));
-		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
-			
-		System.out.println("LogBD : université récupérée");
 		
-		connect.close();
-		return u;	
+		if(rs.next()){
+			TypePackage p=TypePackage.valueOf(rs.getString(3));
+			Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
+			
+			j.outPut_Msg("LogBD : université récupérée");
+			
+			BDD.getConn().close();
+			return u;
+		}
+		
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
