@@ -17,7 +17,15 @@ public class EtudiantService {
 	  }
 	  
 	  
-	
+	  public  void ajouterbonus(IEtudiant Et) {
+		    
+		    IUniversite univ = UnivRep.GetById(Et.getId_universite());
+			
+		    Package p = new Standard(null);
+			Et.bonus(p.getNbrLivreBonus());
+		 }
+	  
+	  
 	boolean inscription (Etudiant etud , int ID_univ ) throws SQLException	
 	{
 		 Universite univ = UnivRep.GetById(ID_univ);
