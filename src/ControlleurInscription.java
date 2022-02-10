@@ -1,33 +1,36 @@
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 
 public class ControlleurInscription {
 		
-	Etudiant E;
-	EtudiantService ES;
-	ViewInscription V;
+	Etudiant etudiant;
+	EtudiantService EtudSev;
+	ViewInscription View;
 	
-		public ControlleurInscription(Etudiant E, EtudiantService ES , ViewInscription V) {
+		public ControlleurInscription(Etudiant etudiant, EtudiantService EtudSev , ViewInscription View) {
 			
-			this.E = E; 
-			this.V = new ViewInscription();
-			this.ES = ES ;
+			this.etudiant = etudiant; 
+			this.View = new ViewInscription();
+			this.EtudSev = EtudSev ;
 			
 			
 		}
 		
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) throws SQLException {
 			
 
 			
-			String matricule = V.Get_Mat();
-			String nom = V.Get_Nom();
-			String prenom = V.Get_Prenom();
-			String email = V.Get_email();
-			String password = V.Get_pwd();
-			String ID_Univ = V.Get_id_univ();
+			String matricule = View.Get_Mat();
+			String nom = View.Get_Nom();
+			String prenom = View.Get_Prenom();
+			String email = View.Get_email();
+			String password = View.Get_pwd();
+			String ID_Univ = View.Get_id_univ();
+			
+			int id=Integer.parseInt(ID_Univ);
 			
 
-		    ES.inscription(E);
+			EtudSev.inscription(etudiant, id);
 
 		}
 	}
