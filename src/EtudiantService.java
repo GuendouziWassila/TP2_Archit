@@ -41,11 +41,11 @@ public class EtudiantService implements InterfaceEtudiantService{
 		 for (Etudiant E : etudiants) 
 		 {if (pac == TypePackage.Standard)
 	      {
-			 E.setNbLivreMensuel_Autorise(15);
+			 E.setNbLivreMensuel_Autorise(10);
 	      }
 	      else if (pac == TypePackage.Premium)
 	      {
-	    	 E.setNbLivreMensuel_Autorise(15*2);
+	    	 E.setNbLivreMensuel_Autorise(10*2);
 	     }
 		 
 		 }
