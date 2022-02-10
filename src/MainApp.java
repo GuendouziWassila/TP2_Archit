@@ -2,13 +2,18 @@ import java.sql.SQLException;
 
 public class MainApp {
 
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
 
 		IDBConnexion conn = DBConnection.getInstance();
+		
 		Composite comp = new Composite();
 		
-		Etudiant etudiant0 =new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1,0,0);
+		
+		Etudiant etudiant0 =new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1, 0, 0);
+
+		ViewInscription v = new ViewInscription();
 		
 		IJournal j1 = new AfficherEcran();
 		IJournal j2 = new AfficherDate();
@@ -18,10 +23,13 @@ public class MainApp {
 		comp.add(j2);
 		comp.add(j3);
 		
+		
 		IEtudiantRepository ETUDUNIVR = new EtudiantRepository(conn, comp);
+		
 		IUniversiteRepository UnivRep = new UniversiteRepository(conn, comp);
-    	
+		
 		EtudiantService serv = new EtudiantService(ETUDUNIVR ,UnivRep, comp);
+		
 		try {
 			serv.inscription(etudiant0, 1);
 			
