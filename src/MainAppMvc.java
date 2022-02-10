@@ -1,4 +1,24 @@
+
+
+
+
 import java.sql.SQLException;
+
+import DB.DBConnection;
+import Journal.AfficherMessEcran;
+import Journal.AfficherMessFichier;
+import Journal.DateMess;
+import Journal.MessComposite;
+import Repository.EtudiantRepository;
+import Repository.InterfaceDBConnection;
+import Repository.UniversiteRepository;
+import Services.EtudiantService;
+import Services.IJournal;
+import Services.InterfaceEtudeRep;
+import Services.InterfaceUnivRep;
+import controleur.AbstractViewInscription;
+import controleur.ControleurInscription;
+import view.ViewInscription;
 
 public class MainAppMvc {
 
