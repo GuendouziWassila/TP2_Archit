@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements InterfaceEtudiant {
 
 		private int matricule;
 	    private String nom;
@@ -101,6 +101,9 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		public void bonus(int nbr){
+
+			this.nbLivreMensuel_Autorise +=nbr ;
+		}
 		
 	    }

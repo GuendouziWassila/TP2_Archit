@@ -3,15 +3,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public class EtudiantService implements InterfaceEtudiantService{
 	
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	public boolean inscription(int matricule, String nom, String prénom, String email,String pwd, int id_universite)
 	{
 		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
 	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+	 
 	    
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
@@ -30,28 +29,29 @@ public class EtudiantService {
 	        return false;
 	    }
 		
-		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
+		  
 		 StudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
-	    
-		
 	}
-	
-	
-	
+		
+	public void Add_NbrBooks (TypePackage pac) throws SQLException
+	{
+		 ArrayList<Etudiant> etudiants = GetEtudiatparLivreEmprunte();
+		 for (Etudiant E : etudiants) 
+		 {if (pac == TypePackage.Standard)
+	      {
+			 E.setNbLivreMensuel_Autorise(15);//10+5
+	      }
+	      else if (pac == TypePackage.Premium)
+	      {
+	    	 E.setNbLivreMensuel_Autorise(15*2);//10*2+10=15*2 correct
+	     }
+		 
+		 }
+	}
 
-public ArrayList<Etudiant> GetEtudiantParUniversitye()
+public ArrayList <Etudiant> GetEtudiantParUniversitye()
 {
     //...
 	return new ArrayList<>(4);
