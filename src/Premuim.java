@@ -18,6 +18,12 @@ public class Premuim extends Package {
 		
 	}
 
+	@Override
+	public void SetNbLivrebonus(int nombre) {
+		// TODO Auto-generated method stub
+		this.nbrLivreBonus = nombre;
+		
+	}
 
 	@Override
 	public int getNbrLivreAutorise() {
@@ -25,4 +31,9 @@ public class Premuim extends Package {
 		return 20;
 	}
 
+	@Override
+	public int getNbrLivreBonus() {
+		// TODO Auto-generated method stub
+		return 10;
+	}
 }

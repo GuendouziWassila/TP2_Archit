@@ -1,7 +1,9 @@
 
-public abstract class Package  implements InterfaceNbLivreAutorise{
+public abstract class Package  implements InterfaceNbLivreAutorise, InterfaceNbLivreBonus{
 	
 
+	
+	
 	protected TypePackage pack;
 
 	 int nbrLivreAutorise;
@@ -19,6 +21,4 @@ public abstract class Package  implements InterfaceNbLivreAutorise{
 	public abstract int getNbrLivreAutorise();
 	
 	public abstract int getNbrLivreBonus();
-	
-	
 }
