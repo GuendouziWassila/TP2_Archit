@@ -2,7 +2,7 @@
 public class Etudiant {
 
 		private int matricule;
-	    private String nom;
+	    private String nom; 
 	    private String prenom;
 	    private String email ;
 	    private String pwd;
