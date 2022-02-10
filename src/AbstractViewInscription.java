@@ -1,8 +1,6 @@
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.JButton;
 
 public abstract class AbstractViewInscription extends Observable {

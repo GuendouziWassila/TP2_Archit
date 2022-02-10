@@ -147,10 +147,8 @@ public class ViewInscription extends AbstractViewInscription  {
 		
 		
 	}
-    
-    
-    
-
+	
+	
     
     public boolean champs_validation() {
     	

@@ -1,0 +1,50 @@
+Le : 10.02.2022 Heure :  01:33:58
+la classe : afficherCompsite
+le message : Log: début de l'opération d'ajout de l'étudiant avec matricule 3
+
+
+Le : 10.02.2022 Heure :  01:33:58
+la classe : afficherCompsite
+le message : logBD--- :etudiant avec ce matricule existe déja dans la BD  3
+
+
+Le : 10.02.2022 Heure :  01:34:14
+la classe : afficherCompsite
+le message : Log: début de l'opération d'ajout de l'étudiant avec matricule 3
+
+
+Le : 10.02.2022 Heure :  01:34:14
+la classe : afficherCompsite
+le message : logBD--- :etudiant avec ce matricule existe déja dans la BD  3
+
+
+Le : 10.02.2022 Heure :  01:34:52
+la classe : afficherCompsite
+le message : Log: début de l'opération d'ajout de l'étudiant avec matricule 3
+
+
+Le : 10.02.2022 Heure :  01:34:52
+la classe : afficherCompsite
+le message : logBD--- :etudiant avec ce matricule existe déja dans la BD  3
+
+
+Le : 10.02.2022 Heure :  01:34:52
+la classe : afficherCompsite
+le message : hello
+
+
+Le : 10.02.2022 Heure :  01:36:43
+la classe : afficherCompsite
+le message : Log: début de l'opération d'ajout de l'étudiant avec matricule 3
+
+
+Le : 10.02.2022 Heure :  01:36:43
+la classe : afficherCompsite
+le message : logBD--- :etudiant avec ce matricule existe déja dans la BD  3
+
+
+Le : 10.02.2022 Heure :  01:36:43
+la classe : afficherCompsite
+le message : hello
+
+

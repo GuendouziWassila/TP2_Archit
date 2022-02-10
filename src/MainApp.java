@@ -20,6 +20,8 @@ public class MainApp {
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,jcomp);
 		InterfEtudiant etud = new Etudiant(3, "guens", "wassila", "a@gmail.com","xxxx", 3);
 		serv.inscription(etud);
+		
+		serv.AjoutBonus();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
