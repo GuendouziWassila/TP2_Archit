@@ -1,6 +1,6 @@
 import java.sql.SQLException;
 
-public class MainApp {
+public class MainAppMvc {
 
 	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
@@ -27,7 +27,7 @@ public class MainApp {
 
 		EtudiantService serv=new EtudiantService(etud, univ, composite, packageFactory);
 		ViewInscription v = new ViewInscription(etud);
-		v.setVisible(true);
+		v.creatFrame();
 		try {
 			serv.inscription(etudiant);
 			

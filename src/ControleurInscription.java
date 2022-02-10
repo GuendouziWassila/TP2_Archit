@@ -24,8 +24,9 @@ public class ControleurInscription {
                 if (!View.getEmail().getText().matches("^(.+)@(.+)$")) {
                     JOptionPane.showMessageDialog(View.getSubmitButton(), "il faut respecter le format d'un email xxx@xxx.xxx");
                     setResult(false);
+                } else {
+                    setResult(true);
                 }
-                setResult(true);
             }
         }
     }

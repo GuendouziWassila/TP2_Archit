@@ -18,9 +18,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-public class ViewInscription extends JFrame {
+public class ViewInscription extends AbstractVienInscription{
 
-    private static final long serialVersionUID = 1L;
+    private JFrame frame;
     private JPanel contentPane;
     private JTextField firstname;
     private JTextField lastname;
@@ -59,13 +59,14 @@ public class ViewInscription extends JFrame {
     }
 
     public ViewInscription(IEtudiantRepository ER) {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(450, 190, 1014, 597);
-        setResizable(false);
+        this.frame = new JFrame();
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.setBounds(450, 190, 1014, 597);
+        this.frame.setResizable(false);
 
         this.contentPane = new JPanel();
         this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        setContentPane(contentPane);
+        this.frame.setContentPane(contentPane);
         this.contentPane.setLayout(null);
 
         JLabel lblNewUserRegister = new JLabel("Registration");
@@ -160,6 +161,10 @@ public class ViewInscription extends JFrame {
         this.submitButton.setFont(new Font("Tahoma", Font.PLAIN, 22));
         this.submitButton.setBounds(399, 447, 259, 74);
         this.contentPane.add(this.submitButton);
+    }
+
+    public void creatFrame() {
+        this.frame.setVisible(true);
     }
 }
 
