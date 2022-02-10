@@ -4,16 +4,32 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	   
+	//Imlémenter le patron singleton 
 		String BDD = "nomBD";
 		String url = "jdbc:mysql://localhost:3306/" + BDD;
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
+	    
+	    //2- créer une variable pirvate static de type DBConnection
+	    private static DBConnection instance;
+	    
 
-	   
-	    public DBConnection() throws SQLException {
+	   //1- Chander la visibilité du constructeur à privite
+	    private DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
 		}
+	    
+	    
+	    //3- créer une méthode (puplic static) getInstance qui va créer une seul instance
+	    public static DBConnection getInstance() throws SQLException {
+	    	if(instance==null) {
+	    		instance = new DBConnection();
+	    	}
+	    	return instance;
+	    }
+	    
+	    //4- Maintenant on va remplacer new DBConnection() par DBConnection.getInstance() pour EtudiantRepository et UniversiteRepository  
 
 	    
 	    public Connection getConn() {
