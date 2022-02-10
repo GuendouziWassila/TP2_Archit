@@ -1,3 +1,6 @@
+import Interface.*;
+import Class.*;
+
 import java.sql.SQLException;
 
 public class MainAppMvc {
