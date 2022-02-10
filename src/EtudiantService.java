@@ -22,36 +22,19 @@ public class EtudiantService implements InterfaceEtudiantService {
 		InterfaceUniversité univ=UnivRep.GetById(id_universite);
 
 		journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec le matricule "+stud.getMatricule());
-	    if(stud.getEmail() == null || stud.getEmail().length() == 0)
-	    {
-	    	return false;
-	    }
-
-	   if (StudRep.Exists(stud.getMatricule()))
-		   
-	    {return false; 
-	   }
-	   
-
-		if (StudRep.Exists(stud.getEmail()))
-	   { return false;
-	   }
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-
+	    
+		if(StudRep.vérifier(stud.getMatricule(), stud.getEmail())){
+  			return false;
+  		}
+		
+		
+		 int nbrlivreAutorisé = UnivRep.NbrLivreAutorise(id_universite);
+		 stud.setNbLivreMensuel_Autorise(nbrlivreAutorisé);
+		 
 		 StudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+stud.getMatricule());
 		 return true;
-
-
 	}
-
 
 @Override
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
@@ -68,12 +51,6 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 
 }
 
-
-@Override
-public boolean inscription() {
-	// TODO Auto-generated method stub
-	return false;
-}
 
 
 

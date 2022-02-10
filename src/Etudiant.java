@@ -18,6 +18,8 @@ public class Etudiant implements InterfaceEtudiant {
 			this.prenom = prenom;
 			this.email = email;
 			this.pwd = pwd;
+			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise ;
+			this.nbLivreEmprunte = nbLivreEmprunte ;
 			this.id_universite = id_universite;
 		}
 

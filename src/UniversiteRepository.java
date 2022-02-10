@@ -44,6 +44,26 @@ public class UniversiteRepository implements InterfaceUniversiteRep {
 		
 	
 		
+	}
+
+	@Override
+	public int NbrLivreAutorise(int id_univ) {
+		Universite univ =  GetById(id_univ);
+
+		 if (univ.getPack() == TypePackage.Standard)
+	     {
+			 Package pack = new Standard(null);
+		        return pack.getNbrLivreAutorise();
+		        }
+	     else if (univ.getPack() == TypePackage.Premium)
+	     {
+	    	 Package pack = new Premium(null);
+	    	 return pack.getNbrLivreAutorise();	    
+	    	 }                           
+
+		return 0;
 	}	
+
 	
 }
+

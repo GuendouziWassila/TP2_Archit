@@ -85,5 +85,11 @@ public class EtudiantRepository implements InterfaceEtudiantRep {
 	}
 	return false;
 	}	
+	
+	@Override
+	public boolean vérifier(int Matricule, String Email) {
 
+		return this.Exists(Matricule) || this.Exists(Email) || Email.length() == 0 || Email == null; 
+
+	}
 }
