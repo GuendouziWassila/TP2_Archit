@@ -7,7 +7,7 @@ public class EtudiantService {
 	boolean inscription (EtudiantRepository StudRep, UniversiteRepository UnivRep, Universite univ, Etudiant stud) throws SQLException	
 	{
 	  
-	  journal.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+	  journal.outPut_Msg("debut de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
 	  
 	  if(stud.getEmail() == null || stud.getEmail().length() == 0)
 	  {
@@ -30,7 +30,7 @@ public class EtudiantService {
 	  }                           
 	     
 		StudRep.add(stud);
-		journal.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+		journal.outPut_Msg("Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
 		return true;
 	}
 	

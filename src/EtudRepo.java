@@ -17,9 +17,9 @@ public class EtudRepo implements EtudiantRepository{
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				journal.outPut_Msg("log : ajout dans la BD reussi de l'etudiant  du Matricule" + E.getMatricule());
+				journal.outPut_Msg("ajout dans la BD reussi de l'etudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				journal.outPut_Msg("log : Echec de l'ajout dans la BD de l'etudiant  du Matricule" + E.getMatricule());
+				journal.outPut_Msg("Echec de l'ajout dans la BD de l'etudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
@@ -34,11 +34,11 @@ public class EtudRepo implements EtudiantRepository{
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			journal.outPut_Msg("logBD--- :email existe dans la BD  " + email);
+			journal.outPut_Msg("email existe dans la BD  " + email);
 			connect.close();
 			return true;
 			}
-		journal.outPut_Msg("logBD--- : email n'existe pas " + email);	
+		journal.outPut_Msg("email n'existe pas " + email);	
 		connect.close();
 		return false;
 	}
@@ -52,11 +52,11 @@ public class EtudRepo implements EtudiantRepository{
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			journal.outPut_Msg("logBD--- :etudiant avec ce matricule existe deja dans la BD  " + mat);
+			journal.outPut_Msg("etudiant avec ce matricule existe deja dans la BD  " + mat);
 			connect.close();
 			return true;
 			}
-		journal.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		journal.outPut_Msg("etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
 	}
