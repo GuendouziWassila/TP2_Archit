@@ -9,7 +9,7 @@ public class DBConnection {
 	private	String user = "root";
 	private	String passwd = "";
 		
-    private Connection conn;
+    private static Connection conn;
     private static DBConnection instance;
 	 /*   
 	    public DBConnection() throws SQLException {
@@ -23,7 +23,7 @@ public class DBConnection {
 		}
 */
 		
-            private DBConnection() throws SQLException {
+            public DBConnection() throws SQLException {
             	
             	conn = DriverManager.getConnection(url, user,passwd);
 			   }
@@ -39,5 +39,5 @@ public class DBConnection {
                     }
                     return instance;
 		
-                     }
+			   }
 }
