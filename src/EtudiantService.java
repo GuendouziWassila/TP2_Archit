@@ -3,48 +3,39 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+
+public class EtudiantService implements InterfaceEtudiantService {
 	
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	private IEtudRep EtudRep;
+	private IUnivRep UnivRep;
+	
+
+	public EtudiantService(IEtudRep EtudRep ,IUnivRep UnivRep) {
+		super();
+		this.EtudRep = EtudRep;
+		this.UnivRep = UnivRep;
+		
+  }
+ 
+
+
+	boolean inscription (Etudiant etud , int ID_univ ) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+	    Universite univ = UnivRep.GetById(ID_univ) ;
+	    j.outPut_Msg("Log: dï¿½but de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+etud.getMatricule());
 	    
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
-	    if(email == null || email.length() == 0)
-	    {
-	    	return false;
-	    }
-	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
+	    if(EtudRep.Existe_Email_Matricule(etud.getMatricule(), etud.getEmail())){
+  			return false;
+  		} 
 		
+	    int nbrlivreAutorisï¿½ = UnivRep.NbrLivreAutorise(ID_univ);
+		   etud.setNbLivreMensuel_Autorise(nbrlivreAutorisï¿½);
 		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
-		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
-		 return true;
-	    
+		   EtudRep.add(etud);
+			 j.outPut_Msg("Log: Fin de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+etud.getMatricule());
+			 return true;
 		
 	}
 	
@@ -65,5 +56,10 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 }
 
 
+@Override
+public boolean inscription (IEtud etud) {
+	// TODO Auto-generated method stub
+	return false;
+}
 	
 }
