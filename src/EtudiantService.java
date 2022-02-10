@@ -39,6 +39,7 @@ public class EtudiantService implements InterfaceEtudiantService {
 	
 	public  void ajouterbonus(Etudiant E) {
 		InterfaceUniversité univ=UnivRep.GetById(E.getId_universite());
+		
 		 if (univ.getPack() == TypePackage.Standard)
 	     {
 			 Package pack = new Standard(null);
@@ -63,6 +64,12 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
     //...
 	return new ArrayList<>(4);
 
+}
+
+@Override
+public boolean inscription(InterfaceEtudiant etud) {
+	// TODO Auto-generated method stub
+	return false;
 }
 
 
