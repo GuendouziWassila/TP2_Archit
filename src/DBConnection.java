@@ -9,28 +9,29 @@ public class DBConnection {
 		String user = "root";
 		String passwd = "";
 	    private static Connection conn;
-	    private static DBConnection inst;
-		
+	    private static DBConnection INST;
 	   
 	    public DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
 		}
-
 	    
 	    public Connection getConn() {
 			return conn;
 		}
 	    
-	    public static DBConnection getInst() throws SQLException {
-	    	if(inst==null) 
-	    	{
-			inst= new DBConnection();
-	    	conn= inst.getConn();
-		    }
-	    return inst; 	
-	    }
+	    public static DBConnection getInstance() throws SQLException {
+	    	if (INST == null)
+	    	{ 
+	    		INST = new DBConnection ();
+	    		conn = INST.getConn();
+	    	}
+			return INST;
+		}
+
+}
+
 
 /* simple commentaire question partie1 TP2 */
 		
 	
-}
+
