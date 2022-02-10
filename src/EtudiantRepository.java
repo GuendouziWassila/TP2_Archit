@@ -8,10 +8,12 @@ import java.sql.Statement;
 public class EtudiantRepository implements InterfaceEtudiantRep {
 	private InterfaceDBConnection BD ;
 	private static Statement stmt;
+	private IJournal journal;
 
-	public EtudiantRepository(InterfaceDBConnection BD) throws SQLException{
+	public EtudiantRepository(InterfaceDBConnection BD,IJournal journal) {
 		this.BD = BD;
-		}
+		this.journal=journal;
+		} 
 	@Override
 	public void add(Etudiant E)
 	{ try {
@@ -19,9 +21,13 @@ public class EtudiantRepository implements InterfaceEtudiantRep {
 		String sql = "INSERT into etudiant  values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "','"+ E.getPwd() +"'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
 		int rs = stmt.executeUpdate(sql);
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			journal.outPut_Msg("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule()+""
+					+"\n"+"Générer par :" +getClass().getName());
+
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				journal.outPut_Msg("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule()+""
+						+"\n"+"Générer par :" +getClass().getName());
+
 			}
 		BD.getConn().close();
 	}catch(SQLException e){
@@ -39,11 +45,15 @@ public class EtudiantRepository implements InterfaceEtudiantRep {
 	      
 	      // iterate through the java resultset
 		if (rs.first()){
-				System.out.println("logBD--- :email existe deja dans la BD  " + email);
+			journal.outPut_Msg("logBD--- :email existe deja dans la BD  " + email+""
+					+"\n"+"Générer par :" +getClass().getName());
+
 				//BD.getConn().close();
 				return true;}
 	     
-				System.out.println("logBD--- : email n'existe pas " + email);	
+		journal.outPut_Msg("logBD--- : email n'existe pas " + email+""
+				+"\n"+"Générer par :" +getClass().getName());
+
 				BD.getConn().close();
 				return false;
 	}catch(SQLException e){
@@ -59,11 +69,15 @@ public class EtudiantRepository implements InterfaceEtudiantRep {
 		ResultSet rs = stmt.executeQuery(sql);
 		
 		if (rs.first()){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			journal.outPut_Msg("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat+""
+					+"\n"+"Générer par :" +getClass().getName());
+
 			//BD.getConn().close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+		journal.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat+""
+				+ "\n"+"Générer par :" +getClass().getName());
+
 		BD.getConn().close();
 		return false;
 	}catch(SQLException e){

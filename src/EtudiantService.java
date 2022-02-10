@@ -7,20 +7,21 @@ public class EtudiantService implements InterfaceEtudiantService {
 
 	private InterfaceEtudiantRep StudRep;
 	private InterfaceUniversiteRep UnivRep;
+	private IJournal journal;
 	
 	
-	public EtudiantService(InterfaceEtudiantRep EtudRep ,InterfaceUniversiteRep UnivRep) {
+	public EtudiantService(InterfaceEtudiantRep EtudRep ,InterfaceUniversiteRep UnivRep,IJournal journal) {
 		super();
 		this.StudRep = EtudRep;
 		this.UnivRep = UnivRep;
+		this.journal=journal;
   }
 	
 	boolean inscription (Etudiant stud,int id_universite)
 	{
 		InterfaceUniversité univ=UnivRep.GetById(id_universite);
 
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec le matricule "+stud.getMatricule());
-
+		journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec le matricule "+stud.getMatricule());
 	    if(stud.getEmail() == null || stud.getEmail().length() == 0)
 	    {
 	    	return false;
