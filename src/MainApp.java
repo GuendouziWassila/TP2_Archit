@@ -17,7 +17,7 @@ public class MainApp {
 		AffichageListes.add(AfficherDate);
 		AffichageListes.outPut_Msg("Ce message va etre affiché par 3 façon différentes");
 		
-		
+		//afficher fenetre inscription Q22
 		ViewInscription v = new ViewInscription();
 		
 		

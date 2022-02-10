@@ -3,3 +3,6 @@
 /Standard.class
 /Premium.class
 /ViewInscription.class
+/ControleurInscription.class
+/ControleurInscription$serviceListnner.class
+/ControlleurInscription.class

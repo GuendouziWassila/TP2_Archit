@@ -88,7 +88,12 @@ import javax.swing.*;
 
 					         JOptionPane.showMessageDialog(this, errorMessage);      
 					    }
+		         
+		         void addInsertListener(ActionListener listenForInsertButton){
 
+			         insert.addActionListener(listenForInsertButton);
+
+			     }	
 
 		}
 		
