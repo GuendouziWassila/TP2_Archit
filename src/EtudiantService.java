@@ -13,7 +13,12 @@ public class EtudiantService {
 	
 	boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		 StudRep= new EtudiantRepository();
+		
+		//normalement on va pas les instancier ici et on va  utiliser frameworks seulement,  mais ils sont utilisés avec des méthodes pour assurer des résponsabilités
+		 
+		
+		//pour la question 12 momentanément on garde les responsabilités tel quel sont, mais on ajoute une fonction email.match qui valide le format de notre email 
+		StudRep= new EtudiantRepository();
 	     UnivRep= new UniversiteRepository();
 	    Etudiant stud = new Etudiant(matricule, nom, prenom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
@@ -24,6 +29,16 @@ public class EtudiantService {
 	    {
 	    	return false;
 	    }
+	    
+	 // verifier la validitee de l'email (format juste)
+	 		if(email.matches(".+@.+\\.[a-z]+") != true)
+	 		{
+	 			return false;
+	 		}
+
+	    
+	    
+	    
 	    
 	    if (StudRep.Exists(matricule))
 	    {
