@@ -10,5 +10,6 @@ public class verif_Pack {
     {
    	 stud.setNbLivreMensuel_Autorise(10*2);
     }
+
 	}
 }

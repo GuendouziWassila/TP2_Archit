@@ -1,10 +1,13 @@
-import java.sql.SQLException;
+/*import java.sql.SQLException;
 
 public class MainApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+
+		ViewInscription theView = new ViewInscription();
+		theView.setVisible(true);
 
 
 		EtudiantService serv=new EtudiantService();
@@ -17,4 +20,4 @@ public class MainApp {
 		}
 	}
 
-}
+}*/
