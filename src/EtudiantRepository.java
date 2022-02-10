@@ -4,11 +4,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements IEtudiantRepository{
 	
 	
-	void add(Etudiant E) throws SQLException
+	public void add(Etudiant E)
 	{
+		
+	 try {	
 
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
@@ -23,11 +25,15 @@ public class EtudiantRepository {
 				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
+	 }catch(SQLException e){
+			e.printStackTrace();
+		}
 	 }
 
 
-	boolean Exists(String email) throws SQLException	
+	public boolean Exists(String email) 	
 	{
+	 try {
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
 		
@@ -42,11 +48,15 @@ public class EtudiantRepository {
 			}
 		System.out.println("logBD--- : email n'existe pas " + email);	
 		connect.close();
+	 }catch(SQLException e){
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+	public boolean Exists(int mat)	
 	{
+	 try {	
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
 		
@@ -61,7 +71,21 @@ public class EtudiantRepository {
 			}
 		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
+	 }catch(SQLException e){
+			e.printStackTrace();
+		}
 		return false;
 	}
+	
+	
+	
 
+
+	@Override
+	public boolean Existe_Email_Matricule(int Matricule, String Email) {
+		return this.Exists(Matricule) || this.Exists(Email) || Email.length() == 0 || Email == null;
+	}
+	
+	
+	
 }

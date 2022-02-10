@@ -5,11 +5,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements IUniversiteRepository{
 	
 	
-	Universite GetById(int universityId) throws SQLException {
-		
+	public Universite GetById(int universityId) {
+		try{
 		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
@@ -25,8 +25,31 @@ public class UniversiteRepository {
 		
 		connect.close();
 		return u;	
-	
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 		
+
+		return null;
 	}	
+	
+	@Override
+	public int NbrLivreAutorise(int id_univ) {
+		Universite Univ =  GetById(id_univ);
+		
+		if (Univ.getPack() == TypePackage.Standard)
+	     {
+			Package pack = new Standard(null);
+	        return pack.nbrLivreAutorise;
+	     }
+	     else if (Univ.getPack() == TypePackage.Premium)
+	     {
+	    	 Package pack = new Premuim(null);
+	    	 return pack.nbrLivreAutorise;
+	    	 }     
+		
+		return 0;
+	}
+		
 	
 }

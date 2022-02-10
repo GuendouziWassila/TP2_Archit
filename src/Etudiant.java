@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements IEtudiant{
 		private int matricule;
 	    private String nom;
 	    private String prenom;
@@ -100,6 +100,5 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
 		
 	    }
