@@ -1,3 +1,6 @@
+package Packages;
+
+import Repository.AbstractFactory;
 
 public class ConcreteFactory extends AbstractFactory {
 

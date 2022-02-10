@@ -1,3 +1,4 @@
+package InscriptionView;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 import javax.swing.JLabel;
@@ -6,6 +7,9 @@ import java.awt.Image;
 
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+
+import Controller.AbstractViewInscription;
+
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

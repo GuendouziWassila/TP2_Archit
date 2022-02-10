@@ -1,3 +1,4 @@
+package Packages;
 
 public enum TypePackage {
 	Standard,

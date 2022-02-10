@@ -1,6 +1,9 @@
+package Journal;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import Services.IJournal;
 
 public class AfficherMsgDateClasse implements IJournal {
 

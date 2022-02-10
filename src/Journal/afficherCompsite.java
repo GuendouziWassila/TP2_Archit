@@ -1,6 +1,9 @@
+package Journal;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import Services.IJournal;
 
 public class afficherCompsite implements IJournal {
 

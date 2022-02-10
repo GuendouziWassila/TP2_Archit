@@ -1,6 +1,11 @@
+package DB1;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import Repository.InterfaceDBConnection;
+
+
 
 public class DBConnection implements InterfaceDBConnection {
 	   

@@ -1,4 +1,8 @@
 
+import DB1.DBConnection;
+import Journal.*;
+import Repository.*;
+import Services.*;
 
 public class MainApp {
 
@@ -14,13 +18,11 @@ public class MainApp {
 			jcomp.ajouter(j3);
 			
 		InterfaceDBConnection db=DBConnection.getInstance();
-		
 		InterfUniversiteRep UnivRep=new UniversiteRepository(db,jcomp);
 		InterfEtudiantRep StudRep=new EtudiantRepository(db,jcomp);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,jcomp);
 		InterfEtudiant etud = new Etudiant(3, "guens", "wassila", "a@gmail.com","xxxx", 3);
 		serv.inscription(etud);
-		
 		serv.AjoutBonus();
 			
 		} catch (Exception e) {

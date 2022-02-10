@@ -1,5 +1,12 @@
+package Services;
 import java.io.IOException;
 import java.sql.SQLException;
+
+import Repository.*;
+
+
+
+
 
 public interface InterfUniversiteRep {
 

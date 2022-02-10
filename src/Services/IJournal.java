@@ -1,3 +1,4 @@
+package Services;
 import java.io.IOException;
 
 public interface IJournal {

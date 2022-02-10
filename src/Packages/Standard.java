@@ -1,21 +1,23 @@
+package Packages;
 
-public class illimité extends Package {
+public class Standard extends Package{
 
-	public illimité(TypePackage pack) {
+	public Standard(TypePackage pack) {
 		super(pack);
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
 	public int getNbrLivreAutorise() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 10;
 	}
 
 	@Override
 	public int getNbrLivreBonus() {
 		// TODO Auto-generated method stub
-		return 0;
+		return 5;
 	}
 
 }

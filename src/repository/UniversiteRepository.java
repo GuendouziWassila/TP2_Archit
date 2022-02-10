@@ -1,3 +1,4 @@
+package Repository;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -5,6 +6,14 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import Packages.*;
+import Packages.Package;
+import Services.IJournal;
+import Services.InterfUniversiteRep;
+
+
+
 
 public class UniversiteRepository implements InterfUniversiteRep {
 	InterfaceDBConnection db;

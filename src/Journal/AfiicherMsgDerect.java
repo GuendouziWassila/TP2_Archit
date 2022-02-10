@@ -1,3 +1,6 @@
+package Journal;
+
+import Services.IJournal;
 
 public class AfiicherMsgDerect implements IJournal {
 

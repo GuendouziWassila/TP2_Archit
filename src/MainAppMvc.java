@@ -1,4 +1,12 @@
 
+import Controller.*;
+import DB1.DBConnection;
+import InscriptionView.ViewInscription;
+import Journal.*;
+import Journal.afficherCompsite;
+import Repository.*;
+import Services.*;
+
 public class MainAppMvc {
 
 	public static void main(String[] args) {

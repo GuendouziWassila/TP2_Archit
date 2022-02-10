@@ -1,3 +1,4 @@
+package Services;
 import java.io.IOException;
 import java.sql.Connection;
 
@@ -5,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+
 public class EtudiantService {
 	private InterfEtudiantRep StudRep;
 	private InterfUniversiteRep UnivRep;
@@ -20,7 +23,7 @@ public class EtudiantService {
 
 	}
 	
-	boolean inscription (InterfEtudiant etud) throws SQLException, IOException	
+	public boolean inscription (InterfEtudiant etud) throws SQLException, IOException	
 	{
 	    ij.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etud.getMatricule());	    
 	    // La verification de la validité de l'email et matricule se fait à la classe EtudiantRepository
