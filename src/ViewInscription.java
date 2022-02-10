@@ -64,6 +64,11 @@ public class ViewInscription extends JFrame implements ActionListener {
 		     frame.setVisible(true);
 		
 		}
-		
+
+		@Override/// c'est la réponse de la question 23 j'ai trompé dans le numéro de la question 
+		public void actionPerformed(ActionEvent e) {
+			ControleurInscription c = new ControleurInscription();
+			c.InscriptionControle();
+		}
 		
 }
