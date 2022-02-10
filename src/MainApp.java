@@ -8,7 +8,7 @@ public class MainApp {
 		IDBConnexion conn = DBConnection.getInstance();
 		Composite comp = new Composite();
 		
-		Etudiant etudiant0 =new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1);
+		Etudiant etudiant0 =new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx",1,0,0);
 		
 		IJournal j1 = new AfficherEcran();
 		IJournal j2 = new AfficherDate();

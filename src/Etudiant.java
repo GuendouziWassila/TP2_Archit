@@ -10,7 +10,7 @@ public class Etudiant implements IEtudiant{
 	    private int id_universite;
 	    
 	   
-		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
+public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite, int nbLivreMensuel_Autorise,  int nbLivreEmprunte ) {
 			
 			this.matricule = matricule;
 			this.nom = nom;
@@ -18,8 +18,10 @@ public class Etudiant implements IEtudiant{
 			this.email = email;
 			this.pwd = pwd;
 			this.id_universite = id_universite;
-		}
+			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise ;
+			this.nbLivreEmprunte = nbLivreEmprunte ;
 
+		}
 
 		public int getMatricule() {
 			return matricule;

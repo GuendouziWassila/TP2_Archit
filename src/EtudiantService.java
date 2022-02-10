@@ -15,10 +15,12 @@ public class EtudiantService {
 			this.UnivRep = UnivRep; 
 			this.j=j;
 	  }
+	  
+	  
 	
 	boolean inscription (Etudiant etud , int ID_univ ) throws SQLException	
 	{
-		 Universite univ = UnivRep.GetById(ID_univ) ;
+		 Universite univ = UnivRep.GetById(ID_univ);
          j.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+etud.getMatricule());
 	    
          if(StudRep.Existe_Email_Matricule(etud.getMatricule(), etud.getEmail())){
