@@ -2,7 +2,6 @@
 public class MainApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		int matricule = 2;
 		String nom = "Guendouziiiii";
@@ -10,6 +9,7 @@ public class MainApp {
 		String email = "guen@gmail.com";
 		String passcode = "xxxx";
 		int univId = 1;
+		IJournal journal = new diffOutputJournal("def");
 
 		EtudiantService serv = new EtudiantService();
 		EtudiantRepository repo = new EtudRepo();
@@ -21,11 +21,10 @@ public class MainApp {
 			if(uni != null) {
 				serv.inscription(repo, UnivRepo, uni, stud);
 			}else {
-				System.out.println("ne peut pas cree etudiant");
+				journal.outPut_Msg("ne peut pas cree etudiant");
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

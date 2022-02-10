@@ -6,10 +6,11 @@ import java.sql.Statement;
 public class UniverRepo implements UniversiteRepository{
   public Universite GetById(int universityId) throws SQLException {
 		
+		IJournal journal = new diffOutputJournal("def");
 		DBConnection BD = DBConnection.getDB();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : debut recherche de id universite dans la base de donnee");
+		journal.outPut_Msg("LogBD : debut recherche de id universite dans la base de donnee");
 		
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
@@ -19,9 +20,9 @@ public class UniverRepo implements UniversiteRepository{
 			TypePackage p=TypePackage.valueOf(rs.getString(3));
 			u = new Univ (universityId,rs.getString(2),p);
 			
-			System.out.println("LogBD : universite recuperee");
+			journal.outPut_Msg("LogBD : universite recuperee");
 		}else {
-			System.out.println("LogBD : universite n'existe pas");
+			journal.outPut_Msg("LogBD : universite n'existe pas");
 		}
 		
 		connect.close();

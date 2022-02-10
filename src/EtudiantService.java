@@ -2,12 +2,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 public class EtudiantService {
 	
-	
+	IJournal journal = new diffOutputJournal("def");
 
 	boolean inscription (EtudiantRepository StudRep, UniversiteRepository UnivRep, Universite univ, Etudiant stud) throws SQLException	
 	{
 	  
-	  System.out.println("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+	  journal.outPut_Msg("Log: debut de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
 	  
 	  if(stud.getEmail() == null || stud.getEmail().length() == 0)
 	  {
@@ -30,7 +30,7 @@ public class EtudiantService {
 	  }                           
 	     
 		StudRep.add(stud);
-		System.out.println("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+		journal.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
 		return true;
 	}
 	
