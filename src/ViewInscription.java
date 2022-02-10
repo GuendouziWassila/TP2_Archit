@@ -67,7 +67,12 @@
 		
 		}
 
-	
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ControleurInscription c = new ControleurInscription();
+			c.InscriptionControle();
+		}
+
 		
 		
 
