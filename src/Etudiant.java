@@ -45,6 +45,7 @@ public class Etudiant {
 			String sql = "UPDATE etudiant SET nbLivreMensuel_Autorise = " + this.nbLivreMensuel_Autorise + " WHERE matricule = " + this.matricule; 
 			stmt.executeUpdate(sql);
 			
+			System.out.println("Log: Un bonus a été ajouté a l'étudiant avec le matricule "+ this.matricule+"\n");
 		}
 
 		

@@ -7,9 +7,12 @@ import java.util.Arrays;
 
 public class EtudiantService {
 	
+	
+	
 	private IJournal journal;
 	private I_EtudiantRepository etudRep;
 	private I_UniversiteRepository univRep;
+	
 	
 	
 	public EtudiantService(I_EtudiantRepository etudRep, I_UniversiteRepository univRep, IJournal comp) 
@@ -18,7 +21,6 @@ public class EtudiantService {
 		this.etudRep = etudRep;
 		this.univRep = univRep;
 	}
-	
 	
 	
 	
@@ -101,7 +103,7 @@ public class EtudiantService {
 				
 		}
 		
-
+		journal.outPut_Msg("Log: Un bonus a été ajouté a tous les étudiants appartenant à les universités avec package de type Standard et Premium");
 	 }
 	
 	
