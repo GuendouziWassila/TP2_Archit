@@ -1,10 +1,13 @@
 
+import Controller.*;
 import DB1.DBConnection;
+import InscriptionView.ViewInscription;
 import Journal.*;
+import Journal.afficherCompsite;
 import Repository.*;
 import Services.*;
 
-public class MainApp {
+public class MainAppMvc {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,14 +24,26 @@ public class MainApp {
 		InterfUniversiteRep UnivRep=new UniversiteRepository(db,jcomp);
 		InterfEtudiantRep StudRep=new EtudiantRepository(db,jcomp);
 		EtudiantService serv=new EtudiantService(StudRep,UnivRep,jcomp);
-		InterfEtudiant etud = new Etudiant(3, "guens", "wassila", "a@gmail.com","xxxx", 3);
-		serv.inscription(etud);
-		serv.AjoutBonus();
+		
+		AbstractViewInscription viewInscription= new ViewInscription();
+		
+		viewInscription.Show_Inscription();
+		ControleurInscription ContInscription=new ControleurInscription(viewInscription,serv);
+		viewInscription.addObserver(ContInscription);
+		viewInscription.addListnerButton();
+		
+		
+		
+		
+		
+		
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+
 	}
 
 }
