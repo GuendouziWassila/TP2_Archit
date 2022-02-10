@@ -70,7 +70,7 @@ public class EtudRepo implements EtudiantRepository{
 			Connection connect = BD.getConn();
 			
 			Statement stmt = connect.createStatement();
-			String sql = "select matricule, nbLivreMensuel_Autorise from etudiant";
+			String sql = "SELECT matricule, nbLivreMensuel_Autorise FROM etudiant WHERE nbLivreMensuel_Autorise != 0";
 			ResultSet rs = stmt.executeQuery(sql);
 
 			if(rs.isBeforeFirst()){

@@ -20,6 +20,8 @@ public class MainApp {
 				Etudiant stud = new Etud(matricule, nom, prenom, email, passcode, univId, uni.getPack());
 				serv.inscription(repo, UnivRepo, uni, stud, email, matricule);
 			}
+
+			repo.addAllStudNbrLivre(5);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
