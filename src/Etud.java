@@ -9,7 +9,7 @@ public class Etud implements Etudiant{
   private int nbLivreEmprunte;
   private int id_universite;  
  
-  public Etud(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
+  public Etud(int matricule, String nom, String prenom, String email,String pwd, int id_universite, TypePackage Pack) {
     
     this.matricule = matricule;
     this.nom = nom;
@@ -17,6 +17,13 @@ public class Etud implements Etudiant{
     this.email = email;
     this.pwd = pwd;
     this.id_universite = id_universite;
+    
+		if (Pack == TypePackage.Standard){
+	    nbLivreMensuel_Autorise = 10;
+		}else if (Pack == TypePackage.Premium){
+	    nbLivreMensuel_Autorise = 10*2;
+	  }
+    
   }
 
 

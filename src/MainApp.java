@@ -9,19 +9,16 @@ public class MainApp {
 		String email = "guen@gmail.com";
 		String passcode = "xxxx";
 		int univId = 1;
-		IJournal journal = new diffOutputJournal("def");
 
 		EtudiantService serv = new EtudiantService();
 		EtudiantRepository repo = new EtudRepo();
 		UniversiteRepository UnivRepo = new UniverRepo();
-		Etudiant stud = new Etud(matricule, nom, prenom, email, passcode, univId);
 
 		try {
 			Universite uni = UnivRepo.GetById(univId);
 			if(uni != null) {
-				serv.inscription(repo, UnivRepo, uni, stud);
-			}else {
-				journal.outPut_Msg("ne peut pas cree etudiant");
+				Etudiant stud = new Etud(matricule, nom, prenom, email, passcode, univId, uni.getPack());
+				serv.inscription(repo, UnivRepo, uni, stud, email, matricule);
 			}
 			
 		} catch (Exception e) {

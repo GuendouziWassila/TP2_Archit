@@ -4,33 +4,25 @@ public class EtudiantService {
 	
 	IJournal journal = new diffOutputJournal("def");
 
-	boolean inscription (EtudiantRepository StudRep, UniversiteRepository UnivRep, Universite univ, Etudiant stud) throws SQLException	
+	boolean inscription (EtudiantRepository StudRep, UniversiteRepository UnivRep, Universite univ, Etudiant stud, String email, int matricule) throws SQLException	
 	{
 	  
-	  journal.outPut_Msg("debut de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+	  journal.outPut_Msg("debut de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 	  
-	  if(stud.getEmail() == null || stud.getEmail().length() == 0)
-	  {
+	  if(email == null || email.length() == 0){
 	  	return false;
 	  }
 	  
-	  if (StudRep.Exists(stud.getMatricule())){
+	  if (StudRep.Exists(matricule)){
 	    return false;
 	  }
 	    
-		if (StudRep.Exists(stud.getEmail())){
+		if (StudRep.Exists(email)){
 	    return false;
 	  }
-
-		if (univ.getPack() == TypePackage.Standard){
-	    stud.setNbLivreMensuel_Autorise(10);
-	  
-		}else if (univ.getPack() == TypePackage.Premium){
-	    stud.setNbLivreMensuel_Autorise(10*2);
-	  }                           
 	     
 		StudRep.add(stud);
-		journal.outPut_Msg("Fin de l'operation d'ajout de l'etudiant avec matricule "+stud.getMatricule());
+		journal.outPut_Msg("Fin de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 		return true;
 	}
 	
