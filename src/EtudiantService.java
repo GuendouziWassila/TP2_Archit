@@ -34,7 +34,7 @@ public class EtudiantService {
 		 //ajouter le bonus 
 		  // à tous les étudiants avec forfait limité standard et limité premium
 		   //donc dans l'inscription on ajout ce bonus
-		 AjouterBonus(stud);
+		 //AjouterBonus(stud);
 		 StudRep.add(stud);
 		 //System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+stud.getMatricule());
 		 journal.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+stud.getMatricule());
@@ -42,13 +42,23 @@ public class EtudiantService {
 	    
 		
 	}
-	
-	public void AjouterBonus(InterfaceEtudiant stud) throws SQLException, IOException {
+	/* j'ai modifié la fonction ajouterBonus avec l'utlisation GetEtudiantParUniversitye 
+	 * dedans cela permis de recuperer tous les etudiants 
+	 * dans la fonction GetEtudiantParUniversitye j'ai considéré que cette fonction
+	 *  est prédéfinie et elle va nous retourner une liste des étudiants 
+	 *  donc on va les ajouter le bonus selon l'offre
+	 *  et donc on peut appeler cette fonction AjouterBonus où on veut  
+	 * */
+	public void AjouterBonus() throws SQLException, IOException {
 		 	//ici on récupere le nobre de livre bonus selon le type de package 
 			// et la vérifcation ce faite dans la classe universiteRepository avec la methode NbrLivreBonus
-			int nbrlivreBonus = UnivRep.NbrLivreBonus(stud.getId_universite());
+			//int nbrlivreBonus = UnivRep.NbrLivreBonus(stud.getId_universite());
 			// on envoie le nombre de livre envoyé par la fonction de bonus 
-			stud.Bonus(nbrlivreBonus);
+			ArrayList<Etudiant> etudliste =  GetEtudiantParUniversitye();
+			for( Etudiant i:etudliste) {
+				i.Bonus(UnivRep.NbrLivreBonus(i.getId_universite()));
+			}
+			
 	}
 	
 	

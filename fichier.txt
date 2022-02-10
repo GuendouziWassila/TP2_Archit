@@ -1,0 +1,14 @@
+Log: début de l'opération d'ajout de l'étudiant avec matricule 89 Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+logBD----: etudiant avec ce matricule n'existe pas 89 Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+logBD--- : email n'existe pas k@o.k Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+log : ajout dans la BD réussi de l'étudiant  du Matricule89 Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+Log: Fin de l'opération d'ajout de l'étudiant avec matricule 89 Le : 10.02.2022 Heure :  01:26:29 depuis la  classe :MessComposite
+Log: début de l'opération d'ajout de l'étudiant avec matricule 788 Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+logBD----: etudiant avec ce matricule n'existe pas 788 Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+logBD--- : email n'existe pas 8@k.d Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+LogBD : début recherche de id université dans la base de donnée Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+LogBD : université récupérée Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+log : ajout dans la BD réussi de l'étudiant  du Matricule788 Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
+Log: Fin de l'opération d'ajout de l'étudiant avec matricule 788 Le : 10.02.2022 Heure :  01:36:48 depuis la  classe :MessComposite
