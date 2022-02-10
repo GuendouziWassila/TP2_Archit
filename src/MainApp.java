@@ -26,6 +26,8 @@ public class MainApp {
 
 
 		EtudiantService serv=new EtudiantService(etud, univ, composite, packageFactory);
+		ViewInscription v = new ViewInscription(etud);
+		v.setVisible(true);
 		try {
 			serv.inscription(etudiant);
 			
