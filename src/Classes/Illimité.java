@@ -9,4 +9,8 @@ public class Illimité implements Package {
     public int getBonus() {
         return 0;
     }
+    @Override
+    public void setNbLivreMensuelAutorise(Etudiant etudiant) {
+        // TODO Auto-generated method stub        
+    }
 }

@@ -31,7 +31,9 @@ public class EtudiantService implements InterfaceEtudiantService {
 		AffichageDate.setClassName("classname : EtudiantService");
 		AffichageListes.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule " + etudiant.getMatricule());
 		if (etudiantRepository.StudentVerification(etudiant)) {
-			universiteRepository.setNbLivreMensuelAutorise(etudiant, universite.getPack());
+			AbsractFactory AB = new AbsractFactory();
+			Package P = AB.getPackage(universite.getPack());
+			P.setNbLivreMensuelAutorise(etudiant);
 			etudiantRepository.add(etudiant);
 			AffichageDate.setClassName("classname : EtudiantService");
 			AffichageListes.outPut_Msg("Log: Fin de l'operation d'ajout de l'etudiant avec matricule " + etudiant.getMatricule());

@@ -12,4 +12,9 @@ public class Standard implements  Package{
     public int getBonus() {
         return bonus;
     }
+    @Override
+    public void setNbLivreMensuelAutorise(Etudiant etudiant) {
+        // TODO Auto-generated method stub
+        etudiant.setNbLivreMensuel_Autorise(10);
+    }
 }
