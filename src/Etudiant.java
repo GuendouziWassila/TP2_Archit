@@ -1,3 +1,6 @@
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Etudiant {
 
@@ -11,7 +14,7 @@ public class Etudiant {
 	    private int id_universite;
 	    
 	   
-		public Etudiant(int matricule, String nom, String prenom, String email,String pwd, int id_universite) {
+		public Etudiant(int matricule, String nom, String prenom, String email, String pwd, int id_universite) {
 			
 			this.matricule = matricule;
 			this.nom = nom;
@@ -20,7 +23,32 @@ public class Etudiant {
 			this.pwd = pwd;
 			this.id_universite = id_universite;
 		}
+		
+		
+		public void AjouterBonus(I_UniversiteRepository univRep) throws SQLException{
+			
+			Universite univ = univRep.GetById(this.getId_universite());
+			
+			if(univ.getPack() == TypePackage.Standard) { 
+				
+				this.nbLivreMensuel_Autorise += 5;
+			}
+			
 
+			if(univ.getPack() == TypePackage.Premium) {
+				
+				this.nbLivreMensuel_Autorise += 10;
+			}
+			
+			Connection connect = DBConnection.getConn();
+			Statement stmt = connect.createStatement();
+			String sql = "UPDATE etudiant SET nbLivreMensuel_Autorise = " + this.nbLivreMensuel_Autorise + " WHERE matricule = " + this.matricule; 
+			stmt.executeUpdate(sql);
+			
+			System.out.println("Log: Un bonus a été ajouté a l'étudiant avec le matricule "+ this.matricule+"\n");
+		}
+
+		
 
 		public int getMatricule() {
 			return matricule;
@@ -100,7 +128,7 @@ public class Etudiant {
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
-
 		
+			
 		
 	    }
