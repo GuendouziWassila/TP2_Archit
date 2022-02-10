@@ -1,17 +1,18 @@
+package tp2pack;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+
+
+public class EtudiantService implements IEtudService {
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	   
+	public boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+		IEtudRepository StudRep= new EtudiantRepository();
+		 EtudFactory stud = new EtudFactory();
 	    
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
@@ -28,18 +29,7 @@ public class EtudiantService {
 		if (StudRep.Exists(email))
 	    {
 	        return false;
-	    }
-		
-		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
+	    }                  
 	     
 		 StudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
@@ -49,7 +39,21 @@ public class EtudiantService {
 	}
 	
 	
-	
+	public void AddNbrBooksAllStudent (TypePackage pac) throws SQLException
+	{
+		 ArrayList<Etudiant> etud = GetEtudiatparLivreEmprunte();
+		 for (Etudiant E : etud) 
+		 {
+			 if (pac == TypePackage.Standard)
+		     {
+				 E.setNbLivreMensuel_Autorise(15);
+		     }
+		     else if (pac == TypePackage.Premium)
+		     {
+		    	 E.setNbLivreMensuel_Autorise(15*2);
+		     } 
+		}
+	}
 
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
 {

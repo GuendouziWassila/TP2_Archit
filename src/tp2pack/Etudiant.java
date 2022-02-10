@@ -1,5 +1,6 @@
+package tp2pack;
 
-public class Etudiant {
+public abstract class Etudiant {
 
 		private int matricule;
 	    private String nom;
@@ -101,6 +102,6 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		public abstract void NbrBookAuthorized ();
 		
 	    }

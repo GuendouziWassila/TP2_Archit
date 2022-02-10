@@ -1,3 +1,4 @@
+package tp2pack;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +11,7 @@ public class UniversiteRepository {
 	
 	Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= new DBConnection();
+		DBConnection BD = DBConnection.geInstance();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : début recherche de id université dans la base de donnée");
