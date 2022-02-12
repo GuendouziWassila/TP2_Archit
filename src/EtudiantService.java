@@ -8,7 +8,7 @@ public class EtudiantService {
 	  
 	  journal.outPut_Msg("debut de l'operation d'ajout de l'etudiant avec matricule "+matricule);
 	  
-	  if(email == null || email.length() == 0){
+	  if (email == null || email.length() == 0){
 	  	return false;
 	  }
 	  
