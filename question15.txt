@@ -1,0 +1,5 @@
+Le problème dans les deux fonctionalités d'initialisation de nombre de 
+livre monsuel autorisé et d'ajout de bonus est:
+
+Dans le changement des valeurs relié avec un package ou un ajout de package
+il faut changer les différente occurences de ces valeurs
