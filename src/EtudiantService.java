@@ -1,18 +1,15 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public class EtudiantService implements InterEtudServ{
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	/*La méthode inscription permet d’ajouter un étudiant et elle vérifie le format de l’email, vérifie l’existence de l’email et du matricule*/ 
+       /* et initialise le nombre de livre mensuel autorisé.*/
+	/*  donc on les  garde dans la méthode car elles sont reliees entre eux */ 
+
+	public boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
-	    
+		IEtdRep StudRep= new EtudiantRepository();
+	    EtudiantFactory stud = new EtudiantFactory();
 	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
 	    if(email == null || email.length() == 0)
@@ -30,22 +27,25 @@ public class EtudiantService {
 	        return false;
 	    }
 		
-		
-		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
 		 StudRep.add(stud);
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
-	    
-		
+	}
+
+	public void augment_nbr_livres_tousEtud(TypePackage pac) throws SQLException
+	{
+		 ArrayList<Etudiant> etudiants = GetEtudiatparLivreEmprunte();
+		 for (Etudiant E : etudiants) 
+		 {
+			 if (pac == TypePackage.Standard)
+		     {
+				 E.setNbLivreMensuel_Autorise(15);
+		     }
+		     else if (pac == TypePackage.Premium)
+		     {
+		    	 E.setNbLivreMensuel_Autorise(15*2);
+		     } 
+		}
 	}
 	
 	

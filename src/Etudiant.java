@@ -1,6 +1,7 @@
 
 public class Etudiant {
 
+		/*class etudient */
 		private int matricule;
 	    private String nom;
 	    private String prenom;
@@ -101,6 +102,5 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
-		
+		public abstract void augment_nbr_livres();
 	    }
