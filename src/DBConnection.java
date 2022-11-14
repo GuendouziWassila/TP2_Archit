@@ -9,7 +9,8 @@ public class DBConnection {
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
-
+              
+	    //comments
 	   
 	    public DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
