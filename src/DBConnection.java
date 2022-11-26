@@ -4,8 +4,8 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	   
-		private static final DBConnection NULL = null;
-		private String BDD = "nomBD";
+		
+		private String BDD = "nombd";
 		private String url = "jdbc:mysql://localhost:3306/" + BDD;
 		private String user = "root";
 		private String passwd = "";
@@ -19,7 +19,7 @@ public class DBConnection {
 	    private static DBConnection db; 
          
 	    public static DBConnection getinstaConnection() throws SQLException {
-			if(db == NULL){
+			if(db == null){
 				return db = new DBConnection(); }
 			return db;
 			

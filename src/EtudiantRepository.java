@@ -14,7 +14,7 @@ public class EtudiantRepository {
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
-		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
+		String sql = "INSERT INTO `etudiant`(`matricule`, `nom`, `prenom`, `email`, `nm`, `ne`, `id_universite`) values ('"+E.getMatricule()+"','"+E.getNom()+"','"+E.getPrenom()+"','"+E.getEmail()+"','"+E.getNbLivreMensuel_Autorise()+"','"+E.getNbLivreEmprunte()+"','"+E.getPrenom()+")";
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){

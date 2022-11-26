@@ -15,7 +15,7 @@ public class UniversiteRepository {
 		Statement stmt = connect.createStatement();
 		System.out.println("LogBD : d�but recherche de id universit� dans la base de donn�e");
 		
-		String sql = "select * from universite where id_universite="+ universityId;
+		String sql = "SELECT * FROM universite WHERE id_universite ="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();	
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
