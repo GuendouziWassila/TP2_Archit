@@ -1,2 +1,9 @@
 /ConcreteCreator.class
 /AbstractFactory.class
+/ViewInscription.class
+/valider.png
+/annuler.jpg
+/valider.jpg
+/ControleurInscription.class
+/ControleurInscription$AnnulerListener.class
+/ControleurInscription$InscrirListener.class
