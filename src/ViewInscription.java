@@ -15,7 +15,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-public class ViewInscription extends JFrame {
+
+
+
+public class ViewInscription extends JFrame implements IViewInscription {
     private JFrame Jframe;
     private JPanel Panel;
     private JTextField Matricule;
@@ -75,15 +78,14 @@ public class ViewInscription extends JFrame {
         this.UnivId = new JTextField("");
         UnivId.setColumns(10);
         UnivId.setBounds(184, 194, 200, 20);
-        
      // Bouton valider
         
-        
         Image imgV = new ImageIcon("E:\\TPArchiGit\\TP2\\TP2_Archit\\src\\valider.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
+
         Icon iconV = new ImageIcon(imgV);
-        valider = new JButton("valider" ,iconV);
+        this.valider = new JButton("valider" ,iconV);
         valider.setBounds(270, 250, 120, 30);
-        
+
      // Bouton annuler
         Image imgA = new ImageIcon("E:\\TPArchiGit\\TP2\\TP2_Archit\\src\\annuler.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
         Icon iconA= new ImageIcon(imgA);
@@ -105,7 +107,8 @@ public class ViewInscription extends JFrame {
         this.Panel.add(annuler);
     }
 
-    boolean champsValides() {
+    @Override
+    public boolean champsValides() {
         if (Get_Mat().isEmpty() || Get_Name().isEmpty() || Get_Prenom().isEmpty() || Get_email().isEmpty() || Get_pwd().isEmpty() || Get_id_univ().isEmpty()) {
             this.ShowErreur("Veuillez remplir tous les champs!");
             return false;
@@ -120,19 +123,32 @@ public class ViewInscription extends JFrame {
         }
         return true;
     }
+
+
+    @Override
     public void Show_InscriptionForm() {
         this.initialiser();
         this.Jframe.setVisible(true);
     }
+
+    @Override
     public void Annuler_Inscription() {
         this.Jframe.dispose();
     }
-    void addValiderListener(ActionListener listener) {
-    	valider.addActionListener(listener);
+
+    
+    @Override
+    public void addValiderListener(ActionListener listenForCalcButton) {
+    	valider.addActionListener(listenForCalcButton);
     }
-    void addAnnulerListener(ActionListener listener) {
-    	annuler.addActionListener(listener);
+
+    
+    @Override
+    public void addAnnulerListener(ActionListener listenForCalcButton) {
+    	annuler.addActionListener(listenForCalcButton);
     }
+
+    @Override
     public void Reset_Champs() {
         this.Matricule.setText("");
         this.Nom.setText("");
@@ -141,30 +157,45 @@ public class ViewInscription extends JFrame {
         this.Pwd.setText("");
         this.UnivId.setText("");
     }
+
+
+    @Override
     public void ShowDialog(final String msg) {
         JOptionPane.showMessageDialog(this, msg);
     }
+
+    @Override
     public void ShowErreur(final String msg) {
         JOptionPane.showMessageDialog(this, msg, "Erreur", 0);
     }
+
+    @Override
     public String Get_Mat() {
         return this.Matricule.getText();
     }
+
+    @Override
     public String Get_Name() {
         return this.Nom.getText();
     }
+
+    @Override
     public String Get_Prenom() {
         return this.Prenom.getText();
     }
+
+    @Override
     public String Get_email() {
         return this.Email.getText();
     }
 
-	
+
+    @Override
 	public String Get_pwd() {
         return this.Pwd.getText();
     }
 
+    @Override
     public String Get_id_univ() {
         return this.UnivId.getText();
     }
