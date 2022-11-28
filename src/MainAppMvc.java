@@ -1,3 +1,11 @@
+import Controller.ControleurInscription;
+import InscriptionView.IViewInscription;
+import InscriptionView.ViewInscription;
+import Journal.ScreenJourn;
+import Repository.EtudiantRepository;
+import Repository.UniversiteRepository;
+import Services.EtudiantService;
+
 public class MainAppMvc {
 
 	public static void main(String[] args) {
