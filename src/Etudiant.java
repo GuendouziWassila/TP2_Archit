@@ -70,16 +70,21 @@ public class Etudiant {
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
 		}
-		
+
 		public void giveBonus(Universite univ) throws SQLException {
 
+			IPackage pack;
 			if (univ.getPack() == TypePackage.Standard)
 		     {
 				setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise() + 5) ;
+				pack = new Standard();
+				setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise() + pack.getBonus()) ;
 		     }
 		     else if (univ.getPack() == TypePackage.Premium)
 		     {
 		    	 setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise() + 10) ;
+		    	 pack = new Premium();
+		    	 setNbLivreMensuel_Autorise(this.getNbLivreMensuel_Autorise() + pack.getBonus()) ;
 		     }                           
 
 		}

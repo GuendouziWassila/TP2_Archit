@@ -30,37 +30,41 @@ public class EtudiantService {
 		
 	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
 	    Universite univ= UnivRep.GetById(id_universite, j);
-	    
+
 	    j.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
-	    
+
+	    IPackage pack;
 		 if (univ.getPack() == TypePackage.Standard)
 	     {
 	          stud.setNbLivreMensuel_Autorise(10);
+			  pack = new Standard();
+	          stud.setNbLivreMensuel_Autorise(pack.getNbrLivreAutorise());
 	     }
 	     else if (univ.getPack() == TypePackage.Premium)
 	     {
 	    	 stud.setNbLivreMensuel_Autorise(10*2);
+	    	 pack = new Premium();
+	    	 stud.setNbLivreMensuel_Autorise(pack.getNbrLivreAutorise());
 	     }                           
-	     
+
 		 StudRep.add(stud, j);
 		 
 		 j.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
 	    
-
+		
 	}
-
+	
 	public void ajouterBonus() throws SQLException {
 		ArrayList<Etudiant> etudiants = StudRep.getEtudiants();
-
+		
 		for(Etudiant e : etudiants) {
 			Universite univ = UnivRep.GetById(e.getId_universite(), new ScreenJourn());
 			e.giveBonus(univ);
 		}
 	}
-
-
-
+	
+	
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
 {
     //...
