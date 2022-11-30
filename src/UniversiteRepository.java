@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class UniversiteRepository {
 	
 	
-	Universite GetById(int universityId) throws SQLException {
+	public Universite GetById(int universityId) throws SQLException {
 		
 		DBConnection BD=  DBConnection.getinstaConnection();
 		Connection connect=BD.getConn(); 
