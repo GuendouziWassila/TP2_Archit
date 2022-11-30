@@ -6,7 +6,7 @@ public class MainApp {
 		
 
 
-		EtudiantService serv=new EtudiantService();
+		IEtudiantServ serv=new EtudiantService();
 		try {
 			serv.inscription(6, "MAATLIA", "Mohamed", "nazimmizo7@gmail.com","xxxx", 123);
 			
