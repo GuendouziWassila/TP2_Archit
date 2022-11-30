@@ -1,1 +1,4 @@
+LogBD : universit? r?cup?r?e
+Log: d?but de l'op?ration d'ajout de l'?tudiant avec matricule 7
+logBD----: etudiant avec ce matricule n'existe pas 7
 logBD--- :email existe dans la BD  nazimmizo7@gmail.com
