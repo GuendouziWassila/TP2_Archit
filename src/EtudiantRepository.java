@@ -1,4 +1,6 @@
 
+import java.io.File;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,6 +9,7 @@ import java.sql.Statement;
 public class EtudiantRepository implements IEtudiantRep{
 	
 	IJournal msg= new ScrennMsg();
+	IJournal msg0= new FileMsg();
 	public void add(Etudiant E) throws SQLException
 	{
 
@@ -18,7 +21,8 @@ public class EtudiantRepository implements IEtudiantRep{
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				msg.outPut_Msg("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule()); //("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule());
+			msg0.outPut_Msg("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule());	
+			msg.outPut_Msg("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule()); //("log : ajout dans la BD r�ussi de l'�tudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
 				msg.outPut_Msg("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule()); //System.out.println("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
 			}
@@ -55,6 +59,7 @@ public class EtudiantRepository implements IEtudiantRep{
 		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
+			msg0.outPut_Msg("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);
 			msg.outPut_Msg("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat); //System.out.println("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);
 			connect.close();
 			return true;
