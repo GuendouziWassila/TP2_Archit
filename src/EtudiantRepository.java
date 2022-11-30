@@ -14,7 +14,7 @@ public class EtudiantRepository {
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
-		String sql = "INSERT INTO `etudiant`(`matricule`, `nom`, `prenom`, `email`, `nm`, `ne`, `id_universite`) values ('"+E.getMatricule()+"','"+E.getNom()+"','"+E.getPrenom()+"','"+E.getEmail()+"','"+E.getNbLivreMensuel_Autorise()+"','"+E.getNbLivreEmprunte()+"','"+E.getPrenom()+")";
+		String sql = "insert into etudiant values ('"+E.getMatricule()+"','"+E.getNom()+"','"+E.getPrenom()+"','"+E.getEmail()+"','"+E.getNbLivreMensuel_Autorise()+"','"+E.getNbLivreEmprunte()+"','"+E.getId_universite()+"')";
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
@@ -33,7 +33,7 @@ public class EtudiantRepository {
 		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where email='"+ email+"'";
-		boolean rs = stmt.execute(sql);
+		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
 			System.out.println("logBD--- :email existe dans la BD  " + email);
@@ -52,7 +52,7 @@ public class EtudiantRepository {
 		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where matricule="+ mat;
-		boolean rs = stmt.execute(sql);
+		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
 			System.out.println("logBD--- :etudiant avec ce matricule existe d�ja dans la BD  " + mat);

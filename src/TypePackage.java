@@ -1,4 +1,5 @@
 
 public enum TypePackage {
-	Standard,Premium
+	Standard,
+	Premium
 }
