@@ -40,11 +40,15 @@ public class EtudiantRepository implements IEtudiantRep{
 		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
+		msg0.outPut_Msg("logBD--- :email existe dans la BD  " + email);	
 		msg.outPut_Msg("logBD--- :email existe dans la BD  " + email);	 //System.out.println("logBD--- :email existe dans la BD  " + email);
-			connect.close();
+		
+		connect.close();
 			return true;
 			}
+		msg0.outPut_Msg("logBD--- : email n'existe pas " + email);
 		msg.outPut_Msg("logBD--- : email n'existe pas " + email); //System.out.println("logBD--- : email n'existe pas " + email);	
+		
 		connect.close();
 		return false;
 	}
@@ -64,7 +68,9 @@ public class EtudiantRepository implements IEtudiantRep{
 			connect.close();
 			return true;
 			}
-		    msg.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);   //System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+			msg0.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);
+		    msg.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);
+			   //System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
 	}

@@ -6,13 +6,14 @@ import java.util.ArrayList;
 public class EtudiantService implements IEtudiantServ {
 	
 	IJournal msg1= new ScrennMsg();
+	IJournal msg10= new FileMsg();
 	public boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		IEtudiantRep StudRep= new EtudiantRepository();
 	    IUniversityRep UnivRep= new UniversiteRepository();
 	    Etudiant stud = new Etudiant(matricule,nom,prenom,email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
-	    
+	    msg10.outPut_Msg("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 	    msg1.outPut_Msg("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule); //System.out.println("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 	    
 	    if(email == null || email.length() == 0)
@@ -42,8 +43,10 @@ public class EtudiantService implements IEtudiantServ {
 	     }                           
 	     
 		 StudRep.add(stud);
+		 msg10.outPut_Msg("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 		msg1.outPut_Msg("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule); //System.out.println("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
-		 return true;
+		
+		return true;
 	    
 		
 	}

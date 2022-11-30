@@ -8,12 +8,12 @@ public class MainApp {
 
 		IEtudiantServ serv=new EtudiantService();
 		try {
-			serv.inscription(6, "MAATLIA", "Mohamed", "nazimmizo7@gmail.com","xxxx", 123);
+			serv.inscription(7, "MAATLIA", "Mohamed", "nazimmizo7@gmail.com","xxxx", 123);
 			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			
+
 		}
 	}
 

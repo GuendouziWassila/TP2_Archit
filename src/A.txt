@@ -1,2 +1,1 @@
-logBD--- :etudiant avec ce matricule existe d?ja dans la BD  6
-logBD--- :etudiant avec ce matricule existe d?ja dans la BD  6
+logBD--- :email existe dans la BD  nazimmizo7@gmail.com
