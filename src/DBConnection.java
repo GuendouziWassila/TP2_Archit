@@ -11,7 +11,7 @@ public class DBConnection {
 	    private Connection conn;
 
 	   
-	    public DBConnection() throws SQLException {
+	   private DBConnection() throws SQLException {
 			conn=DriverManager.getConnection(url, user,passwd);
 		}
 
