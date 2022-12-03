@@ -57,5 +57,13 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 }
 
 
+
+
+public void inscription(Etudiant e, int id_universite) {
+	// TODO Auto-generated method stub
+	
+}
+
+
 	
 }
