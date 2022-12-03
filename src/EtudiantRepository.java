@@ -63,5 +63,20 @@ public class EtudiantRepository {
 		connect.close();
 		return false;
 	}
+	
+
+
+	public boolean vérifier_format (int matricule, String email) throws SQLException {
+		if (this.Exists(matricule))
+		  {
+		      return false;
+		  }
+		  
+			if (this.Exists(email))
+		  {
+		      return false;
+		  }
+			return false;	
+	}
 
 }

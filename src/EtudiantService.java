@@ -20,15 +20,7 @@ public class EtudiantService {
 	    	return false;
 	    }
 	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
+	  
 		
 		
 		
