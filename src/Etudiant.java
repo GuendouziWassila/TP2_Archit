@@ -19,6 +19,7 @@ public class Etudiant {
 			this.email = email;
 			this.pwd = pwd;
 			this.id_universite = id_universite;
+			
 		}
 
 
@@ -69,6 +70,9 @@ public class Etudiant {
 
 		public void setNbLivreMensuel_Autorise(int nbLivreMensuel_Autorise) {
 			this.nbLivreMensuel_Autorise = nbLivreMensuel_Autorise;
+		}
+		public void bonus(int nbBonus){
+			this.nbLivreMensuel_Autorise =nbLivreMensuel_Autorise+nbBonus ;
 		}
 
 
