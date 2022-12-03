@@ -53,4 +53,9 @@ import javax.swing.JFrame;
     public String getId_universite() {
         return this.TxtIdUniv.getText();
     }
+
+	public void Show_InscriptionForm() {
+		// TODO Auto-generated method stub
+		
+	}
 }

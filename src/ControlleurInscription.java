@@ -17,6 +17,10 @@
 				
 			}
 			
+			public ControlleurInscription(ViewInscription view, EtudiantService serv) {
+				// TODO Auto-generated constructor stub
+			}
+
 			public void actionPerformed(ActionEvent e) {
 				String matricule = V.getMatricule();
 				String nom = V.getNom();
