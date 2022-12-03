@@ -3,17 +3,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public class EtudiantService implements IEtudiantServ {
 	
-	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	IJournal msg1= new ScrennMsg();
+	IJournal msg10= new FileMsg();
+	public boolean inscription (int matricule, String nom, String prenom, String email,String pwd, int id_universite) throws SQLException	
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
+		IEtudiantRep StudRep= new EtudiantRepository();
+	    IUniversityRep UnivRep= new UniversiteRepository();
+	    Etudiant stud = new Etudiant(matricule,nom,prenom,email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
-	    
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+	    msg10.outPut_Msg("Log: dï¿½but de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
+	    msg1.outPut_Msg("Log: dï¿½but de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule); //System.out.println("Log: dï¿½but de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
 	    
 	    if(email == null || email.length() == 0)
 	    {
@@ -42,8 +43,10 @@ public class EtudiantService {
 	     }                           
 	     
 		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
-		 return true;
+		 msg10.outPut_Msg("Log: Fin de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
+		msg1.outPut_Msg("Log: Fin de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule); //System.out.println("Log: Fin de l'opï¿½ration d'ajout de l'ï¿½tudiant avec matricule "+matricule);
+		
+		return true;
 	    
 		
 	}
@@ -63,6 +66,11 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 	return new ArrayList<>(4);
 	
 }
+
+
+
+
+
 
 
 	

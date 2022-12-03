@@ -5,23 +5,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements IUniversityRep {
 	
-	
-	Universite GetById(int universityId) throws SQLException {
+	IJournal msg2= new ScrennMsg();
+	IJournal msg20 = new FileMsg();
+	public Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD= new DBConnection();
+		DBConnection BD=  DBConnection.getinstaConnection();
 		Connection connect=BD.getConn(); 
 		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
-		
-		String sql = "select * from universite where id_universite="+ universityId;
+		msg20.outPut_Msg("LogBD : dï¿½but recherche de id universitï¿½ dans la base de donnï¿½e");
+		msg2.outPut_Msg("LogBD : dï¿½but recherche de id universitï¿½ dans la base de donnï¿½e"); //System.out.println("LogBD : dï¿½but recherche de id universitï¿½ dans la base de donnï¿½e");
+		 
+		String sql = "SELECT * FROM universite WHERE id_universite ="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();	
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		System.out.println("LogBD : université récupérée");
+		msg20.outPut_Msg("LogBD : universitï¿½ rï¿½cupï¿½rï¿½e");
+		msg2.outPut_Msg("LogBD : universitï¿½ rï¿½cupï¿½rï¿½e"); //System.out.println("LogBD : universitï¿½ rï¿½cupï¿½rï¿½e");
 		
 		connect.close();
 		return u;	

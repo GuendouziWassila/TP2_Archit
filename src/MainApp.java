@@ -3,16 +3,17 @@ import java.sql.SQLException;
 public class MainApp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 
-		EtudiantService serv=new EtudiantService();
+		IEtudiantServ serv=new EtudiantService();
 		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+			serv.inscription(7, "MAATLIA", "Mohamed", "nazimmizo7@gmail.com","xxxx", 123);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
+
 		}
 	}
 

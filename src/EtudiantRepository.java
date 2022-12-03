@@ -1,65 +1,76 @@
 
+import java.io.File;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements IEtudiantRep{
 	
-	
-	void add(Etudiant E) throws SQLException
+	IJournal msg= new ScrennMsg();
+	IJournal msg0= new FileMsg();
+	public void add(Etudiant E) throws SQLException
 	{
 
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getinstaConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
-		String sql = "INSERT into etudiant values (" + E.getMatricule() + ",'" + E.getNom() + "','" + E.getPrenom() + "','" + E.getEmail() + "'," +E.getNbLivreMensuel_Autorise() + "," +E.getNbLivreEmprunte() + "," +E.getId_universite()+")";
+		String sql = "insert into etudiant values ('"+E.getMatricule()+"','"+E.getNom()+"','"+E.getPrenom()+"','"+E.getEmail()+"','"+E.getNbLivreMensuel_Autorise()+"','"+E.getNbLivreEmprunte()+"','"+E.getId_universite()+"')";
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+			msg0.outPut_Msg("log : ajout dans la BD rï¿½ussi de l'ï¿½tudiant  du Matricule" + E.getMatricule());	
+			msg.outPut_Msg("log : ajout dans la BD rï¿½ussi de l'ï¿½tudiant  du Matricule" + E.getMatricule()); //("log : ajout dans la BD rï¿½ussi de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				msg.outPut_Msg("log : Echec de l'ajout dans la BD de l'ï¿½tudiant  du Matricule" + E.getMatricule()); //System.out.println("log : Echec de l'ajout dans la BD de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
 
 
-	boolean Exists(String email) throws SQLException	
+	public boolean Exists(String email) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getinstaConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where email='"+ email+"'";
-		boolean rs = stmt.execute(sql);
+		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
-			System.out.println("logBD--- :email existe dans la BD  " + email);
-			connect.close();
+		msg0.outPut_Msg("logBD--- :email existe dans la BD  " + email);	
+		msg.outPut_Msg("logBD--- :email existe dans la BD  " + email);	 //System.out.println("logBD--- :email existe dans la BD  " + email);
+		
+		connect.close();
 			return true;
 			}
-		System.out.println("logBD--- : email n'existe pas " + email);	
+		msg0.outPut_Msg("logBD--- : email n'existe pas " + email);
+		msg.outPut_Msg("logBD--- : email n'existe pas " + email); //System.out.println("logBD--- : email n'existe pas " + email);	
+		
 		connect.close();
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+	public boolean Exists(int mat) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getinstaConnection();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
 		String sql = "select * from etudiant where matricule="+ mat;
-		boolean rs = stmt.execute(sql);
+		boolean rs = stmt.executeQuery(sql).next();
 		
 		if (rs){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			msg0.outPut_Msg("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat);
+			msg.outPut_Msg("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat); //System.out.println("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat);
 			connect.close();
 			return true;
 			}
-		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
+			msg0.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);
+		    msg.outPut_Msg("logBD----: etudiant avec ce matricule n'existe pas " + mat);
+			   //System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
 	}
