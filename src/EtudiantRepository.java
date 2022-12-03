@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements Etudiant_Rep_interface {
 	
 	
 	void add(Etudiant E) throws SQLException
