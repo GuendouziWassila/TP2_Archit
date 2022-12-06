@@ -5,15 +5,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UniversiteRepository {
+public class UniversiteRepository implements IUniversiteRepository{
+	private IDBConnection BD;
 	
+	private static Statement stmt;
+	private IJournal jrnal;
 	
-	Universite GetById(int universityId) throws SQLException {
+	public UniversiteRepository (IDBConnection BD,IJournal jrnal){
+		this.BD = BD;
+		this.jrnal=jrnal;
+		}
+	public Universite GetById(int universityId)  {
 		
-		DBConnection BD= new DBConnection();
 		Connection connect=BD.getConn(); 
-		Statement stmt = connect.createStatement();
-		System.out.println("LogBD : début recherche de id université dans la base de donnée");
+		 stmt = connect.createStatement();
+		System.out.println("LogBD : début recherche de id université dans la base de donnée" +getClass().getName());
 		
 		String sql = "select * from universite where id_universite="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
@@ -21,12 +27,33 @@ public class UniversiteRepository {
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		System.out.println("LogBD : université récupérée");
+		jrnl.outPut_Msg("LogBD : université récupérée" +getClass().getName());
 		
 		connect.close();
 		return u;	
 	
 		
-	}	
+	}	catch(SQLException e){
+		e.printStackTrace();
+		}
+	return null;
+}
+public int NbrLivreAutorise(int id_univ) {
+	Universite univ =  GetById(id_univ);
+
+	 if (univ.getPack() == TypePackage.Standard)
+     {
+		 Package pack = new Standard(null);
+	        return pack.getNbrLivreAutorise();
+	        }
+     else if (univ.getPack() == TypePackage.Premium)
+     {
+    	 Package pack = new Premium(null);
+    	 return pack.getNbrLivreAutorise();	    
+    	 }                           
+
+	return 0;
+}
+}
 	
 }

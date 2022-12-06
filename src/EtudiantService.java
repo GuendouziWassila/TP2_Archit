@@ -3,9 +3,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService  {
+public class EtudiantService  implements IEtudiantService  {
 	
-	
+	private IEtudiantRepository EtudRep;
+	private IUniversiteRepository UnivRep;
+	private IJournal jrnal;
+	public EtudiantService(IEtudiantRepository EtudRep ,IUniversiteRepository UnivRep,IJournal jrnal) {
+		super();
+		this.EtudRep = EtudRep;
+		this.UnivRep = UnivRep;
+		this.jrnal=jrnal;
+  }
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		EtudiantRepository StudRep= new EtudiantRepository();
