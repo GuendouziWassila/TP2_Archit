@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements IEtudiantREPO {
 	
 	
-	void add(Etudiant E) throws SQLException
+	public void add(Etudiant E) throws SQLException
 	{
 
 		
@@ -26,7 +26,7 @@ public class EtudiantRepository {
 	 }
 
 
-	boolean Exists(String email) throws SQLException	
+	public boolean Exists(String email) throws SQLException	
 	{
 		Connection connect=DBConnection.getConn();
 		
@@ -44,7 +44,7 @@ public class EtudiantRepository {
 		return false;
 	}
 	
-	boolean Exists(int mat) throws SQLException	
+	public boolean Exists(int mat) throws SQLException	
 	{
 		Connection connect=DBConnection.getConn();
 		
