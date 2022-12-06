@@ -20,7 +20,12 @@ public class EtudiantService implements IEtudiantServ {
 		msg1.outPut_Msg("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule); //System.out.println("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
 		msg100.outPut_Msg(".Message généré par EtudiantService");
 	    
-		if(email == null || email.length() == 0)
+        Verify v = new Verify();
+		boolean vv = v.verify(matricule, email);
+		if (vv== false){
+			return false;
+		}
+		/**if(email == null || email.length() == 0)
 	    {
 	    	return false;
 	    }
@@ -33,7 +38,7 @@ public class EtudiantService implements IEtudiantServ {
 		if (StudRep.Exists(email))
 	    {
 	        return false;
-	    }
+	    }**/
 		
 		
 		
