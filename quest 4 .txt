@@ -1,0 +1,1 @@
+connu étant l'inversion des dépendances  qui est un patron de conception permettant, de découpler les dépendances entre objets 

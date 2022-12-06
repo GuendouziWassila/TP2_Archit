@@ -1,7 +1,7 @@
 
-public class Universite {
+public class Universite implements IUniversite {
 
- private int i_univ; //identifiant unique de l'université
+ private int i_univ; //identifiant unique de l'universitÃ©
  private String nom;
  private TypePackage pack;
  
