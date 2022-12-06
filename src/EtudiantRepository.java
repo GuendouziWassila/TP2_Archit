@@ -14,7 +14,7 @@ public class EtudiantRepository implements IEtudiantREPO {
 
 	@Override
 	
-	public void add(Etudiant E) throws SQLException
+	public void add(IEtudiant E) throws SQLException
 	{
 
 		

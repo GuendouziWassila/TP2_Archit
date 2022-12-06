@@ -16,7 +16,7 @@ public class EtudiantService {
 
 	}
 	//la class Etudiant contient des methodes permettant divers manipulation qu'on peut utiliser.
-		boolean inscription (Etudiant Stud) throws SQLException	{
+	boolean inscription (IEtudiant Stud) throws SQLException	
 		
 			Universite univ=UnivRep.GetById(Stud.getId_universite());
 	    
@@ -31,6 +31,7 @@ public class EtudiantService {
 		
 		
 		    Stud.setNbLivreMensuel_Autorise(UnivRep.GetNbrLivre(univ));
+			 AjouterBonus(Stud);
 
 			 StudRep.add(Stud);
 			 journal.outPut_Msg("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+Stud.getMatricule());
@@ -39,7 +40,17 @@ public class EtudiantService {
 		
 	}
 	
-	
+public void AjouterBonus(IEtudiant Stud) throws SQLException {
+	Universite univ=UnivRep.GetById(Stud.getId_universite());
+	int nbr = 0;
+	if (UnivRep.GetNbrLivre(univ)==10){
+		nbr = 5;
+	}
+	if (UnivRep.GetNbrLivre(univ)==20){
+		nbr = 10;
+	}
+	Stud.bonus(nbr);
+}	
 	
 
 public ArrayList<Etudiant> GetEtudiantParUniversitye()
