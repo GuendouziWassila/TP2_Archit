@@ -12,7 +12,7 @@ public class AfficheDateClass implements IJournal{
 
 @Override
 	public void outPut_Msg(String message) {
-
+//a
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 
 	    LocalDateTime now = LocalDateTime.now(); 
