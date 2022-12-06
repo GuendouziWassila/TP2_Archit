@@ -1,4 +1,4 @@
-public abstract class Package implements InterfaceNbLivreAutorise, InterfaceNbLivreBonus {
+public abstract class Package implements IUnuversite {
 	
 	
 	protected TypePackage pack;
