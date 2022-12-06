@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService implements IEtudiant  {
+public class EtudiantService implements IEtudiant ,IUniversite {
 	
 IJournal journal = new diffOutputJournal("def");
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
