@@ -3,7 +3,7 @@ import java.sql.SQLException;
 public interface IEtudRepo {
 
 
-    abstract void add(Etudiant E) throws SQLException;
+	abstract void add(IEtudiant E) throws SQLException;
 
     abstract boolean Exists(int matricule) throws SQLException;
 
