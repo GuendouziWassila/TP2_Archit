@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-public class EtudiantService {
+public class EtudiantService  {
 	
 	
 	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
@@ -45,24 +45,26 @@ public class EtudiantService {
 		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
 	    
-		
+			
+			public void Ajouterbonus (Etudiant E) {
+				UniversiteRepository univ = UniversiteRepository univ.GetById(E.getId_universite());
+				
+				 if (univ.getPack() == TypePackage.Standard)
+			     {
+					 Package pack = new Standard(null);
+					 E.bonus(pack.getNbrLivreBonus());
+				        }
+			     else if (univ.getPack() == TypePackage.Premium)
+			     {
+			    	 Package pack = new Premium(null);
+			    	  E.bonus(pack.getNbrLivreBonus())	 ;   
+			    	 }                           
+			 }
 	}
 	
 	
 	
 
-public ArrayList<Etudiant> GetEtudiantParUniversitye()
-{
-    //...
-	return new ArrayList<>(4);
-}
-
-public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
-{
-    //...
-	return new ArrayList<>(4);
-	
-}
 
 
 	

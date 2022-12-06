@@ -101,6 +101,8 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
+		public void bonus (int bonus){
+			this.nbLivreMensuel_Autorise =nbLivreMensuel_Autorise+bonus ;
+		}
 		
 	    }
