@@ -16,7 +16,7 @@ public class EtudiantService {
 	}
 	
 	//Parce que la classe Etudiant contient des methodes permettant divers manipulation
-		boolean inscription (IEtudiant Stud) throws SQLException	
+	boolean inscription (IEtudiant Stud) throws SQLException
 	{
 		
 			
