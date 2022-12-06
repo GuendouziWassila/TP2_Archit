@@ -1,7 +1,9 @@
+package Class;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import Interface.IJournal;
 
 public class AfficheFichier implements IJournal{
 

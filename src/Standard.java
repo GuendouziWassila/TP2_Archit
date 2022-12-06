@@ -1,3 +1,4 @@
+package Class;
 public class Standard extends Package {
 
 	public Standard(TypePackage Tpack) {

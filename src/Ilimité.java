@@ -1,3 +1,5 @@
+package Class;
+
 public class Ilimité extends Package {
 
 	public Ilimité(TypePackage Tpack) {

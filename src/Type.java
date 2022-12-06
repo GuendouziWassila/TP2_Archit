@@ -1,3 +1,7 @@
+package Class;
+
+import Abstract.AbstractFactory;
+
 public class Type extends AbstractFactory{
 
 	@Override

@@ -1,8 +1,13 @@
+package Class;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import Interface.IJournal;
+import Interface.IEtudiant;
+import Interface.IEtudRepo;
+import Interface.IUnivRepo;
 public class EtudiantService {
 	
 	private IEtudRepo StudRep;
@@ -16,7 +21,7 @@ public class EtudiantService {
 	}
 	
 	//Parce que la classe Etudiant contient des methodes permettant divers manipulation
-	boolean inscription (IEtudiant Stud) throws SQLException
+	public boolean inscription (IEtudiant Stud) throws SQLException
 	{
 		
 			

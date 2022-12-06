@@ -1,4 +1,6 @@
 
+package Class;
+import Interface.IEtudiant;
 public class Etudiant implements IEtudiant {
 
 		private int matricule;

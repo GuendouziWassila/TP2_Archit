@@ -1,6 +1,7 @@
+package Class;
 import java.util.List;
 import java.util.ArrayList;
-
+import Interface.IJournal;
 public class AfficheComposite implements IJournal{
 
 	private List <IJournal> List = new ArrayList<IJournal>();
