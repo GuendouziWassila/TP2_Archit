@@ -15,43 +15,24 @@ public class EtudiantService {
 		this.journal = comp;
 	}
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	//Parce que la classe Etudiant contient des methodes permettant divers manipulation
+		boolean inscription (Etudiant Stud) throws SQLException	
 	{
 		
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
-	    AfficheDateClass.setSender("EtudiantService");
+			 Universite univ=UnivRep.GetById(Stud.getId_universite());
 	    
-	    journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+			 AfficheDateClass.setSender("EtudiantService");
+			 journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+Stud.getMatricule());
 	    
-	    if(email == null || email.length() == 0)
-	    {
-	    	return false;
-	    }
-	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
+			 if (StudRep.VerifEmailMat(Stud.getMatricule(), Stud.getEmail()))
+			    {	return false;	}
 		
 		
 		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
-		 StudRep.add(stud);
-		 journal.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+			 Stud.setNbLivreMensuel_Autorise(UnivRep.GetNbrLivre(univ));
+
+			 StudRep.add(Stud);
+			 journal.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+Stud.getMatricule());
 		 return true;
 	    
 		

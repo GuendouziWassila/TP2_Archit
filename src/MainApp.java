@@ -17,10 +17,10 @@ public class MainApp {
 		IEtudRepo StudRep = new EtudiantRepository(comp);
 		IUnivRepo UnivRep= new UniversiteRepository(comp);
 		EtudiantService serv=new EtudiantService(StudRep, UnivRep, comp);
-
+		Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 		
 		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+			serv.inscription(etudiant);
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
