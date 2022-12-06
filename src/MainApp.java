@@ -18,8 +18,10 @@ public class MainApp {
 		IEtudiantREPO StudRep = new EtudiantRepository(comp);
 		IUnivREPO UnivRep= new UniversiteRepository(comp);
 		EtudiantService serv=new EtudiantService(StudRep, UnivRep, comp);
+		
+		Etudiant etudiant = new Etudiant(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
 		try {
-			serv.inscription(2, "Guendouziiiii", "wassila", "guen@gmail.com","xxxx", 1);
+			serv.inscription(etudiant);
 			//System.out.println("hello world");
 			
 		} catch (Exception e) {

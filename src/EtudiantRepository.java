@@ -72,5 +72,11 @@ public class EtudiantRepository implements IEtudiantREPO {
 		connect.close();
 		return false;
 	}
+	@Override
+	public boolean VerifEmailMat(int Mat, String Email) throws SQLException	
+	{
+		return ( Exists(Email) || Exists(Mat) || Email == null || Email.length() == 0 );
+
+	}
 
 }
