@@ -7,18 +7,22 @@ public class EtudiantService {
 	
 	private IEtudiantREPO StudRep;
 	private IUnivREPO UnivRep;
+	private IJournal journal;
 
-	public EtudiantService(IEtudiantREPO StudRep, IUnivREPO UnivRep) {
+	public EtudiantService(IEtudiantREPO StudRep, IUnivREPO UnivRep, IJournal comp) {
 		this.StudRep = StudRep;
 		this.UnivRep = UnivRep;
+		this.journal = comp;
+
 	}
 	boolean inscription (int matricule, String nom, String pr�nom, String email,String pwd, int id_universite) throws SQLException	
 	{
 		
 	    Etudiant stud = new Etudiant(matricule, nom, pr�nom, email,pwd,id_universite);
 	    Universite univ=UnivRep.GetById(id_universite);
-	    
-	    System.out.println("Log: d�but de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
+	    AfficheDateClass.setSender("EtudiantService");
+
+	    journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 	    
 	    if(email == null || email.length() == 0)
 	    {
@@ -47,7 +51,7 @@ public class EtudiantService {
 	     }                           
 	     
 		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'op�ration d'ajout de l'�tudiant avec matricule "+matricule);
+		 journal.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
 		 return true;
 	    
 		
