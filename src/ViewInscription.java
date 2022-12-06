@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 
-public class ViewInscription
+public class ViewInscription extends AbstractViewInscription
 {
     private JFrame frame;
     private JPanel contentPane;
@@ -24,7 +24,8 @@ public class ViewInscription
     private JButton btnSubmit;
     private JButton btnCancel;
 
-    private void initialiser() {
+    @Override
+    public void Inscription() {
         (this.frame = new JFrame()).setBounds(100, 100, 450, 300);
         this.frame.setDefaultCloseOperation(3);
         this.frame.getContentPane().setLayout(null);
@@ -91,7 +92,7 @@ public class ViewInscription
     }
 
     public void Show_Inscription() {
-        this.initialiser();
+    	  this.Inscription();
         this.frame.setVisible(true);
     }
 
@@ -102,7 +103,7 @@ public class ViewInscription
     public void ShowErreur(final String msg) {
         JOptionPane.showMessageDialog(new JFrame(), msg, "Erreur", 0);
     }
-
+     @Override
     public void Init_Inscription() {
         this.TxtMat.setText("");
         this.TxtNom.setText("");
