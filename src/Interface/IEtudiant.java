@@ -1,3 +1,4 @@
+package Interface;
 public interface IEtudiant {
 
 	public void bonus(int nbr);

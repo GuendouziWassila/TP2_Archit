@@ -1,9 +1,13 @@
+package Class;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 import javax.swing.JLabel;
 import java.awt.Container;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+
+import Abstract.AbstractViewInscription;
+
 import java.awt.LayoutManager;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;

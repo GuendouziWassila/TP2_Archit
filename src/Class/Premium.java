@@ -1,14 +1,16 @@
-public class Ilimité extends Package {
+package Class;
 
-	public Ilimité(TypePackage Tpack) {
+public class Premium extends Package {
+
+	public Premium(TypePackage Tpack) {
 		super(Tpack);
 	}
 	@Override
 	public int getNbrLivreAutorise() {
-		return 0;
+		return 20;
 	}
 	@Override
 	public int getNbrLivreBonus() {
-		return 0;
+		return 10;
 	}
 }

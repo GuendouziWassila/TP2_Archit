@@ -1,4 +1,8 @@
-import java.time.format.DateTimeFormatter; 
+package Class;
+import java.time.format.DateTimeFormatter;
+
+import Interface.IJournal;
+
 import java.time.LocalDateTime;  
 
 public class AfficheDateClass implements IJournal{

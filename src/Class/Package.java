@@ -1,3 +1,4 @@
+package Class;
 public abstract class Package {
 
 	TypePackage pack;
