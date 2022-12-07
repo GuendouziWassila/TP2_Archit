@@ -24,7 +24,7 @@ public class MainApp {
 		EtudiantService serv = new EtudiantService(ETUDUNIVR ,UnivRep, comp);
 
 		try {
-			serv.inscription(etudiant0, 1);
+			serv.inscription(etudiant0, 123);
 			
 		} catch (Exception e) {
 			

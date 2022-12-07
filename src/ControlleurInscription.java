@@ -16,7 +16,7 @@ public class ControlleurInscription {
 			
 		}
 		
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) throws SQLException {
 			
 
 			
@@ -27,9 +27,9 @@ public class ControlleurInscription {
 			String password = V.Get_pwd();
 			String ID_Univ = V.Get_id_univ();
 			
-
+            int id =  Integer.parseInt(ID_Univ);
 		    
-                ES.inscription(E);
+                ES.inscription(E,id);
            
 
 		}
