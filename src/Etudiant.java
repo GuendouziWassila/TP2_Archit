@@ -1,5 +1,5 @@
 
-public class Etudiant {
+public class Etudiant implements IEtudiant {
 
 		private int matricule;
 	    private String nom;
@@ -99,6 +99,13 @@ public class Etudiant {
 
 		public void setPwd(String pwd) {
 			this.pwd = pwd;
+		}
+
+
+		@Override
+		public void bonus(int nb) {
+			this.nbLivreMensuel_Autorise=nb;
+			
 		}
 
 		/**public void SetBenifit(int nb){

@@ -97,13 +97,13 @@ public ArrayList<IEtudiant> GetEtudiatparLivreEmprunte()
 }
 
 @Override
-public boolean inscription(IEtudiant etud) {
+public boolean inscription(IEtudiant e) {
 
 	return false;
 }
 
 @Override
-public void ajouterbonus(IEtudiant Et) throws SQLException {
+public void ajouterbonus(IEtudiant Et) {
 	
 		    
 	//IUniversity univ = UnivRep.GetById(Et.getId_universite());
