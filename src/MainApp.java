@@ -1,14 +1,30 @@
-import java.sql.SQLException;
-
 public class MainApp {
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		
+		DBConnection conn = DBConnection.getinstance();
 
+        CompositeMsg comp = new CompositeMsg();
+	
+        Etudiant etudiant0 =new Etudiant(24, "jobs", "boom", "naz@gmail.com","xxxx",123);
+		 
+		IJournal j1 = new ScrennMsg();
+		IJournal j2 = new DateMsg();
+		IJournal j3 = new FileMsg();
+		
+		comp.add(j1);
+		comp.add(j2);
+		comp.add(j3);
+		
+		
+		IEtudiantRep ETUDUNIVR = new EtudiantRepository(conn, comp);
+		
+		IUniversityRep UnivRep = new UniversiteRepository(conn, comp);
+		
+		EtudiantService serv = new EtudiantService(ETUDUNIVR ,UnivRep, comp);
 
-		IEtudiantServ serv=new EtudiantService();
 		try {
-			serv.inscription(7, "MAATLIA", "Mohamed", "nazimmizo7@gmail.com","xxxx", 123);
+			serv.inscription(etudiant0, 1);
 			
 		} catch (Exception e) {
 			

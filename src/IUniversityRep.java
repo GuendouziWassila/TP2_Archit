@@ -1,5 +1,7 @@
 import java.sql.SQLException;
 
 public interface IUniversityRep {
-    Universite GetById(int universityId) throws SQLException;
+    public abstract  Universite GetById(int id) throws SQLException;
+	
+	public abstract int NbrLivreAutorise(int id_univ) throws SQLException;
 }

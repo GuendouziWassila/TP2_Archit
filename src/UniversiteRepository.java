@@ -1,36 +1,53 @@
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class UniversiteRepository implements IUniversityRep {
 	
-	IJournal msg2= new ScrennMsg();
-	IJournal msg20 = new FileMsg();
-	IJournal msg200 = new FileMsg();
+	private IJournal j ;
+	private InterfaceDBConnexion BDD;
+	private static Statement stmt;
+	public UniversiteRepository(InterfaceDBConnexion BDD , IJournal j){
+		
+		this.j = j ;
+		this.BDD = BDD;
+	
+	}
 	public Universite GetById(int universityId) throws SQLException {
 		
-		DBConnection BD=  DBConnection.getinstaConnection();
-		Connection connect=BD.getConn(); 
-		Statement stmt = connect.createStatement();
-		msg20.outPut_Msg("LogBD : début recherche de id université dans la base de donn�e");
-		msg2.outPut_Msg("LogBD : début recherche de id université dans la base de donn�e"); //System.out.println("LogBD : d�but recherche de id universit� dans la base de donn�e");
-		msg200.outPut_Msg(".Message généré par UniversiteRepository"); 
+		 
+		stmt = BDD.getConn().createStatement();
+		
+		j.outPut_Msg("LogBD : début recherche de id université dans la base de donn�e");
 		String sql = "SELECT * FROM universite WHERE id_universite ="+ universityId;
 		ResultSet rs = stmt.executeQuery(sql);
 		rs.next();	
 		TypePackage p=TypePackage.valueOf(rs.getString(3));
 		Universite u = new Universite (rs.getInt(1),rs.getString(2),p);
 			
-		msg20.outPut_Msg("LogBD : université récupérée");
-		msg2.outPut_Msg("LogBD : université récupérée"); //System.out.println("LogBD : universit� r�cup�r�e");
-		msg200.outPut_Msg(".Message généré par UniversiteRepository");
-		connect.close();
+		j.outPut_Msg("LogBD : université récupérée");
+		BDD.getConn().close();
 		return u;	
 	
 		
+	}
+	@Override
+	public int NbrLivreAutorise(int id_univ) throws SQLException {
+		
+		Universite Univ =  GetById(id_univ);
+	
+	if (Univ.getPack() == TypePackage.Standard)
+     {
+		Package pack = new Standard(null);
+        return pack.nbrLivreAutorise;
+     }
+     else if (Univ.getPack() == TypePackage.Premium)
+     {
+    	 Package pack = new Premuim(null);
+    	 return pack.nbrLivreAutorise;
+    	 }     
+	
+		return 0;
 	}	
 	
 }

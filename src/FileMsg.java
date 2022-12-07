@@ -1,7 +1,5 @@
 import java.io.File;  
 import java.io.FileNotFoundException;  
-import java.io.FileOutputStream;  
-import java.io.OutputStream;  
 import java.io.PrintStream;  
 
 public class FileMsg implements IJournal  {

@@ -1,38 +1,34 @@
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
-public class DBConnection {
+
+public class DBConnection implements InterfaceDBConnexion {
 	   
 		
 		private String BDD = "nombd";
-		private String url = "jdbc:mysql://localhost:3306/" + BDD;
-		private String user = "root";
-		private String passwd = "";
+		String url = "jdbc:mysql://localhost:3306/" + BDD;
+		String user = "root";
+		String passwd = "";
 	    private Connection conn;
-              
+		private static DBConnection db; 
 	    //comments
-		/**
-		 * 
-		 */
+		
 		private DBConnection(){}
-	    private static DBConnection db; 
+	    
          
-	    public static DBConnection getinstaConnection() throws SQLException {
+	    public static DBConnection getinstance() {
 			if(db == null){
-				return db = new DBConnection(); }
+			  db = new DBConnection(); 
+			}else{
+
+			}
+
 			return db;
 			
 		}
-         public Connection getConn(){
-			 try {
-				conn= DriverManager.getConnection(url, user, passwd);
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
-			 return conn;
-		 }
+		public Connection getConn() {
+		return conn;
+		}
+
 	   
 		
 

@@ -101,6 +101,7 @@ public class Etudiant {
 			this.pwd = pwd;
 		}
 
-		
-		
-	    }
+		/**public void SetBenifit(int nb){
+			this.nbLivreMensuel_Autorise=nb;
+		}**/
+	}
