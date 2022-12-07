@@ -1,6 +1,4 @@
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 public class DateMsg implements IJournal{
         
@@ -10,14 +8,11 @@ public class DateMsg implements IJournal{
         //LocalDate myObj = LocalDate.now();
         // System.out.println(message+" Date: "+myObj);
 
-        Date Actuel = new Date (0);
-		
-		DateFormat dateformat = new SimpleDateFormat("yyyy//MM/dd HH:mm:s");
-		String date = dateformat.format(Actuel);
+        LocalDateTime myObj = LocalDateTime.now();
 		
 		System.out.println(message);
 		
-		System.out.println(date);
+		System.out.println(myObj);
     }
 
     
