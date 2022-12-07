@@ -10,7 +10,7 @@ public class EtudiantRepository {
 	void add(Etudiant E) throws SQLException
 	{
 
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -18,9 +18,9 @@ public class EtudiantRepository {
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
-				System.out.println("log : ajout dans la BD réussi de l'étudiant  du Matricule" + E.getMatricule());
+				System.out.println("log : ajout dans la BD rï¿½ussi de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}else if (rs == 0){
-				System.out.println("log : Echec de l'ajout dans la BD de l'étudiant  du Matricule" + E.getMatricule());
+				System.out.println("log : Echec de l'ajout dans la BD de l'ï¿½tudiant  du Matricule" + E.getMatricule());
 			}
 		connect.close();
 	 }
@@ -28,7 +28,7 @@ public class EtudiantRepository {
 
 	boolean Exists(String email) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -47,7 +47,7 @@ public class EtudiantRepository {
 	
 	boolean Exists(int mat) throws SQLException	
 	{
-		DBConnection BD= new DBConnection();
+		DBConnection BD= DBConnection.getInstance();
 		Connection connect=BD.getConn();
 		
 		Statement stmt = connect.createStatement();
@@ -55,7 +55,7 @@ public class EtudiantRepository {
 		boolean rs = stmt.execute(sql);
 		
 		if (rs){
-			System.out.println("logBD--- :etudiant avec ce matricule existe déja dans la BD  " + mat);
+			System.out.println("logBD--- :etudiant avec ce matricule existe dï¿½ja dans la BD  " + mat);
 			connect.close();
 			return true;
 			}
