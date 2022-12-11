@@ -1,0 +1,3 @@
+On souhaite que le contrôleur « ControleurInscription » dépend de l’abstraction de la 
+présentation et non pas de son implémentation. Comment peut-on réaliser ça ?
+_ on peut utilise un classe abstraite pour faire ça "abstraiteinscreption" et la classe ViewInscription en hérite 
