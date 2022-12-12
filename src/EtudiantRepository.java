@@ -12,17 +12,18 @@ public class EtudiantRepository implements IEtudiantRep{
 		this.j = j ;
 	}
 	@Override
-	public void add(Etudiant E)
+	public void add(Etudiant E) throws SQLException
 	{
 
 		//DBConnection BD= DBConnection.getinstance();
 		//Connection connect=BDD.getConn();
-		try {
+		
 		stmt = BDD.getConn().createStatement();
 
        
 
 		String sql = "insert into etudiant values ('"+E.getMatricule()+"','"+E.getNom()+"','"+E.getPrenom()+"','"+E.getEmail()+"','"+E.getNbLivreMensuel_Autorise()+"','"+E.getNbLivreEmprunte()+"','"+E.getId_universite()+"')";
+		
 		int rs = stmt.executeUpdate(sql);
 		
 		if (rs == 1){
@@ -31,17 +32,15 @@ public class EtudiantRepository implements IEtudiantRep{
 			j.outPut_Msg("log : Echec de l'ajout dans la BD de l'�tudiant  du Matricule" + E.getMatricule());
 		}
 		BDD.getConn().close();
-	}catch(SQLException e){
-		e.printStackTrace();
-		}
+	
 	 }
 
 
-	public boolean Exists(String email)
+	public boolean Exists(String email) throws SQLException
 	{
 		
 		
-		try {
+		
 			stmt = BDD.getConn().createStatement();
 			
 		
@@ -55,15 +54,13 @@ public class EtudiantRepository implements IEtudiantRep{
 			}
 		j.outPut_Msg("logBD--- : email n'existe pas " + email);
 		BDD.getConn().close();
-		} catch(SQLException e){
-			e.printStackTrace();
-		}
+		
 		return false;
 	}
 	
-	public boolean Exists(int mat)	
+	public boolean Exists(int mat) throws SQLException	
 	{
-		try{
+		
 
 		stmt = BDD.getConn().createStatement();
         
@@ -80,9 +77,7 @@ public class EtudiantRepository implements IEtudiantRep{
 			
 			
 			   BDD.getConn().close();
-	}catch(SQLException e){
-		e.printStackTrace();
-	}
+	
 		return false;
 	}
 	@Override

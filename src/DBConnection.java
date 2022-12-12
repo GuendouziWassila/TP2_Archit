@@ -1,4 +1,13 @@
 import java.sql.Connection;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class DBConnection implements InterfaceDBConnexion {
@@ -18,8 +27,6 @@ public class DBConnection implements InterfaceDBConnexion {
 	    public static DBConnection getinstance() {
 			if(db == null){
 			  db = new DBConnection(); 
-			}else{
-
 			}
 
 			return db;

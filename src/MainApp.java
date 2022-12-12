@@ -6,7 +6,7 @@ public class MainApp {
 
         CompositeMsg comp = new CompositeMsg();
 	
-        Etudiant etudiant0 =new Etudiant(24, "jobs", "boom", "naz@gmail.com","xxxx",123);
+        Etudiant etudiant0 =new Etudiant(24, "jobs", "boom", "naaaaaaz@gmail.com","xxxx",123);
 		 
 		IJournal j1 = new ScrennMsg();
 		IJournal j2 = new DateMsg();
