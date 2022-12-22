@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class EtudiantRepository {
+public class EtudiantRepository implements Etudiant_Rep_interface {
 	
 	
 	void add(Etudiant E) throws SQLException
@@ -62,6 +62,21 @@ public class EtudiantRepository {
 		System.out.println("logBD----: etudiant avec ce matricule n'existe pas " + mat);	
 		connect.close();
 		return false;
+	}
+	
+
+
+	public boolean vérifier_format (int matricule, String email) throws SQLException {
+		if (this.Exists(matricule))
+		  {
+		      return false;
+		  }
+		  
+			if (this.Exists(email))
+		  {
+		      return false;
+		  }
+			return false;	
 	}
 
 }

@@ -2,25 +2,39 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
+public class DBConnection implements InterfaceDBConnection {
 	   
-		String BDD = "nomBD";
-		String url = "jdbc:mysql://localhost:3306/" + BDD;
+		String BDD = "architecture";
+		String url = "jdbc:mysql://localhost:3308/architecture?characterEncoding=latin1" ;
 		String user = "root";
 		String passwd = "";
 	    private Connection conn;
-
+	    private static InterfaceDBConnection instance;
 	   
-	    public DBConnection() throws SQLException {
-			conn=DriverManager.getConnection(url, user,passwd);
+	    private DBConnection() {
+			
 		}
 
-	    
-	    public Connection getConn() {
+	    public static synchronized  InterfaceDBConnection getinstance(){
+	    	if (instance == null) {
+	    		instance= new DBConnection();
+	    	}
+	    	
+			return instance;
+	    }
+	   
+		public Connection getConn() {
+	    	
+	    	try {
+				conn=DriverManager.getConnection(url, user,passwd);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
 			return conn;
+			
 		}
-
-
+	    
 		
 	
 }

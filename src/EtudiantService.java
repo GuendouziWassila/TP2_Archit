@@ -20,15 +20,7 @@ public class EtudiantService {
 	    	return false;
 	    }
 	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
+	  
 		
 		
 		
@@ -61,6 +53,14 @@ public ArrayList<Etudiant> GetEtudiatparLivreEmprunte()
 {
     //...
 	return new ArrayList<>(4);
+	
+}
+
+
+
+
+public void inscription(Etudiant e, int id_universite) {
+	// TODO Auto-generated method stub
 	
 }
 
