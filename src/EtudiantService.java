@@ -1,53 +1,56 @@
+package Class;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import Interface.IJournal;
+import Interface.IEtudiant;
+import Interface.IEtudRepo;
+import Interface.IUnivRepo;
 public class EtudiantService {
 	
+	private IEtudRepo StudRep;
+	private IUnivRepo UnivRep;
+	private IJournal journal;
 	
-	boolean inscription (int matricule, String nom, String prénom, String email,String pwd, int id_universite) throws SQLException	
+	public EtudiantService(IEtudRepo StudRep, IUnivRepo UnivRep, IJournal comp) {
+		this.StudRep = StudRep;
+		this.UnivRep = UnivRep;
+		this.journal = comp;
+	}
+	
+	//Parce que la classe Etudiant contient des methodes permettant divers manipulation
+	public boolean inscription (IEtudiant Stud) throws SQLException
 	{
-		EtudiantRepository StudRep= new EtudiantRepository();
-	    UniversiteRepository UnivRep= new UniversiteRepository();
-	    Etudiant stud = new Etudiant(matricule, nom, prénom, email,pwd,id_universite);
-	    Universite univ=UnivRep.GetById(id_universite);
+		
+			
 	    
-	    System.out.println("Log: début de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+			 AfficheDateClass.setSender("EtudiantService");
+			 journal.outPut_Msg("Log: début de l'opération d'ajout de l'étudiant avec matricule "+Stud.getMatricule());
 	    
-	    if(email == null || email.length() == 0)
-	    {
-	    	return false;
-	    }
-	    
-	    if (StudRep.Exists(matricule))
-	    {
-	        return false;
-	    }
-	    
-		if (StudRep.Exists(email))
-	    {
-	        return false;
-	    }
+			 if (StudRep.VerifEmailMat(Stud.getMatricule(), Stud.getEmail()))
+			    {	return false;	}
 		
 		
 		
-		 if (univ.getPack() == TypePackage.Standard)
-	     {
-	          stud.setNbLivreMensuel_Autorise(10);
-	     }
-	     else if (univ.getPack() == TypePackage.Premium)
-	     {
-	    	 stud.setNbLivreMensuel_Autorise(10*2);
-	     }                           
-	     
-		 StudRep.add(stud);
-		 System.out.println("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+matricule);
+			 int nbrLivreAutorisé = UnivRep.GetNbrLivre(Stud.getId_universite());
+			 Stud.setNbLivreMensuel_Autorise(nbrLivreAutorisé);
+			 AjouterBonus(Stud);
+			 
+			 StudRep.add(Stud);
+			 journal.outPut_Msg("Log: Fin de l'opération d'ajout de l'étudiant avec matricule "+Stud.getMatricule());
 		 return true;
 	    
 		
 	}
-	
+		
+		public void AjouterBonus(IEtudiant Stud) throws SQLException {
+			
+			int nbr = UnivRep.NbrBonus(Stud.getId_universite());
+			Stud.bonus(nbr);
+		}
+
 	
 	
 
